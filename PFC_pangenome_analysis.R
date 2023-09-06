@@ -1,14 +1,18 @@
-PF_cali_ani_output <- read.delim("C:/Users/patty/Downloads/PF_cali_ani_output")
+##Look at ANI
+#read in dataframe from fastANI
+PF_cali_ani_output <- read.delim("PFC_ANI.txt")
+
+#load ggplot2
 library(ggplot2)
 
-PF_cali_ani_output <-PF_cali_ani_output[-which(PF_cali_ani_output$Sp1 == '629A2A' | PF_cali_ani_output$Sp1 == '630A' | PF_cali_ani_output$Sp2 == '630A' | PF_cali_ani_output$Sp2 == '629A2A'),]
-
+#heatmap of ANI
 ggplot(PF_cali_ani_output, aes(Sp1, Sp2, fill=ANI))+
   geom_tile()+
   theme_bw()+
   ylab("")+
   xlab("")
 
+#boxplot
 ggplot(PF_cali_ani_output, aes(Comparison, ANI))+
   geom_boxplot()+
   theme_bw()+
@@ -18,15 +22,16 @@ ggplot(PF_cali_ani_output, aes(Comparison, ANI))+
 t.test(PF_cali_ani_output$ANI ~ PF_cali_ani_output$Comparison)
 #t = -11.385, df = 237.27, p-value < 2.2e-16
 
-#micropan pangenome
+###Calculate pangenome with micropan 
+#load packages
 library(tidyverse)
 library(micropan)
 
-#load genome table
-gnm.tbl <- read.delim("C:/Users/patty/Downloads/PFC_genome_table.txt")
-
 #setwd
-setwd("C:/Users/patty/Downloads/PFC_aggregated_prot/")
+setwd("C:/Users/patty/OneDrive/Documents/GitHub/Pseudo_fluor/")
+
+#load genome table
+gnm.tbl <- read.delim("PFC_genome_table.txt")
 
 #create new folder for BLAST results and faa files
 dir.create("blast")
@@ -35,17 +40,17 @@ dir.create('faa')
 #prep files for analysis
 #this takes the name of the genome and adds them to every sequence and then adds a sequence name to each (and to file name)
 for(i in 1:nrow(gnm.tbl)){
-  panPrep(file.path("C:/Users/patty/Downloads/PFC_aggregated_prot/", str_c(gnm.tbl$File[i], ".faa")),
+  panPrep(file.path("C:/Users/patty/OneDrive/Documents/GitHub/Pseudo_fluor/PFC_aggregated_prot/", str_c(gnm.tbl$File[i], ".faa")),
           gnm.tbl$genome_id[i],
           file.path("faa", str_c(gnm.tbl$genome_id[i], ".faa")))
 }
 
 #read in protein files and BLASTp them
-faa.files<-list.files("C:/Users/patty/Downloads/PFC_aggregated_prot/faa", pattern = "\\.faa$", full.names = T)
-`blastpAllAll(faa.files, out.folder = "blast", verbose=T, threads=2)
+faa.files<-list.files("C:/Users/patty/OneDrive/Documents/GitHub/Pseudo_fluor/faa", pattern = "\\.faa$", full.names = T)
+blastpAllAll(faa.files, out.folder = "blast", verbose=T, threads=2)
 
 #get list of BLAST files
-blast.files<-list.files("C:/Users/patty/Downloads/PFC_aggregated_prot/blast/", pattern = "txt$", full.names = T)
+blast.files<-list.files("C:/Users/patty/OneDrive/Documents/GitHub/Pseudo_fluor/blast/", pattern = "txt$", full.names = T)
 #get distances
 dst.tbl <- bDist(blast.files = blast.files, e.value=0.05, verbose=T)
 
@@ -70,9 +75,9 @@ tibble(Clusters = as.integer(table(factor(colSums(panmat.blast > 0),
 heaps.est <- heaps(panmat.blast, n.perm = 500)
 print(heaps.est)
 # Intercept      alpha 
-#706.942519   0.430156 
+#811.142958   1.141321
 print(chao(panmat.blast))
-#153408
+#9302
 
 fitted <- binomixEstimate(panmat.blast, K.range = 3:8)
 print(fitted$BIC.tbl)
@@ -104,7 +109,3 @@ distManhattan(pm, weights = weights) %>%
   ggdendrogram(rotate = TRUE, theme_dendro = FALSE) +
   labs(x = "Genomes", y = "Weighted Manhattan distance", title = "Pan-genome dendrogram")
 
-pfc.pca<-panPca(panmat.blast)
-
-#extract pan genes
-core.tbl <- extractPanGenes(clst.blast)
