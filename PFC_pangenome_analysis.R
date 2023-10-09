@@ -1,7 +1,8 @@
 ##Look at ANI
 #read in dataframe from fastANI
+setwd("Pseudo_fluor/")
 PF_cali_ani_output <- read.delim("PFC_ANI.txt")
-
+PF_cali_ani_output <- PF_cali_ani_output[-which(PF_cali_ani_output$Sp1 == '630A' | PF_cali_ani_output$Sp1 == '629A2A' | PF_cali_ani_output$Sp2 == '630A' | PF_cali_ani_output$Sp2 == '629A2A'),]
 #load ggplot2
 library(ggplot2)
 
@@ -13,14 +14,14 @@ ggplot(PF_cali_ani_output, aes(Sp1, Sp2, fill=ANI))+
   xlab("")
 
 #boxplot
-ggplot(PF_cali_ani_output, aes(Comparison, ANI))+
+ggplot(PF_cali_ani_output, aes(Comparison, ANI, fill=Lake1))+
   geom_boxplot()+
   theme_bw()+
   ylab("Average Nucleotide Identity")+
   xlab("")
 
 t.test(PF_cali_ani_output$ANI ~ PF_cali_ani_output$Comparison)
-#t = -11.385, df = 237.27, p-value < 2.2e-16
+#t = -5.8484, df = 347.07, p-value = 1.147e-08
 
 ###Calculate pangenome with micropan 
 #load packages
@@ -31,7 +32,7 @@ library(micropan)
 setwd("C:/Users/patty/OneDrive/Documents/GitHub/Pseudo_fluor/")
 
 #load genome table
-gnm.tbl <- read.delim("PFC_genome_table.txt")
+gnm.tbl <- read.delim("C:/Users/patty/OneDrive/Documents/GitHub/Pseudo_fluor/PFC_genome_table.txt")
 
 #create new folder for BLAST results and faa files
 dir.create("blast")
@@ -97,7 +98,7 @@ library(ggdendro)
 d.man <- distManhattan(panmat.blast)
 ggdendrogram(dendro_data(hclust(d.man, method = "average")),
              rotate = TRUE, theme_dendro = FALSE) +
-  labs(x = "Genomes", y = "Manhattan distance", title = "Pan-genome dendrogram")
+  labs(x = "Genomes", y = "Unweighted Manhattan distance", title = "Pan-genome dendrogram")
 
 #view clustered genomes (manhattan weighted)
 pm <- panmat.blast                                                   # make a copy
@@ -109,3 +110,18 @@ distManhattan(pm, weights = weights) %>%
   ggdendrogram(rotate = TRUE, theme_dendro = FALSE) +
   labs(x = "Genomes", y = "Weighted Manhattan distance", title = "Pan-genome dendrogram")
 
+
+#rarefaction of pangenome
+rar.tbl <- rarefaction(panmat.blast, n.perm = 10000)
+
+#plot it
+rar.tbl %>% 
+  gather(key = "Permutation", value = "Clusters", -Genome) %>% 
+  ggplot(aes(x = Genome, y = Clusters, group = Permutation)) +
+  geom_line()
+
+###Read in panaroo pan matrix
+library(readr)
+gene_presence_absence <- read_delim("PFC_panaroo_results/gene_presence_absence.Rtab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
+
+colSums(gene_presence_absence[,-1])
