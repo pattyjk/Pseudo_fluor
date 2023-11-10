@@ -1,0 +1,119 @@
+ClusterBlast scores for NODE_10_length_224933_cov_27.515966
+
+Table of genes, locations, strands and annotations of query cluster:
+ctg10_18	16949	17720	+		
+ctg10_19	17799	19947	-		
+ctg10_20	20043	20472	+		
+ctg10_21	20492	20948	+		
+ctg10_22	20940	21390	+		
+ctg10_23	21429	22011	-		
+ctg10_24	22080	23394	-		
+ctg10_25	23444	23600	-		
+ctg10_26	23701	24508	-		
+ctg10_27	24536	25169	-		
+ctg10_28	25280	25937	+		
+ctg10_29	25950	26571	-		
+ctg10_30	26665	28903	+		
+ctg10_31	29692	30859	-		
+ctg10_32	30855	32232	-		
+ctg10_33	32376	33228	-		
+ctg10_34	33513	34491	-		
+ctg10_35	34705	35098	-		
+ctg10_36	35128	35749	-		
+ctg10_37	35971	36991	-		
+ctg10_38	37130	37892	-		
+ctg10_39	38082	38742	-		
+ctg10_40	38738	39338	-		
+ctg10_41	39334	40093	-		
+ctg10_42	40089	41088	-		
+ctg10_43	41089	43246	-		
+ctg10_44	43377	43647	-		
+
+
+Significant hits: 
+1. BGC0001285	pseudopyronine A/pseudopyronine B
+2. BGC0000774	lipopolysaccharide
+
+
+Details:
+
+>>
+1. BGC0001285
+Source: pseudopyronine A/pseudopyronine B
+Type: Other:Fatty acid
+Number of proteins with BLAST hits to this cluster: 3
+Cumulative BLAST score: 2553.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+ALJ01853.1	ALJ01853.1	9	476	+	membrane_protein
+ALJ01854.1	ALJ01854.1	526	2718	-	hypothetical_protein
+ALJ01855.1	ALJ01855.1	2880	3560	+	putative_dioxygenase
+ALJ01856.1	ALJ01856.1	3692	3889	-	hypothetical_protein
+ALJ01857.1	ALJ01857.1	4283	6079	-	hypothetical_protein
+ALJ01858.1	ALJ01858.1	6321	7370	+	pseudopyronine_synthase
+ALJ01859.1	ALJ01859.1	7431	8924	-	glucose-6-phosphate_1-dehydrogenase
+ALJ01860.1	ALJ01860.1	8925	9908	-	6-phosphogluconate_dehydrogenase
+ALJ01861.1	ALJ01861.1	10105	10272	+	hypothetical_protein
+ALJ01862.1	ALJ01862.1	10765	12324	+	glycogen_synthase
+ALJ01863.1	ALJ01863.1	12339	14081	+	malto-oligosyltrehalose_trehalohydrolase
+ALJ01864.1	ALJ01864.1	14078	16147	+	4-alpha-glucanotransferase
+ALJ01865.1	ALJ01865.1	16144	18918	+	malto-oligosyltrehalose_synthase
+ALJ01866.1	ALJ01866.1	18939	19205	+	hypothetical_protein
+ALJ01867.1	ALJ01867.1	19363	21516	+	glycogen_debranching_enzyme
+ALJ01868.1	ALJ01868.1	21685	22479	+	hypothetical_protein
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg10_30	ALJ01854.1	85	1274	97.58389261744966	0.0
+ctg10_43	ALJ01867.1	80	1217	97.9108635097493	0.0
+ctg10_44	ALJ01866.1	71	62	42.69662921348314	3.57e-14
+
+
+
+>>
+2. BGC0000774
+Source: lipopolysaccharide
+Type: Saccharide:Lipopolysaccharide
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 1082.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+AAK53494.1	AAK53494.1	134	772	+	conserved_protein_involved_in_carbohydrate_biosynthesis
+AAK53493.1	AAK53493.1	1054	1692	-	beta-subunit_of_putative_3-oxoacid_CoA-transferase
+AAK53462.1	AAK53462.1	1692	2420	-	alpha_subunit_of_putative_3-oxoacid_CoA-transferase
+AAA27610.1	AAA27610.1	2555	3901	+	phosphoglucomutase_/_phosphomannomutase
+AAK53463.1	AAK53463.1	3947	5350	+	phosphomannose_isomerase_/_GDP-mannose_pyrophosphorylase
+AAK53464.1	AAK53464.1	5472	6380	-	dTDP-4-dehydrorhamnose_reductase
+AAK53465.1	AAK53465.1	6377	6934	-	dTDP-4-dehydrorhamnose_3,5-epimerase
+AAA16191.1	AAA16191.1	6931	7818	-	glucose-1-phosphate_thymidylyltransferase
+AAK53466.1	AAK53466.1	7882	8937	-	dTDP-glucose_4,6-dehydratase
+AAK53467.1	AAK53467.1	9166	9912	+	putative_electron-transferring_flavoprotein_beta_subunit
+AAK53468.1	AAK53468.1	9912	10856	+	putative_electron-transferring_flavoprotein_alpha_subunit
+AAK53469.1	AAK53469.1	10916	11263	+	WxcH
+AAK53470.1	AAK53470.1	11312	12415	+	nucleotide_sugar_aminotransferase
+AAK53471.1	AAK53471.1	12400	13371	+	glycosyltransferase
+AAK53472.1	AAK53472.1	13368	14297	+	bifunctional_nucleotide_hexosamine_acetyltransferase_/_isomerase
+AAK53473.1	AAK53473.1	14284	14724	+	putative_integral_membrane_protein_WxcN
+AAK53474.1	AAK53474.1	14794	17046	+	integral_membrane_protein
+AAK53475.1	AAK53475.1	17188	18126	-	GDP-4-dehydro-D-rhamnose_reductase
+AAK53476.1	AAK53476.1	18110	19144	-	GDP-mannose_4,6-dehydratase
+AAK53477.1	AAK53477.1	19222	19857	-	Unknown
+AAK53478.1	AAK53478.1	19857	21602	-	putative_glycosyltransferase
+AAK53479.1	AAK53479.1	21623	22684	-	glycosyltransferase
+AAK53480.1	AAK53480.1	22734	25022	-	putative_protein_kinase
+AAK53481.1	AAK53481.1	25062	26348	-	ATP-binding_component_of_an_ABC-type_polysaccharide_exporter
+AAK53482.1	AAK53482.1	26345	27130	-	permease_protein_of_an_ABC-type_polysaccaharide_exporter
+AAK53483.1	AAK53483.1	27214	28599	-	glycosyltransferase
+AAK53484.1	AAK53484.1	28596	29795	-	cystathionine_gamma-synthase
+AAK53485.1	AAK53485.1	29889	31259	-	cystathionine_beta-lyase
+AAK53486.1	AAK53486.1	31491	31985	-	UptF
+AAK53487.1	AAK53487.1	32051	32941	-	putative_outer_membrane_protein_UptE_precursor
+AAK53488.1	AAK53488.1	32938	33321	-	putative_outer_membrane_protein_UptD_precursor
+AAK53489.1	AAK53489.1	33420	34553	+	type_II_secretion_system_protein-like_protein
+AAK53490.1	AAK53490.1	35073	35735	-	putative_maleylacetoacetate_isomerase
+AAK53491.1	AAK53491.1	35779	36768	-	putative_dioxygenase
+AAK53492.1	AAK53492.1	37148	37753	+	putative_ATP-dependent_RNA_helicase
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg10_31	AAK53484.1	68	538	97.42268041237114	2.04e-192
+ctg10_32	AAK53485.1	61	544	98.0349344978166	8.27e-193
+

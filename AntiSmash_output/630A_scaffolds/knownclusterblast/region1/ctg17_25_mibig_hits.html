@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>ADM46378.1</td>
+              <td>amino-acid_permease_transmembrane_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000106/1">BGC0000106</a></td>
+              <td>Polyketide</td>
+              <td>38.0</td>
+              <td>94.7</td>
+              <td>317.0</td>
+              <td>1.72e-101</td>
+          </tr>
+    
+          <tr>
+              <td>QKO28703.1</td>
+              <td>phenylalanine-specific_permease</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002315/1">BGC0002315</a></td>
+              <td>Polyketide</td>
+              <td>28.0</td>
+              <td>77.7</td>
+              <td>119.0</td>
+              <td>1.26e-28</td>
+          </tr>
+    
+          <tr>
+              <td>ABD65922.1</td>
+              <td>cationic_amino_acid_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000341/1">BGC0000341</a></td>
+              <td>NRP</td>
+              <td>27.0</td>
+              <td>81.6</td>
+              <td>114.0</td>
+              <td>7.3e-27</td>
+          </tr>
+    
+          <tr>
+              <td>AUO16419.1</td>
+              <td>amino_acid_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001700/1">BGC0001700</a></td>
+              <td>Polyketide</td>
+              <td>24.0</td>
+              <td>39.2</td>
+              <td>50.0</td>
+              <td>3.52e-06</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>AET79187.1</td>
+              <td>3-isopropylmalate_dehydratase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001241/1">BGC0001241</a></td>
+              <td>Terpene</td>
+              <td>54.0</td>
+              <td>99.6</td>
+              <td>510.0</td>
+              <td>9.14e-175</td>
+          </tr>
+    
+          <tr>
+              <td>ARO49575.1</td>
+              <td>3-isopropylmalate_dehydratase_large_subunit</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001441/1">BGC0001441</a></td>
+              <td>Other</td>
+              <td>55.0</td>
+              <td>96.8</td>
+              <td>486.0</td>
+              <td>7.34e-170</td>
+          </tr>
+    
+          <tr>
+              <td>QUJ09160.1</td>
+              <td>Lon13</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002440/1">BGC0002440</a></td>
+              <td>NRP</td>
+              <td>52.0</td>
+              <td>97.0</td>
+              <td>468.0</td>
+              <td>1.23e-162</td>
+          </tr>
+    
+          <tr>
+              <td>QWT72271.1</td>
+              <td>3-isopropylmalate_dehydratase_large_subunit</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002430/1">BGC0002430</a></td>
+              <td>NRP+Saccharide</td>
+              <td>53.0</td>
+              <td>97.5</td>
+              <td>455.0</td>
+              <td>1.4e-157</td>
+          </tr>
+    
+          <tr>
+              <td>QVQ62870.1</td>
+              <td>3-isopropylmalate_dehydratase_large_subunit</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002373/1">BGC0002373</a></td>
+              <td>NRP</td>
+              <td>51.0</td>
+              <td>97.0</td>
+              <td>446.0</td>
+              <td>1.01e-153</td>
+          </tr>
+    
+          <tr>
+              <td>AHZ61875.1</td>
+              <td>isopropylmalate_isomerase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000240/1">BGC0000240</a></td>
+              <td>Polyketide:Type II polyketide+Saccharide:Hybrid/tailoring saccharide</td>
+              <td>50.0</td>
+              <td>97.9</td>
+              <td>436.0</td>
+              <td>7.55e-150</td>
+          </tr>
+    
+          <tr>
+              <td>ACC81019.1</td>
+              <td>homoaconitate_hydratase_family_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001479/1">BGC0001479</a></td>
+              <td>NRP</td>
+              <td>34.0</td>
+              <td>88.4</td>
+              <td>221.0</td>
+              <td>1.9e-65</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>CAM86878.1</td>
+              <td>putative_ferric_siderophore_receptor_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002471/1">BGC0002471</a></td>
+              <td>Other</td>
+              <td>41.0</td>
+              <td>105.4</td>
+              <td>476.0</td>
+              <td>3.19e-158</td>
+          </tr>
+    
+          <tr>
+              <td>BAM09332.1</td>
+              <td>putative_ferric_acinetoferrin_receptor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000295/1">BGC0000295</a></td>
+              <td>NRP</td>
+              <td>39.0</td>
+              <td>101.0</td>
+              <td>458.0</td>
+              <td>2.61e-151</td>
+          </tr>
+    
+          <tr>
+              <td>AWD37852.1</td>
+              <td>aerobactin_siderophore_receptor_IutA</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001499/1">BGC0001499</a></td>
+              <td>Other</td>
+              <td>35.0</td>
+              <td>105.5</td>
+              <td>362.0</td>
+              <td>1.77e-114</td>
+          </tr>
+    
+          <tr>
+              <td>BAD02221.1</td>
+              <td>ferric_aerobactin_receptor_precursor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002682/1">BGC0002682</a></td>
+              <td>Other</td>
+              <td>33.0</td>
+              <td>98.6</td>
+              <td>338.0</td>
+              <td>1.35e-105</td>
+          </tr>
+    
+          <tr>
+              <td>BAE16006.1</td>
+              <td>ferric_aerobactin_receptor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000939/1">BGC0000939</a></td>
+              <td>Other</td>
+              <td>34.0</td>
+              <td>101.7</td>
+              <td>338.0</td>
+              <td>1.57e-105</td>
+          </tr>
+    
+          <tr>
+              <td>CDL83400.1</td>
+              <td>Ferric_aerobactin_receptor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001498/1">BGC0001498</a></td>
+              <td>Other</td>
+              <td>32.0</td>
+              <td>106.7</td>
+              <td>337.0</td>
+              <td>5.35e-105</td>
+          </tr>
+    
+          <tr>
+              <td>ACB01046.1</td>
+              <td>TonB_dependent_receptor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002470/1">BGC0002470</a></td>
+              <td>Other</td>
+              <td>31.0</td>
+              <td>98.6</td>
+              <td>285.0</td>
+              <td>9.1e-85</td>
+          </tr>
+    
+          <tr>
+              <td>ACA84883.1</td>
+              <td>TonB-dependent_receptor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002469/1">BGC0002469</a></td>
+              <td>Other</td>
+              <td>26.0</td>
+              <td>112.0</td>
+              <td>235.0</td>
+              <td>5.32e-67</td>
+          </tr>
+    
+          <tr>
+              <td>KIU65669.1</td>
+              <td>TonB-dependent_receptor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001713/1">BGC0001713</a></td>
+              <td>Other</td>
+              <td>29.0</td>
+              <td>108.5</td>
+              <td>227.0</td>
+              <td>3.58e-64</td>
+          </tr>
+    
+          <tr>
+              <td>KJY85286.1</td>
+              <td>Fe-regulated_protein_B</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002491/1">BGC0002491</a></td>
+              <td>NRP</td>
+              <td>25.0</td>
+              <td>39.2</td>
+              <td>62.0</td>
+              <td>2.15e-09</td>
+          </tr>
+    
+          <tr>
+              <td>ACR11143.1</td>
+              <td>TonB-dependent_receptor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000451/1">BGC0000451</a></td>
+              <td>NRP</td>
+              <td>31.0</td>
+              <td>24.2</td>
+              <td>54.0</td>
+              <td>5e-07</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

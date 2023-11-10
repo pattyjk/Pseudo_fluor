@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>QUS58944.1</td>
+              <td>TauD/TfdA_family_dioxygenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002123/1">BGC0002123</a></td>
+              <td>NRP+Polyketide</td>
+              <td>71.0</td>
+              <td>99.3</td>
+              <td>432.0</td>
+              <td>9.59e-154</td>
+          </tr>
+    
+          <tr>
+              <td>QPB41105.1</td>
+              <td>taurine_dioxygenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002503/1">BGC0002503</a></td>
+              <td>NRP+Polyketide</td>
+              <td>68.0</td>
+              <td>100.3</td>
+              <td>413.0</td>
+              <td>1.79e-146</td>
+          </tr>
+    
+          <tr>
+              <td>DAC80539.1</td>
+              <td>TauD</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001840/1">BGC0001840</a></td>
+              <td>NRP+Polyketide</td>
+              <td>60.0</td>
+              <td>101.0</td>
+              <td>365.0</td>
+              <td>2.18e-127</td>
+          </tr>
+    
+          <tr>
+              <td>WP_004571774.1</td>
+              <td>TauD/TfdA_family_dioxygenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001760/1">BGC0001760</a></td>
+              <td>NRP</td>
+              <td>61.0</td>
+              <td>101.0</td>
+              <td>362.0</td>
+              <td>2.05e-126</td>
+          </tr>
+    
+          <tr>
+              <td>DAC80532.1</td>
+              <td>alpha-ketoglutarate-dependent_taurine_dioxygenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001878/1">BGC0001878</a></td>
+              <td>NRP+Polyketide</td>
+              <td>60.0</td>
+              <td>100.0</td>
+              <td>357.0</td>
+              <td>2.76e-124</td>
+          </tr>
+    
+          <tr>
+              <td>DAC80526.1</td>
+              <td>alpha-ketoglutarate-dependent_taurine_dioxygenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001841/1">BGC0001841</a></td>
+              <td>NRP+Polyketide</td>
+              <td>55.0</td>
+              <td>99.0</td>
+              <td>325.0</td>
+              <td>5.53e-112</td>
+          </tr>
+    
+          <tr>
+              <td>ABW87795.1</td>
+              <td>unknown</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000715/1">BGC0000715</a></td>
+              <td>Saccharide</td>
+              <td>60.0</td>
+              <td>84.8</td>
+              <td>312.0</td>
+              <td>2.63e-107</td>
+          </tr>
+    
+          <tr>
+              <td>KZM73522.1</td>
+              <td>taurine_dioxygenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000632/1">BGC0000632</a></td>
+              <td>Terpene+Saccharide</td>
+              <td>41.0</td>
+              <td>93.1</td>
+              <td>169.0</td>
+              <td>6.05e-51</td>
+          </tr>
+    
+          <tr>
+              <td>AWH12930.1</td>
+              <td>StmO4</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001784/1">BGC0001784</a></td>
+              <td>Polyketide</td>
+              <td>36.0</td>
+              <td>101.0</td>
+              <td>164.0</td>
+              <td>3.51e-48</td>
+          </tr>
+    
+          <tr>
+              <td>KGO40482.1</td>
+              <td>Taurine_catabolism_dioxygenase_TauD/TfdA</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001205/1">BGC0001205</a></td>
+              <td>Polyketide</td>
+              <td>35.0</td>
+              <td>97.6</td>
+              <td>133.0</td>
+              <td>3.63e-36</td>
+          </tr>
+    
+          <tr>
+              <td>KGO40485.1</td>
+              <td>Taurine_catabolism_dioxygenase_TauD/TfdA</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001205/1">BGC0001205</a></td>
+              <td>Polyketide</td>
+              <td>32.0</td>
+              <td>97.2</td>
+              <td>120.0</td>
+              <td>2.51e-31</td>
+          </tr>
+    
+          <tr>
+              <td>ABC36162.1</td>
+              <td>dioxygenase,_TauD/TfdA_family</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000961/1">BGC0000961</a></td>
+              <td>NRP+Polyketide</td>
+              <td>30.0</td>
+              <td>95.8</td>
+              <td>106.0</td>
+              <td>7.54e-27</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

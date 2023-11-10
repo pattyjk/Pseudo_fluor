@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>AXG46174.1</td>
+              <td>two-component_sensor_histidine_kinase_BarA</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002713/1">BGC0002713</a></td>
+              <td>NRP</td>
+              <td>29.0</td>
+              <td>41.2</td>
+              <td>191.0</td>
+              <td>8.94e-50</td>
+          </tr>
+    
+          <tr>
+              <td>WP_091320338.1</td>
+              <td>HAMP_domain-containing_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002007/1">BGC0002007</a></td>
+              <td>Terpene</td>
+              <td>32.0</td>
+              <td>32.7</td>
+              <td>160.0</td>
+              <td>3.73e-39</td>
+          </tr>
+    
+          <tr>
+              <td>WP_018891765.1</td>
+              <td>HAMP_domain-containing_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001558/1">BGC0001558</a></td>
+              <td>Polyketide</td>
+              <td>30.0</td>
+              <td>32.0</td>
+              <td>147.0</td>
+              <td>1.87e-35</td>
+          </tr>
+    
+          <tr>
+              <td>QDA77064.1</td>
+              <td>multi-sensor_hybrid_histidine_kinase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002026/1">BGC0002026</a></td>
+              <td>NRP+Polyketide</td>
+              <td>28.0</td>
+              <td>40.5</td>
+              <td>124.0</td>
+              <td>8.74e-29</td>
+          </tr>
+    
+          <tr>
+              <td>RAT94095.1</td>
+              <td>sensor_histidine_kinase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001469/1">BGC0001469</a></td>
+              <td>NRP</td>
+              <td>23.0</td>
+              <td>20.4</td>
+              <td>66.0</td>
+              <td>1.17e-10</td>
+          </tr>
+    
+          <tr>
+              <td>CAB93670.1</td>
+              <td>RumK_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000545/1">BGC0000545</a></td>
+              <td>RiPP:Lanthipeptide</td>
+              <td>22.0</td>
+              <td>20.1</td>
+              <td>61.0</td>
+              <td>5.43e-09</td>
+          </tr>
+    
+          <tr>
+              <td>KON97035.1</td>
+              <td>histidine_kinase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002122/1">BGC0002122</a></td>
+              <td>NRP</td>
+              <td>25.0</td>
+              <td>21.9</td>
+              <td>54.0</td>
+              <td>6.12e-07</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

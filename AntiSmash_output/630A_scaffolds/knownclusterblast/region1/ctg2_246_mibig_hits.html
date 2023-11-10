@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>CCA53791.1</td>
+              <td>Na+_or_H+_antiporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001801/1">BGC0001801</a></td>
+              <td>NRP</td>
+              <td>26.0</td>
+              <td>85.5</td>
+              <td>63.0</td>
+              <td>1.5e-10</td>
+          </tr>
+    
+          <tr>
+              <td>QEO75069.1</td>
+              <td>sodium/hydrogen_exchanger</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002079/1">BGC0002079</a></td>
+              <td>NRP:Cyclic depsipeptide</td>
+              <td>30.0</td>
+              <td>87.3</td>
+              <td>61.0</td>
+              <td>1.11e-09</td>
+          </tr>
+    
+          <tr>
+              <td>QEO74977.1</td>
+              <td>omn2</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002078/1">BGC0002078</a></td>
+              <td>NRP:Cyclic depsipeptide</td>
+              <td>30.0</td>
+              <td>88.3</td>
+              <td>58.0</td>
+              <td>8.3e-09</td>
+          </tr>
+    
+          <tr>
+              <td>AEF32096.1</td>
+              <td>putative_cation/H+_antiporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001333/1">BGC0001333</a></td>
+              <td>Alkaloid</td>
+              <td>26.0</td>
+              <td>76.9</td>
+              <td>56.0</td>
+              <td>4.41e-08</td>
+          </tr>
+    
+          <tr>
+              <td>QKO28689.1</td>
+              <td>sodium/hydrogen_exchanger</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002315/1">BGC0002315</a></td>
+              <td>Polyketide</td>
+              <td>29.0</td>
+              <td>69.2</td>
+              <td>51.0</td>
+              <td>1.53e-06</td>
+          </tr>
+    
+          <tr>
+              <td>APZ78840.1</td>
+              <td>cation/H(+)_antiporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001431/1">BGC0001431</a></td>
+              <td>NRP:Cyclic depsipeptide+Polyketide:Iterative type I polyketide</td>
+              <td>26.0</td>
+              <td>82.6</td>
+              <td>49.0</td>
+              <td>7.14e-06</td>
+          </tr>
+    
+          <tr>
+              <td>AKQ20694.1</td>
+              <td>putative_cation/H+_antiporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001337/1">BGC0001337</a></td>
+              <td>Alkaloid</td>
+              <td>40.0</td>
+              <td>21.5</td>
+              <td>46.0</td>
+              <td>9.92e-06</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

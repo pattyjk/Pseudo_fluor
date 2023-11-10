@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>WP_238146035.1</td>
+              <td>MFS_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002087/1">BGC0002087</a></td>
+              <td>NRP+Polyketide</td>
+              <td>35.0</td>
+              <td>90.4</td>
+              <td>225.0</td>
+              <td>1.43e-69</td>
+          </tr>
+    
+          <tr>
+              <td>BCN28636.1</td>
+              <td>MFS_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002441/1">BGC0002441</a></td>
+              <td>Polyketide+NRP</td>
+              <td>28.0</td>
+              <td>50.0</td>
+              <td>64.0</td>
+              <td>1.02e-10</td>
+          </tr>
+    
+          <tr>
+              <td>AAL06677.1</td>
+              <td>citrate/shikimate_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000965/1">BGC0000965</a></td>
+              <td>Polyketide:Iterative type I polyketide+Polyketide:Enediyne type I polyketide</td>
+              <td>23.0</td>
+              <td>86.2</td>
+              <td>61.0</td>
+              <td>1.45e-09</td>
+          </tr>
+    
+          <tr>
+              <td>ALU98439.1</td>
+              <td>cinnamoyl-CoA_reductase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001397/1">BGC0001397</a></td>
+              <td>NRP+Polyketide</td>
+              <td>25.0</td>
+              <td>72.2</td>
+              <td>57.0</td>
+              <td>2.37e-08</td>
+          </tr>
+    
+          <tr>
+              <td>ANR02546.1</td>
+              <td>LodE</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001648/1">BGC0001648</a></td>
+              <td>Polyketide</td>
+              <td>25.0</td>
+              <td>39.5</td>
+              <td>53.0</td>
+              <td>3.49e-07</td>
+          </tr>
+    
+          <tr>
+              <td>ANY94447.1</td>
+              <td>citrate/shikimate_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001584/1">BGC0001584</a></td>
+              <td>Polyketide</td>
+              <td>23.0</td>
+              <td>86.2</td>
+              <td>52.0</td>
+              <td>5.48e-07</td>
+          </tr>
+    
+          <tr>
+              <td>CAQ64681.1</td>
+              <td>putative_resistance_protein,_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000087/1">BGC0000087</a></td>
+              <td>Polyketide</td>
+              <td>25.0</td>
+              <td>39.7</td>
+              <td>52.0</td>
+              <td>6.09e-07</td>
+          </tr>
+    
+          <tr>
+              <td>BAG85020.1</td>
+              <td>putative_resistance_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000086/1">BGC0000086</a></td>
+              <td>Polyketide</td>
+              <td>25.0</td>
+              <td>39.7</td>
+              <td>52.0</td>
+              <td>6.11e-07</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>CAK15813.1</td>
+              <td>macrolide_efflux_protein_MacA</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000344/1">BGC0000344</a></td>
+              <td>NRP</td>
+              <td>27.0</td>
+              <td>81.6</td>
+              <td>80.0</td>
+              <td>3.77e-16</td>
+          </tr>
+    
+          <tr>
+              <td>CAY48790.1</td>
+              <td>putative_drug-efflux_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001312/1">BGC0001312</a></td>
+              <td>NRP</td>
+              <td>26.0</td>
+              <td>85.1</td>
+              <td>79.0</td>
+              <td>9.09e-16</td>
+          </tr>
+    
+          <tr>
+              <td>ABW17378.1</td>
+              <td>MacA</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000411/1">BGC0000411</a></td>
+              <td>NRP</td>
+              <td>26.0</td>
+              <td>81.8</td>
+              <td>75.0</td>
+              <td>2.34e-14</td>
+          </tr>
+    
+          <tr>
+              <td>QMN69935.1</td>
+              <td>PsoD</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002521/1">BGC0002521</a></td>
+              <td>NRP</td>
+              <td>26.0</td>
+              <td>83.6</td>
+              <td>63.0</td>
+              <td>1.9e-10</td>
+          </tr>
+    
+          <tr>
+              <td>WP_015143120.1</td>
+              <td>efflux_RND_transporter_periplasmic_adaptor_subunit</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001733/1">BGC0001733</a></td>
+              <td>RiPP</td>
+              <td>23.0</td>
+              <td>96.0</td>
+              <td>58.0</td>
+              <td>7.72e-09</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

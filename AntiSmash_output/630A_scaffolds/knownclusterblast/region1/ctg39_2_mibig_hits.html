@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>AXM43059.1</td>
+              <td>aldehyde_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001945/1">BGC0001945</a></td>
+              <td>NRP</td>
+              <td>41.0</td>
+              <td>88.0</td>
+              <td>274.0</td>
+              <td>1.51e-86</td>
+          </tr>
+    
+          <tr>
+              <td>AAL15593.1</td>
+              <td>Sim15</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000270/1">BGC0000270</a></td>
+              <td>Polyketide</td>
+              <td>36.0</td>
+              <td>91.9</td>
+              <td>258.0</td>
+              <td>7.15e-81</td>
+          </tr>
+    
+          <tr>
+              <td>AAK06797.1</td>
+              <td>putative_alcohol_dehydrogenase_SimC5</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001072/1">BGC0001072</a></td>
+              <td>Saccharide+Polyketide:Modular type I polyketide+Polyketide:Type II polyketide+Other:Aminocoumarin</td>
+              <td>36.0</td>
+              <td>91.9</td>
+              <td>258.0</td>
+              <td>7.15e-81</td>
+          </tr>
+    
+          <tr>
+              <td>OJJ98489.1</td>
+              <td>hypothetical_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002169/1">BGC0002169</a></td>
+              <td>Polyketide+NRP</td>
+              <td>30.0</td>
+              <td>70.2</td>
+              <td>137.0</td>
+              <td>3.32e-35</td>
+          </tr>
+    
+          <tr>
+              <td>AAY93391.1</td>
+              <td>phenylacetaldehyde_dehydrogenase_PeaE</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000413/1">BGC0000413</a></td>
+              <td>NRP</td>
+              <td>28.0</td>
+              <td>70.5</td>
+              <td>125.0</td>
+              <td>7.83e-31</td>
+          </tr>
+    
+          <tr>
+              <td>WP_063744463.1</td>
+              <td>aldehyde_dehydrogenase_family_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001739/1">BGC0001739</a></td>
+              <td>Other</td>
+              <td>34.0</td>
+              <td>55.0</td>
+              <td>117.0</td>
+              <td>6.12e-28</td>
+          </tr>
+    
+          <tr>
+              <td>WP_015031703.1</td>
+              <td>aldehyde_dehydrogenase_family_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001819/1">BGC0001819</a></td>
+              <td>Polyketide</td>
+              <td>31.0</td>
+              <td>70.7</td>
+              <td>110.0</td>
+              <td>1.37e-25</td>
+          </tr>
+    
+          <tr>
+              <td>EDY47105.1</td>
+              <td>aldehyde_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000319/1">BGC0000319</a></td>
+              <td>NRP:Beta-lactam</td>
+              <td>28.0</td>
+              <td>95.9</td>
+              <td>101.0</td>
+              <td>1.1e-22</td>
+          </tr>
+    
+          <tr>
+              <td>CAQ52616.1</td>
+              <td>benzaldehyde_degydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001066/1">BGC0001066</a></td>
+              <td>Polyketide:Modular type I polyketide</td>
+              <td>28.0</td>
+              <td>66.9</td>
+              <td>99.0</td>
+              <td>1.02e-21</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>
