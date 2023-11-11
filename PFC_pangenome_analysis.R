@@ -138,16 +138,17 @@ pg_fluid<-fluidity(panmat.blast, n.sim = 10000)
 weighty<-geneWeights(panmat.blast)
 hist(weighty)
 
+##########################
 ###Read in panaroo pan matrix
 library(readr)
-gene_presence_absence <- read_delim("PFC_panaroo_results/gene_presence_absence.Rtab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
+gene_presence_absence <- read_delim("Pseudo_fluor/PFC_panaroo_results/gene_presence_absence.Rtab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
 
 #read in KEGG annotations of genes
 kegg_annotations <- read.delim("~/GitHub/Pseudo_fluor/kegg_annotations.txt")
 kegg_annotations$KO<-trimws(kegg_annotations$KO)
 
 #read in KEGG DB
-ko_db<-read.delim("full_kegg.txt", header=T)
+ko_db<-read.delim("Pseudo_fluor/full_kegg.txt", header=T)
 ko_db$KO<-trimws(ko_db$KO)
 
 #create table of core genes (genes >19 per row)
