@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>DAC80055.1</td>
+              <td>enoyl-CoA_hydratase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001836/1">BGC0001836</a></td>
+              <td>Polyketide:Trans-AT type I polyketide</td>
+              <td>35.0</td>
+              <td>94.0</td>
+              <td>169.0</td>
+              <td>3.12e-51</td>
+          </tr>
+    
+          <tr>
+              <td>BAO10617.1</td>
+              <td>enoyl-CoA_hydratase/isomerase_family_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001262/1">BGC0001262</a></td>
+              <td>Polyketide</td>
+              <td>29.0</td>
+              <td>80.2</td>
+              <td>96.0</td>
+              <td>6.44e-23</td>
+          </tr>
+    
+          <tr>
+              <td>BAO10616.1</td>
+              <td>enoyl-CoA_hydratase/isomerase_family_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001262/1">BGC0001262</a></td>
+              <td>Polyketide</td>
+              <td>26.0</td>
+              <td>95.1</td>
+              <td>71.0</td>
+              <td>8.95e-14</td>
+          </tr>
+    
+          <tr>
+              <td>BAD97699.1</td>
+              <td>Aft3-2</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000003/1">BGC0000003</a></td>
+              <td>Polyketide</td>
+              <td>26.0</td>
+              <td>95.1</td>
+              <td>69.0</td>
+              <td>4.21e-13</td>
+          </tr>
+    
+          <tr>
+              <td>ADE34505.1</td>
+              <td>ssfJ</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000269/1">BGC0000269</a></td>
+              <td>Polyketide:Type II polyketide+Saccharide:Hybrid/tailoring saccharide</td>
+              <td>26.0</td>
+              <td>91.8</td>
+              <td>62.0</td>
+              <td>4.42e-11</td>
+          </tr>
+    
+          <tr>
+              <td>ABF92581.1</td>
+              <td>&#34;putative_enoyl-CoA-hydratase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001025/1">BGC0001025</a></td>
+              <td>NRP+Polyketide:Trans-AT type I polyketide</td>
+              <td>22.0</td>
+              <td>78.4</td>
+              <td>53.0</td>
+              <td>7.7e-08</td>
+          </tr>
+    
+          <tr>
+              <td>DAC80077.1</td>
+              <td>PKS</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001835/1">BGC0001835</a></td>
+              <td>Polyketide</td>
+              <td>24.0</td>
+              <td>62.7</td>
+              <td>53.0</td>
+              <td>2.1e-07</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

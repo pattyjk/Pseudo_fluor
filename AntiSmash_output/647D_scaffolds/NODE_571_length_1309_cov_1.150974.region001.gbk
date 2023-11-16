@@ -1,0 +1,233 @@
+LOCUS       NODE_571_length_1309_cov_1.150974 1309 bp    DNA     linear   UNK 01-JAN-1980
+DEFINITION  NODE_571_length_1309_cov_1.150974.
+ACCESSION   NODE_571_length_1309_cov_1
+VERSION     NODE_571_length_1309_cov_1.150974
+KEYWORDS    .
+SOURCE      
+  ORGANISM  
+            .
+COMMENT     ##antiSMASH-Data-START##
+            Version      :: 7.0.1
+            Run date     :: 2023-11-08 17:17:22
+            NOTE: This is a single region extracted from a larger record!
+            Orig. start  :: 0
+            Orig. end    :: 1309
+            ##antiSMASH-Data-END##
+FEATURES             Location/Qualifiers
+     protocluster    1..1309
+                     /aStool="rule-based-clusters"
+                     /category="NRPS"
+                     /contig_edge="True"
+                     /core_location="[1:1309]"
+                     /cutoff="20000"
+                     /detection_rule="cds(Condensation and (AMP-binding or
+                     A-OX))"
+                     /neighbourhood="20000"
+                     /product="NRPS"
+                     /protocluster_number="1"
+                     /tool="antismash"
+     proto_core      2..1309
+                     /aStool="rule-based-clusters"
+                     /tool="antismash"
+                     /cutoff="20000"
+                     /detection_rule="cds(Condensation and (AMP-binding or
+                     A-OX))"
+                     /neighbourhood="20000"
+                     /product="NRPS"
+                     /protocluster_number="1"
+     cand_cluster    1..1309
+                     /SMILES=""
+                     /candidate_cluster_number="1"
+                     /contig_edge="True"
+                     /detection_rules="cds(Condensation and (AMP-binding or
+                     A-OX))"
+                     /kind="single"
+                     /product="NRPS"
+                     /protoclusters="1"
+                     /tool="antismash"
+     region          1..1309
+                     /candidate_cluster_numbers="1"
+                     /contig_edge="True"
+                     /product="NRPS"
+                     /region_number="1"
+                     /rules="cds(Condensation and (AMP-binding or A-OX))"
+                     /tool="antismash"
+     CDS_motif       complement(2..106)
+                     /aSTool="nrps_pks_domains"
+                     /database="abmotifs"
+                     /detection="hmmscan"
+                     /domain_id="nrpspksmotif_ctg571_1_0003"
+                     /evalue="6.90E-15"
+                     /label="C2_LCL_024-062"
+                     /locus_tag="ctg571_1"
+                     /protein_end="436"
+                     /protein_start="401"
+                     /score="47.4"
+                     /tool="antismash"
+                     /translation="SAYNMPMALCLRGTLHIERLREAFGQLVGRHETLR"
+     PFAM_domain     complement(2..166)
+                     /aSDomain="Condensation"
+                     /aSTool="clusterhmmer"
+                     /database="34.0"
+                     /db_xref="PF00668.22"
+                     /db_xref="GO:0003824"
+                     /description="Condensation domain"
+                     /detection="hmmscan"
+                     /domain_id="clusterhmmer_ctg571_1_0004"
+                     /evalue="2.40E-13"
+                     /gene_ontologies="GO:0003824: catalytic activity"
+                     /label="ctg571_1"
+                     /locus_tag="ctg571_1"
+                     /protein_end="436"
+                     /protein_start="381"
+                     /score="49.7"
+                     /tool="antismash"
+                     /translation="LPLSHAQGRLWFLWQMEPRSSAYNMPMALCLRGTLHIERLREAFG
+                     QLVGRHETLR"
+     CDS             complement(2..1309)
+                     /NRPS_PKS="Domain: PCP (297-363). E-value: 4.4e-28. Score:
+                     89.2. Matches aSDomain: nrpspksdomains_ctg571_1_PCP.1"
+                     /gene_functions="biosynthetic (rule-based-clusters) NRPS:
+                     Condensation"
+                     /gene_functions="biosynthetic (rule-based-clusters) NRPS:
+                     AMP-binding"
+                     /gene_functions="biosynthetic-additional
+                     (rule-based-clusters) PP-binding"
+                     /gene_functions="biosynthetic-additional (smcogs)
+                     SMCOG1002:AMP-dependent synthetase and ligase (Score:
+                     194.9; E-value: 3.2e-59)"
+                     /gene_kind="biosynthetic"
+                     /locus_tag="ctg571_1"
+                     /sec_met_domain="AMP-binding (E-value: 2.4e-68, bitscore:
+                     216.6, seeds: 400, tool: rule-based-clusters)"
+                     /sec_met_domain="PP-binding (E-value: 1.8e-17, bitscore:
+                     49.9, seeds: 164, tool: rule-based-clusters)"
+                     /sec_met_domain="Condensation (E-value: 1.2e-16, bitscore:
+                     46.8, seeds: 42, tool: rule-based-clusters)"
+                     /transl_table=11
+                     /translation="ELYLPLLVGGAVVLVERMAAKDPARLLEVIEQYGVTVIQATPSSW
+                     GMLASHEGFSRLRGKRFFCGGEALSTELAARLGEQAAQLWNLYGPTETTIWSALNRVHG
+                     RPDLGGPLANTQLHVLDDSLNPAPPGVAGELYIGGDGLARGYHARPGLTAERFVPNPFG
+                     AGRLYRSGDLARYRDSGVIEYAGRIDHQIKVRGLRIELGEIEACLLEQPGVREAVVIDR
+                     ASPQGVQLIGYLVGEALALDAIRDVLRARLPDYMVPAQLIALAQMPLSPNGKLERRLLP
+                     EPQWQSRAYEAPQGATEELVAQVWAEVLGVAEVGRGDDFFALGGHSLLAIRMVSRLRQA
+                     LNLELAVRQVFDTPQLADFARALGGIASPSIRLQRRERPALLPLSHAQGRLWFLWQMEP
+                     RSSAYNMPMALCLRGTLHIERLREAFGQLVGRHETLR"
+     PFAM_domain     complement(221..412)
+                     /aSDomain="PP-binding"
+                     /aSTool="clusterhmmer"
+                     /database="34.0"
+                     /db_xref="PF00550.27"
+                     /description="Phosphopantetheine attachment site"
+                     /detection="hmmscan"
+                     /domain_id="clusterhmmer_ctg571_1_0003"
+                     /evalue="1.20E-13"
+                     /label="ctg571_1"
+                     /locus_tag="ctg571_1"
+                     /protein_end="363"
+                     /protein_start="299"
+                     /score="51.3"
+                     /tool="antismash"
+                     /translation="LVAQVWAEVLGVAEVGRGDDFFALGGHSLLAIRMVSRLRQALNLE
+                     LAVRQVFDTPQLADFARAL"
+     aSDomain        complement(221..418)
+                     /aSDomain="PCP"
+                     /aSTool="nrps_pks_domains"
+                     /database="nrpspksdomains.hmm"
+                     /detection="hmmscan"
+                     /domain_id="nrpspksdomains_ctg571_1_PCP.1"
+                     /evalue="4.40E-28"
+                     /label="ctg571_1_PCP.1"
+                     /locus_tag="ctg571_1"
+                     /protein_end="363"
+                     /protein_start="297"
+                     /score="89.2"
+                     /tool="antismash"
+                     /translation="EELVAQVWAEVLGVAEVGRGDDFFALGGHSLLAIRMVSRLRQALN
+                     LELAVRQVFDTPQLADFARAL"
+     PFAM_domain     complement(488..703)
+                     /aSDomain="AMP-binding_C"
+                     /aSTool="clusterhmmer"
+                     /database="34.0"
+                     /db_xref="PF13193.8"
+                     /description="AMP-binding enzyme C-terminal domain"
+                     /detection="hmmscan"
+                     /domain_id="clusterhmmer_ctg571_1_0002"
+                     /evalue="3.50E-09"
+                     /label="ctg571_1"
+                     /locus_tag="ctg571_1"
+                     /protein_end="274"
+                     /protein_start="202"
+                     /score="37.6"
+                     /tool="antismash"
+                     /translation="EIEACLLEQPGVREAVVIDRASPQGVQLIGYLVGEALALDAIRDV
+                     LRARLPDYMVPAQLIALAQMPLSPNGK"
+     CDS_motif       complement(695..760)
+                     /aSTool="nrps_pks_domains"
+                     /database="abmotifs"
+                     /detection="hmmscan"
+                     /domain_id="nrpspksmotif_ctg571_1_0002"
+                     /evalue="1.90E-11"
+                     /label="NRPS-A_a8"
+                     /locus_tag="ctg571_1"
+                     /protein_end="205"
+                     /protein_start="183"
+                     /score="35.9"
+                     /tool="antismash"
+                     /translation="YAGRIDHQIKVRGLRIELGEIE"
+     PFAM_domain     complement(725..1306)
+                     /aSDomain="AMP-binding"
+                     /aSTool="clusterhmmer"
+                     /database="34.0"
+                     /db_xref="PF00501.30"
+                     /description="AMP-binding enzyme"
+                     /detection="hmmscan"
+                     /domain_id="clusterhmmer_ctg571_1_0001"
+                     /evalue="2.40E-48"
+                     /label="ctg571_1"
+                     /locus_tag="ctg571_1"
+                     /protein_end="195"
+                     /protein_start="1"
+                     /score="164.9"
+                     /tool="antismash"
+                     /translation="LYLPLLVGGAVVLVERMAAKDPARLLEVIEQYGVTVIQATPSSWG
+                     MLASHEGFSRLRGKRFFCGGEALSTELAARLGEQAAQLWNLYGPTETTIWSALNRVHGR
+                     PDLGGPLANTQLHVLDDSLNPAPPGVAGELYIGGDGLARGYHARPGLTAERFVPNPFGA
+                     GRLYRSGDLARYRDSGVIEYAGRIDHQIKVR"
+     CDS_motif       complement(839..928)
+                     /aSTool="nrps_pks_domains"
+                     /database="abmotifs"
+                     /detection="hmmscan"
+                     /domain_id="nrpspksmotif_ctg571_1_0001"
+                     /evalue="3.50E-18"
+                     /label="NRPS-A_a6"
+                     /locus_tag="ctg571_1"
+                     /protein_end="157"
+                     /protein_start="127"
+                     /score="57.6"
+                     /tool="antismash"
+                     /translation="PPGVAGELYIGGDGLARGYHARPGLTAERF"
+ORIGIN
+        1 tacgcagggt ttcgtggcgc cccaccaatt gcccgaaggc ctcgcgcagg cgctcgatgt
+       61 gcaacgtgcc gcgcaggcac agggccatgg gcatgttgta ggcgctgctg cgcggctcca
+      121 tctgccacag gaaccacagg cggccctggg cgtgggacag cggcagcaag gccgggcgtt
+      181 cgcggcgttg caggcgaatc gacgggctgg cgatgccgcc cagggcgcgg gcgaaatccg
+      241 ccagctgcgg ggtgtcgaag acctgccgca ccgccagttc caggttcagc gcctggcgca
+      301 ggcgcgagac catgcgaatc gccagcagcg agtggccgcc cagggcgaag aagtcgtcgc
+      361 cacggcccac ctcggccacg cccagcacct cggcccacac ctgggccacc agctcctcgg
+      421 tggccccttg cggcgcctcg taggcgcggc tctgccattg cggttccggc agcagccggc
+      481 gttccagctt gccgttgggc gacagcggca tctgcgccag cgcgatcagc tgcgccggca
+      541 ccatgtagtc cggcaggcgt gcgcgcagca cgtcgcggat ggcgtccagg gccagcgcct
+      601 cgcccaccag gtagccgatc agttgcacgc cctggggcga ggcgcggtcg atgaccacgg
+      661 cttcgcgcac gccgggctgt tccagcaggc aggcttcgat ttcgcccagc tcgatgcgca
+      721 ggccgcgcac cttgatctgg tggtcgatgc gcccggcata ttcgatcacg ccgctgtcgc
+      781 ggtagcgcgc caggtcgccg ctgcggtaca agcggccggc gccgaagggg ttgggcacga
+      841 agcgctcggc ggtcagccca gggcgcgcgt ggtaaccccg cgccaggcca tcgccgccga
+      901 tgtacagctc gccggccacg cccggcggcg ccgggttgag gctgtcatcg agcacgtgca
+      961 gctgggtgtt ggccagcggc ccgcccaggt ccgggcggcc gtgcacgcgg ttcagcgccg
+     1021 accagatggt ggtctcggtg gggccgtaga ggttccacag ctgcgccgcc tgttcgccca
+     1081 ggcgcgccgc cagttcggtg gacagcgcct cgccgccgca gaagaaccgt ttgccgcgca
+     1141 ggcggctgaa gccctcgtgg ctggcgagca tgccccagct cgacggcgtg gcctggatca
+     1201 cagtgacacc atactgctca atcacctcca gcaggcgcgc cgggtccttg gccgccatgc
+     1261 gttccaccag caccacggcg ccgcccacca gcaacggcag gtacagctc
+//

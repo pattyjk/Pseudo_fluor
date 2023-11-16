@@ -1,0 +1,132 @@
+ClusterBlast scores for NODE_4_length_376817_cov_19.716587
+
+Table of genes, locations, strands and annotations of query cluster:
+ctg4_1	581	13478	-		
+ctg4_2	13528	14281	-		
+ctg4_3	14581	15133	+		
+ctg4_4	15171	15960	-		
+ctg4_5	16053	16677	-		
+ctg4_6	16830	18609	+		
+ctg4_7	18621	19494	+		
+ctg4_8	19497	21114	+		
+ctg4_9	21130	22288	+		
+ctg4_10	22284	23052	+		
+ctg4_11	23163	25086	+		
+ctg4_12	25177	25720	+		
+ctg4_13	25785	26070	+		
+ctg4_14	26134	26941	-		
+ctg4_15	26979	27915	-		
+ctg4_16	28448	28898	+		
+ctg4_17	29281	30175	+		
+ctg4_18	30171	30831	+		
+ctg4_19	30789	31710	-		
+ctg4_20	31800	32346	-		
+ctg4_21	32377	32704	-		
+ctg4_22	32727	33078	-		
+
+
+Significant hits: 
+1. BGC0002433	azotobactin D
+2. BGC0000413	Pf-5 pyoverdine
+3. BGC0002001	crochelin A
+4. BGC0000984	delftibactin A/delftibactin B
+5. BGC0002284	corynecin III/corynecin I/corynecin II
+6. BGC0001189	taiwachelin
+
+
+Details:
+
+>>
+1. BGC0002433
+Source: azotobactin D
+Type: NRP
+Number of proteins with BLAST hits to this cluster: 3
+Cumulative BLAST score: 14013.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg4_1	Avin_25650	66	5585	101.1400651465798	0.0
+ctg4_1	Avin_25580	46	2888	85.59795253606327	0.0
+ctg4_1	Avin_25570	46	2883	84.83015355979525	0.0
+ctg4_1	Avin_25560	47	2142	60.563052582596555	0.0
+ctg4_2	Avin_25620	63	289	94.0	5.78e-99
+ctg4_3	Avin_25660	70	226	86.88524590163934	1.37e-76
+
+
+
+>>
+2. BGC0000413
+Source: Pf-5 pyoverdine
+Type: NRP
+Number of proteins with BLAST hits to this cluster: 3
+Cumulative BLAST score: 7653.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg4_1	PFL_4189	82	7053	101.02373196835737	0.0
+ctg4_2	PFL_4097	59	262	93.60000000000001	2.94e-88
+ctg4_3	PFL_4190	94	338	99.4535519125683	2.82e-120
+
+
+
+>>
+3. BGC0002001
+Source: crochelin A
+Type: NRP+Polyketide
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 1792.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg4_1	Achr_RS19590	50	1576	40.08841321544905	0.0
+ctg4_3	Achr_RS19625	66	216	92.34972677595628	5.13e-72
+
+
+
+>>
+4. BGC0000984
+Source: delftibactin A/delftibactin B
+Type: NRP+Polyketide
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 1612.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg4_1	Daci_4756	46	1408	40.57701256398325	0.0
+ctg4_2	Daci_4759	46	204	88.8	2.44e-65
+
+
+
+>>
+5. BGC0002284
+Source: corynecin III/corynecin I/corynecin II
+Type: Other
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 992.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg4_8	CPI83_20025	48	458	94.05204460966543	1.06e-156
+ctg4_11	CPI83_20020	46	534	101.40625000000001	6.42e-183
+
+
+
+>>
+6. BGC0001189
+Source: taiwachelin
+Type: NRP
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 361.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+RALTA_B1233	RALTA_B1233	33971	34705	-	Transposase_fragment,_IS1111_family
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg4_2	RALTA_B1224	48	201	88.8	2.53e-64
+ctg4_3	RALTA_B1239	56	160	85.24590163934425	3.6e-50
+

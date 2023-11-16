@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>QBQ12468.1</td>
+              <td>MFS_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002693/1">BGC0002693</a></td>
+              <td>NRP</td>
+              <td>87.0</td>
+              <td>98.2</td>
+              <td>648.0</td>
+              <td>4.22e-236</td>
+          </tr>
+    
+          <tr>
+              <td>AAY93359.1</td>
+              <td>transporter,_major_facilitator_family</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000413/1">BGC0000413</a></td>
+              <td>NRP</td>
+              <td>72.0</td>
+              <td>98.5</td>
+              <td>548.0</td>
+              <td>1.58e-196</td>
+          </tr>
+    
+          <tr>
+              <td>AWR88433.1</td>
+              <td>putative_major_facilitator_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001522/1">BGC0001522</a></td>
+              <td>Polyketide</td>
+              <td>51.0</td>
+              <td>98.5</td>
+              <td>364.0</td>
+              <td>1.21e-123</td>
+          </tr>
+    
+          <tr>
+              <td>QTC09992.1</td>
+              <td>MFS_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002372/1">BGC0002372</a></td>
+              <td>Polyketide+Terpene+Alkaloid</td>
+              <td>41.0</td>
+              <td>93.7</td>
+              <td>238.0</td>
+              <td>1.25e-73</td>
+          </tr>
+    
+          <tr>
+              <td>ctg1_1</td>
+              <td></td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001849/1">BGC0001849</a></td>
+              <td>RiPP</td>
+              <td>33.0</td>
+              <td>104.0</td>
+              <td>164.0</td>
+              <td>1.59e-45</td>
+          </tr>
+    
+          <tr>
+              <td>AKA87336.1</td>
+              <td>major_facilitator_superfamily_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001735/1">BGC0001735</a></td>
+              <td>Other</td>
+              <td>32.0</td>
+              <td>92.7</td>
+              <td>137.0</td>
+              <td>1.85e-36</td>
+          </tr>
+    
+          <tr>
+              <td>AAG02345.1</td>
+              <td>putative_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000963/1">BGC0000963</a></td>
+              <td>NRP:Glycopeptide+Polyketide:Modular type I polyketide+Saccharide:Hybrid/tailoring saccharide</td>
+              <td>31.0</td>
+              <td>93.4</td>
+              <td>135.0</td>
+              <td>2.02e-35</td>
+          </tr>
+    
+          <tr>
+              <td>QTT72109.1</td>
+              <td>MFS_transporter</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002350/1">BGC0002350</a></td>
+              <td>NRP+Polyketide+Saccharide</td>
+              <td>31.0</td>
+              <td>93.4</td>
+              <td>135.0</td>
+              <td>2.02e-35</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

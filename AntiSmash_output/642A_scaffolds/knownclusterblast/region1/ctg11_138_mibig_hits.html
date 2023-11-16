@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>ALJ01860.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001285/1">BGC0001285</a></td>
+              <td>Other:Fatty acid</td>
+              <td>73.0</td>
+              <td>100.0</td>
+              <td>480.0</td>
+              <td>6.68e-172</td>
+          </tr>
+    
+          <tr>
+              <td>CAH10101.1</td>
+              <td>putative_6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000268/1">BGC0000268</a></td>
+              <td>Polyketide</td>
+              <td>47.0</td>
+              <td>100.9</td>
+              <td>294.0</td>
+              <td>6.39e-99</td>
+          </tr>
+    
+          <tr>
+              <td>ASZ00132.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001785/1">BGC0001785</a></td>
+              <td>Polyketide</td>
+              <td>37.0</td>
+              <td>93.9</td>
+              <td>181.0</td>
+              <td>9.96e-53</td>
+          </tr>
+    
+          <tr>
+              <td>BCB17052.1</td>
+              <td>putative_6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002523/1">BGC0002523</a></td>
+              <td>NRP</td>
+              <td>36.0</td>
+              <td>93.9</td>
+              <td>179.0</td>
+              <td>5.34e-52</td>
+          </tr>
+    
+          <tr>
+              <td>ACR50761.1</td>
+              <td>6-phosphogluconate_1-dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000163/1">BGC0000163</a></td>
+              <td>Polyketide</td>
+              <td>37.0</td>
+              <td>93.9</td>
+              <td>178.0</td>
+              <td>1.04e-51</td>
+          </tr>
+    
+          <tr>
+              <td>ABX51883.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000791/1">BGC0000791</a></td>
+              <td>Saccharide</td>
+              <td>33.0</td>
+              <td>99.4</td>
+              <td>167.0</td>
+              <td>1.39e-47</td>
+          </tr>
+    
+          <tr>
+              <td>AAV34527.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000788/1">BGC0000788</a></td>
+              <td>Saccharide</td>
+              <td>34.0</td>
+              <td>98.5</td>
+              <td>162.0</td>
+              <td>7.62e-46</td>
+          </tr>
+    
+          <tr>
+              <td>BAF47055.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000732/1">BGC0000732</a></td>
+              <td>Saccharide</td>
+              <td>32.0</td>
+              <td>98.5</td>
+              <td>157.0</td>
+              <td>7.99e-44</td>
+          </tr>
+    
+          <tr>
+              <td>BAF47072.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000733/1">BGC0000733</a></td>
+              <td>Saccharide</td>
+              <td>32.0</td>
+              <td>98.5</td>
+              <td>157.0</td>
+              <td>7.99e-44</td>
+          </tr>
+    
+          <tr>
+              <td>BAF46992.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000728/1">BGC0000728</a></td>
+              <td>Saccharide</td>
+              <td>32.0</td>
+              <td>98.5</td>
+              <td>156.0</td>
+              <td>1.11e-43</td>
+          </tr>
+    
+          <tr>
+              <td>BAF47008.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000729/1">BGC0000729</a></td>
+              <td>Saccharide</td>
+              <td>32.0</td>
+              <td>98.5</td>
+              <td>156.0</td>
+              <td>1.11e-43</td>
+          </tr>
+    
+          <tr>
+              <td>BAF47023.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000730/1">BGC0000730</a></td>
+              <td>Saccharide</td>
+              <td>32.0</td>
+              <td>99.4</td>
+              <td>156.0</td>
+              <td>1.55e-43</td>
+          </tr>
+    
+          <tr>
+              <td>BAF47038.1</td>
+              <td>6-phosphogluconate_dehydrogenase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000731/1">BGC0000731</a></td>
+              <td>Saccharide</td>
+              <td>32.0</td>
+              <td>99.4</td>
+              <td>156.0</td>
+              <td>1.55e-43</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

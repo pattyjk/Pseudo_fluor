@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>AAY93351.2</td>
+              <td>N(5)-hydroxyornithine_transformylase_PvdF</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000413/1">BGC0000413</a></td>
+              <td>NRP</td>
+              <td>91.0</td>
+              <td>98.5</td>
+              <td>508.0</td>
+              <td>2.15e-184</td>
+          </tr>
+    
+          <tr>
+              <td>ABE35419.1</td>
+              <td>conserved_hypothetical_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002421/1">BGC0002421</a></td>
+              <td>NRP</td>
+              <td>71.0</td>
+              <td>100.0</td>
+              <td>400.0</td>
+              <td>5.2e-142</td>
+          </tr>
+    
+          <tr>
+              <td>NKI69299.1</td>
+              <td>N(5)-hydroxyornithine_transformylase_PvdF</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002408/1">BGC0002408</a></td>
+              <td>NRP</td>
+              <td>70.0</td>
+              <td>97.5</td>
+              <td>388.0</td>
+              <td>3.01e-137</td>
+          </tr>
+    
+          <tr>
+              <td>WP_039806844.1</td>
+              <td>N(5)-hydroxyornithine_transformylase_PvdF</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002001/1">BGC0002001</a></td>
+              <td>NRP+Polyketide</td>
+              <td>67.0</td>
+              <td>98.9</td>
+              <td>374.0</td>
+              <td>1.88e-131</td>
+          </tr>
+    
+          <tr>
+              <td>ACS20354.1</td>
+              <td>conserved_hypothetical_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002420/1">BGC0002420</a></td>
+              <td>NRP+Polyketide</td>
+              <td>66.0</td>
+              <td>99.6</td>
+              <td>370.0</td>
+              <td>5.63e-130</td>
+          </tr>
+    
+          <tr>
+              <td>AGU50945.1</td>
+              <td>putative_formyl_transferase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002417/1">BGC0002417</a></td>
+              <td>NRP+Polyketide</td>
+              <td>67.0</td>
+              <td>98.9</td>
+              <td>368.0</td>
+              <td>3.24e-129</td>
+          </tr>
+    
+          <tr>
+              <td>ABX37374.1</td>
+              <td>conserved_hypothetical_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000984/1">BGC0000984</a></td>
+              <td>NRP+Polyketide</td>
+              <td>66.0</td>
+              <td>98.9</td>
+              <td>368.0</td>
+              <td>5.11e-129</td>
+          </tr>
+    
+          <tr>
+              <td>CAR51999.1</td>
+              <td>ornibactin_synthetase_F</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002569/1">BGC0002569</a></td>
+              <td>NRP</td>
+              <td>68.0</td>
+              <td>98.9</td>
+              <td>363.0</td>
+              <td>2.87e-127</td>
+          </tr>
+    
+          <tr>
+              <td>AUD11989.1</td>
+              <td>PvdF</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001721/1">BGC0001721</a></td>
+              <td>NRP</td>
+              <td>68.0</td>
+              <td>98.9</td>
+              <td>362.0</td>
+              <td>8.19e-127</td>
+          </tr>
+    
+          <tr>
+              <td>ABC39200.1</td>
+              <td>conserved_hypothetical_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000386/1">BGC0000386</a></td>
+              <td>NRP:NRP siderophore</td>
+              <td>72.0</td>
+              <td>87.6</td>
+              <td>356.0</td>
+              <td>5.12e-125</td>
+          </tr>
+    
+          <tr>
+              <td>ABM34273.1</td>
+              <td>conserved_hypothetical_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002419/1">BGC0002419</a></td>
+              <td>NRP+Polyketide</td>
+              <td>62.0</td>
+              <td>98.9</td>
+              <td>342.0</td>
+              <td>1.48e-118</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

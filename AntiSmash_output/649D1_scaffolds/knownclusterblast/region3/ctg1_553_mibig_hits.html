@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>QBQ12469.1</td>
+              <td>TetR/AcrR_family_transcriptional_regulator</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002693/1">BGC0002693</a></td>
+              <td>NRP</td>
+              <td>77.0</td>
+              <td>96.4</td>
+              <td>272.0</td>
+              <td>8.4e-94</td>
+          </tr>
+    
+          <tr>
+              <td>AAY93360.1</td>
+              <td>transcriptional_regulator,_TetR_family</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000413/1">BGC0000413</a></td>
+              <td>NRP</td>
+              <td>65.0</td>
+              <td>97.5</td>
+              <td>238.0</td>
+              <td>3.01e-80</td>
+          </tr>
+    
+          <tr>
+              <td>QXL90853.1</td>
+              <td>TetR_family_transcriptional_regulator</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002426/1">BGC0002426</a></td>
+              <td>NRP</td>
+              <td>34.0</td>
+              <td>94.4</td>
+              <td>99.0</td>
+              <td>9.41e-26</td>
+          </tr>
+    
+          <tr>
+              <td>AEW98130.1</td>
+              <td>transcriptional_regulator,_TetR_family</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002642/1">BGC0002642</a></td>
+              <td>Alkaloid</td>
+              <td>50.0</td>
+              <td>28.4</td>
+              <td>58.0</td>
+              <td>2.97e-10</td>
+          </tr>
+    
+          <tr>
+              <td>AEW98129.1</td>
+              <td>tetR_family_regulatory_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002642/1">BGC0002642</a></td>
+              <td>Alkaloid</td>
+              <td>46.0</td>
+              <td>28.4</td>
+              <td>52.0</td>
+              <td>2.85e-08</td>
+          </tr>
+    
+          <tr>
+              <td>AHW57764.1</td>
+              <td>PgaR4</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000262/1">BGC0000262</a></td>
+              <td>Polyketide:Type II polyketide+Saccharide:Hybrid/tailoring saccharide</td>
+              <td>36.0</td>
+              <td>36.5</td>
+              <td>45.0</td>
+              <td>9.31e-06</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

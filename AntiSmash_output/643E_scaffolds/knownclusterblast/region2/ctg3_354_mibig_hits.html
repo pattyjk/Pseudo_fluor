@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>AAY93446.1</td>
+              <td>RNA_polymerase_sigma-70_factor,_ECF_subfamily,_PvdS</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000413/1">BGC0000413</a></td>
+              <td>NRP</td>
+              <td>94.0</td>
+              <td>99.5</td>
+              <td>338.0</td>
+              <td>2.82e-120</td>
+          </tr>
+    
+          <tr>
+              <td>ACO78746.1</td>
+              <td>RNA_polymerase_sigma_factor,_ECF_subfamily,_PvdS-like_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002433/1">BGC0002433</a></td>
+              <td>NRP</td>
+              <td>70.0</td>
+              <td>86.9</td>
+              <td>226.0</td>
+              <td>1.37e-76</td>
+          </tr>
+    
+          <tr>
+              <td>WP_052263995.1</td>
+              <td>RNA_polymerase_factor_sigma-70</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002001/1">BGC0002001</a></td>
+              <td>NRP+Polyketide</td>
+              <td>66.0</td>
+              <td>92.3</td>
+              <td>216.0</td>
+              <td>5.13e-72</td>
+          </tr>
+    
+          <tr>
+              <td>CAQ71840.1</td>
+              <td>RNA_polymerase_sigma_factor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001189/1">BGC0001189</a></td>
+              <td>NRP</td>
+              <td>56.0</td>
+              <td>85.2</td>
+              <td>160.0</td>
+              <td>3.6e-50</td>
+          </tr>
+    
+          <tr>
+              <td>ADJ63837.1</td>
+              <td>ferric_regulator_sigma-24_subunit_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000424/1">BGC0000424</a></td>
+              <td>NRP:NRP siderophore</td>
+              <td>48.0</td>
+              <td>86.3</td>
+              <td>138.0</td>
+              <td>1.95e-41</td>
+          </tr>
+    
+          <tr>
+              <td>AJD47475.1</td>
+              <td>extracytoplasmic-function_sigma-70_factor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002418/1">BGC0002418</a></td>
+              <td>NRP+Polyketide</td>
+              <td>47.0</td>
+              <td>90.2</td>
+              <td>137.0</td>
+              <td>3.1e-41</td>
+          </tr>
+    
+          <tr>
+              <td>NAO96310.1</td>
+              <td>RNA_polymerase_factor_sigma-70</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002117/1">BGC0002117</a></td>
+              <td>NRP</td>
+              <td>45.0</td>
+              <td>90.7</td>
+              <td>130.0</td>
+              <td>2.74e-38</td>
+          </tr>
+    
+          <tr>
+              <td>ACS20368.1</td>
+              <td>RNA_polymerase,_sigma-24_subunit,_ECF_subfamily</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002420/1">BGC0002420</a></td>
+              <td>NRP+Polyketide</td>
+              <td>36.0</td>
+              <td>83.1</td>
+              <td>94.0</td>
+              <td>3.74e-24</td>
+          </tr>
+    
+          <tr>
+              <td>AGU50959.1</td>
+              <td>putative_RNA_polymerase_sigma_factor,_sigma-70_family</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002417/1">BGC0002417</a></td>
+              <td>NRP+Polyketide</td>
+              <td>35.0</td>
+              <td>83.1</td>
+              <td>91.0</td>
+              <td>4.1e-23</td>
+          </tr>
+    
+          <tr>
+              <td>ABM34284.1</td>
+              <td>RNA_polymerase,_sigma-24_subunit,_ECF_subfamily</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002419/1">BGC0002419</a></td>
+              <td>NRP+Polyketide</td>
+              <td>35.0</td>
+              <td>88.0</td>
+              <td>90.0</td>
+              <td>1.04e-22</td>
+          </tr>
+    
+          <tr>
+              <td>ABC94352.1</td>
+              <td>RNA_polymerase_sigma_factor_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000457/1">BGC0000457</a></td>
+              <td>NRP</td>
+              <td>34.0</td>
+              <td>84.7</td>
+              <td>89.0</td>
+              <td>5.08e-22</td>
+          </tr>
+    
+          <tr>
+              <td>ABX37390.1</td>
+              <td>RNA_polymerase,_sigma-24_subunit,_ECF_subfamily</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000984/1">BGC0000984</a></td>
+              <td>NRP+Polyketide</td>
+              <td>33.0</td>
+              <td>92.3</td>
+              <td>77.0</td>
+              <td>1.42e-17</td>
+          </tr>
+    
+          <tr>
+              <td>AAY93341.2</td>
+              <td>RNA_polymerase_sigma-70_factor,_ECF_subfamily,_FpvI</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000413/1">BGC0000413</a></td>
+              <td>NRP</td>
+              <td>36.0</td>
+              <td>76.5</td>
+              <td>73.0</td>
+              <td>3e-16</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

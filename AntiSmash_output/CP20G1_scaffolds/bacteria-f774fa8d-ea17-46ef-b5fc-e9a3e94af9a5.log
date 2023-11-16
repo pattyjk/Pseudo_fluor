@@ -1,0 +1,2384 @@
+INFO     08/11 17:20:05   antiSMASH version: 7.0.1
+INFO     08/11 17:20:05   diamond using executable: /usr/bin/diamond-aligner (2.0.7)
+INFO     08/11 17:20:05   hmmpfam2 using executable: /usr/bin/hmm2pfam (2.3.2)
+INFO     08/11 17:20:05   fasttree using executable: /usr/bin/fasttree
+INFO     08/11 17:20:05   hmmsearch using executable: /usr/bin/hmmsearch (3.3.2)
+INFO     08/11 17:20:05   hmmpress using executable: /usr/bin/hmmpress (3.3.2)
+INFO     08/11 17:20:05   hmmscan using executable: /usr/bin/hmmscan (3.3.2)
+INFO     08/11 17:20:06   meme using executable: /usr/bin/meme (4.11.2)
+INFO     08/11 17:20:06   fimo using executable: /usr/bin/fimo (4.11.2)
+INFO     08/11 17:20:06   glimmerhmm using executable: /usr/bin/glimmerhmm
+INFO     08/11 17:20:06   prodigal using executable: /usr/bin/prodigal (V2.6.3)
+INFO     08/11 17:20:06   blastp using executable: /usr/bin/blastp (2.11.0+)
+INFO     08/11 17:20:06   makeblastdb using executable: /usr/bin/makeblastdb (2.11.0+)
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.detection.hmm_detection
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/hmm_detection/data/bgc_seeds.hmm'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/hmm_detection/data/bgc_seeds.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/hmm_detection/data/bgc_seeds.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/hmm_detection/data/bgc_seeds.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/hmm_detection/data/bgc_seeds.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.detection.cluster_hmmer
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.detection.genefunctions
+DEBUG    08/11 17:20:06   Found file '/databases/resfam/Resfams.hmm'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/genefunctions/data/smcogs.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/genefunctions/data/smcogs.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/genefunctions/data/smcogs.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/genefunctions/data/smcogs.hmm.h3p'
+DEBUG    08/11 17:20:06   Found file '/databases/resfam/Resfams.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/databases/resfam/Resfams.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/databases/resfam/Resfams.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/databases/resfam/Resfams.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/abmotifs.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/abmotifs.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/abmotifs.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/abmotifs.hmm.h3p'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/dockingdomains.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/dockingdomains.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/dockingdomains.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/dockingdomains.hmm.h3p'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/ksdomains.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/ksdomains.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/ksdomains.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/ksdomains.hmm.h3p'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/nrpspksdomains.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/nrpspksdomains.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/nrpspksdomains.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/detection/nrps_pks_domains/data/nrpspksdomains.hmm.h3p'
+DEBUG    08/11 17:20:06   Found file '/databases/nrps_pks/transATor/2023.02.23/transATor.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/databases/nrps_pks/transATor/2023.02.23/transATor.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/databases/nrps_pks/transATor/2023.02.23/transATor.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/databases/nrps_pks/transATor/2023.02.23/transATor.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.detection.tigrfam
+DEBUG    08/11 17:20:06   Found file '/databases/tigrfam/TIGRFam.hmm'
+DEBUG    08/11 17:20:06   Found file '/databases/tigrfam/TIGRFam.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/databases/tigrfam/TIGRFam.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/databases/tigrfam/TIGRFam.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/databases/tigrfam/TIGRFam.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.active_site_finder
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/PKSI-KR.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/PKSI-KS_N.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/PKSI-KS_C.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/PKSI-AT.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/PKSI-ACP.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/PKSI-DH.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/Thioesterase.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/PKSI-ER.hmm2'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/active_site_finder/data/p450.hmm2'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.cluster_compare
+DEBUG    08/11 17:20:06   Found file '/databases/clustercompare/mibig/3.1/data.json'
+DEBUG    08/11 17:20:06   Found file '/databases/clustercompare/mibig/3.1/proteins.fasta'
+DEBUG    08/11 17:20:06   Found file '/databases/clustercompare/mibig/3.1/proteins.dmnd'
+DEBUG    08/11 17:20:06   Found file '/databases/clustercompare/mibig/3.1/proteins.dmnd'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.clusterblast
+DEBUG    08/11 17:20:06   Found file '/databases/knownclusterblast/3.1/clusters.txt'
+DEBUG    08/11 17:20:06   Found file '/databases/knownclusterblast/3.1/proteins.fasta'
+DEBUG    08/11 17:20:06   Found file '/databases/knownclusterblast/3.1/proteins.dmnd'
+DEBUG    08/11 17:20:06   Found file '/databases/knownclusterblast/3.1/proteins.dmnd'
+DEBUG    08/11 17:20:06   Found file '/databases/clusterblast/clusters.txt'
+DEBUG    08/11 17:20:06   Found file '/databases/clusterblast/proteins.fasta'
+DEBUG    08/11 17:20:06   Found file '/databases/clusterblast/proteins.dmnd'
+DEBUG    08/11 17:20:06   Found file '/databases/clusterblast/proteins.dmnd'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/clusterblast/data/sub/proteins.fasta'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/clusterblast/data/sub/proteins.fasta.phr'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/clusterblast/data/sub/proteins.fasta.pin'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/clusterblast/data/sub/proteins.fasta.psq'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/clusterblast/data/sub/clusters.txt'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.lanthipeptides
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/asdb/3.0/cores.fa.pdb'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/asdb/3.0/cores.fa.phr'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/asdb/3.0/cores.fa.pin'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/asdb/3.0/cores.fa.pot'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/asdb/3.0/cores.fa.psq'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/asdb/3.0/cores.fa.ptf'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/asdb/3.0/cores.fa.pto'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/mibig/3.1/cores.fa.pdb'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/mibig/3.1/cores.fa.phr'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/mibig/3.1/cores.fa.pin'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/mibig/3.1/cores.fa.pot'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/mibig/3.1/cores.fa.psq'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/mibig/3.1/cores.fa.ptf'
+DEBUG    08/11 17:20:06   Found file '/databases/comparippson/mibig/3.1/cores.fa.pto'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.lassopeptides
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.nrps_pks
+DEBUG    08/11 17:20:06   Found existing cache for /usr/local/lib/python3.9/dist-packages/antismash/modules/nrps_pks/data/terminals/cterm.fasta
+DEBUG    08/11 17:20:06   Found existing cache for /usr/local/lib/python3.9/dist-packages/antismash/modules/nrps_pks/data/terminals/nterm.fasta
+DEBUG    08/11 17:20:06   Found existing cache for /usr/local/lib/python3.9/dist-packages/antismash/modules/nrps_pks/at_analysis/data/AT_domains_muscle.fasta
+DEBUG    08/11 17:20:06   Found existing cache for /usr/local/lib/python3.9/dist-packages/antismash/modules/nrps_pks/kr_analysis/data/KRdomains_muscle.fasta
+DEBUG    08/11 17:20:06   Found existing cache for /usr/local/lib/python3.9/dist-packages/antismash/modules/nrps_pks/minowa/data/AT_domains_muscle.fasta
+DEBUG    08/11 17:20:06   Found existing cache for /usr/local/lib/python3.9/dist-packages/antismash/modules/nrps_pks/minowa/data/CAL_domains_muscle.fasta
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.pfam2go
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/pfam2go/data/pfam2go.txt'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.rrefinder
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/rrefinder/data/RREFam.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/rrefinder/data/RREFam.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/rrefinder/data/RREFam.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/rrefinder/data/RREFam.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.sactipeptides
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.t2pks
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/KSIII.fasta'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/KSIII.phr'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/KSIII.pin'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/KSIII.psq'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/AT.fasta'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/AT.phr'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/AT.pin'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/AT.psq'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/LIG.fasta'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/LIG.phr'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/LIG.pin'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/LIG.psq'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/t2pks.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/t2pks.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/t2pks.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/t2pks/data/t2pks.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.tfbs_finder
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/tfbs_finder/data/PWMs.json'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.thiopeptides
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/thiopeptides/data/thiopep3.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/thiopeptides/data/thiopep3.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/thiopeptides/data/thiopep3.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/modules/thiopeptides/data/thiopep3.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.modules.tta
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.outputs.html
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/outputs/html/css/bacteria.css'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/outputs/html/css/fungi.css'
+DEBUG    08/11 17:20:06   Found file '/usr/local/lib/python3.9/dist-packages/antismash/outputs/html/css/plants.css'
+DEBUG    08/11 17:20:06   Checking prerequisites for antismash.support.genefinding
+DEBUG    08/11 17:20:06   Checking options for antismash.detection.hmm_detection
+DEBUG    08/11 17:20:06   Checking options for antismash.detection.cluster_hmmer
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3f'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3i'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3m'
+DEBUG    08/11 17:20:06   Found file '/databases/pfam/34.0/Pfam-A.hmm.h3p'
+DEBUG    08/11 17:20:06   Checking options for antismash.detection.genefunctions
+DEBUG    08/11 17:20:06   Checking options for antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:20:06   Checking options for antismash.detection.tigrfam
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.active_site_finder
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.cluster_compare
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.clusterblast
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.lanthipeptides
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.lassopeptides
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.nrps_pks
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.pfam2go
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.rrefinder
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.sactipeptides
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.t2pks
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.tfbs_finder
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.thiopeptides
+DEBUG    08/11 17:20:06   Checking options for antismash.modules.tta
+DEBUG    08/11 17:20:06   Checking options for antismash.outputs.html
+DEBUG    08/11 17:20:06   Checking options for antismash.support.genefinding
+INFO     08/11 17:20:06   Parsing input sequence '/input/CP20G1_scaffolds.fasta'
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_1_length_569647_cov_16.587361
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_2_length_544347_cov_16.593417
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_3_length_428420_cov_16.431348
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_4_length_232437_cov_16.418665
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_5_length_227148_cov_16.635422
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_6_length_205188_cov_16.353711
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_7_length_203193_cov_15.855122
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_8_length_181652_cov_16.887347
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_9_length_176584_cov_16.744667
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_10_length_174116_cov_16.063296
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_11_length_171011_cov_16.504856
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_12_length_166829_cov_16.162697
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_13_length_165086_cov_15.928919
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_14_length_152846_cov_16.360283
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_15_length_152452_cov_16.393962
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_16_length_145452_cov_15.889651
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_17_length_143685_cov_16.294329
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_18_length_127195_cov_16.321025
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_19_length_120742_cov_15.801981
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_20_length_116855_cov_15.947379
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_21_length_98204_cov_16.278191
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_22_length_94856_cov_16.493917
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_23_length_94671_cov_16.403852
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_24_length_91144_cov_17.128817
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_25_length_89731_cov_16.221842
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_26_length_86667_cov_16.664857
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_27_length_85968_cov_17.305829
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_28_length_85394_cov_15.868408
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_29_length_85377_cov_16.556096
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_30_length_82815_cov_16.201117
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_31_length_76092_cov_17.396527
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_32_length_74852_cov_16.033086
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_33_length_74167_cov_16.505223
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_34_length_71091_cov_17.688484
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_35_length_68714_cov_15.419293
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_36_length_62456_cov_17.305215
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_37_length_61070_cov_16.627597
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_38_length_59616_cov_16.640101
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_39_length_51766_cov_16.545551
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_40_length_48741_cov_14.230910
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_41_length_46665_cov_16.059157
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_42_length_43334_cov_15.972929
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_43_length_43242_cov_16.145419
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_44_length_33645_cov_16.615259
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_45_length_33627_cov_15.684918
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_46_length_32526_cov_16.653549
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_47_length_32407_cov_16.512001
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_48_length_30915_cov_15.818017
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_49_length_29569_cov_15.366371
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_50_length_28167_cov_16.472695
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_51_length_26747_cov_15.745444
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_52_length_23283_cov_16.126605
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_53_length_22560_cov_14.651870
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_54_length_21212_cov_15.226591
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_55_length_20102_cov_15.119051
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_56_length_19464_cov_15.687419
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_57_length_17380_cov_18.983471
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_58_length_12297_cov_16.341817
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_59_length_10400_cov_16.970842
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_60_length_9942_cov_15.968779
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_61_length_8282_cov_14.669470
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_62_length_7662_cov_13.762426
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_63_length_7111_cov_17.232300
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_64_length_4990_cov_118.718298
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_65_length_3769_cov_16.846154
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_66_length_2579_cov_28.892886
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_67_length_2238_cov_15.341509
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_68_length_1871_cov_33.463211
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_69_length_1286_cov_18.321754
+DEBUG    08/11 17:20:06   Stripping antiSMASH features and annotations from record: NODE_70_length_1204_cov_32.156167
+DEBUG    08/11 17:20:06   Converting records from biopython to secmet
+DEBUG    08/11 17:20:07   Removing existing region genbank files
+DEBUG    08/11 17:20:07   Reusing output directory: /data/antismash/upload/bacteria-f774fa8d-ea17-46ef-b5fc-e9a3e94af9a5
+DEBUG    08/11 17:20:07   Preprocessing 70 sequences
+DEBUG    08/11 17:20:07   Sanitising record ids and sequences
+DEBUG    08/11 17:20:07   Removing sequences smaller than 1000 bases
+DEBUG    08/11 17:20:07   Ensuring records have CDS features with all required information
+INFO     08/11 17:20:07   No CDS features found in record 'NODE_1_length_569647_cov_16.587361', running gene finding.
+DEBUG    08/11 17:20:07   Running prodigal based genefinding
+INFO     08/11 17:20:07   No CDS features found in record 'NODE_6_length_205188_cov_16.353711', running gene finding.
+DEBUG    08/11 17:20:07   Running prodigal based genefinding
+INFO     08/11 17:20:07   No CDS features found in record 'NODE_11_length_171011_cov_16.504856', running gene finding.
+DEBUG    08/11 17:20:07   Running prodigal based genefinding
+INFO     08/11 17:20:07   No CDS features found in record 'NODE_16_length_145452_cov_15.889651', running gene finding.
+DEBUG    08/11 17:20:07   Running prodigal based genefinding
+DEBUG    08/11 17:20:08   prodigal found 122 CDS features
+INFO     08/11 17:20:08   No CDS features found in record 'NODE_17_length_143685_cov_16.294329', running gene finding.
+DEBUG    08/11 17:20:08   Running prodigal based genefinding
+DEBUG    08/11 17:20:08   prodigal found 169 CDS features
+INFO     08/11 17:20:08   No CDS features found in record 'NODE_12_length_166829_cov_16.162697', running gene finding.
+DEBUG    08/11 17:20:08   Running prodigal based genefinding
+DEBUG    08/11 17:20:08   prodigal found 189 CDS features
+INFO     08/11 17:20:08   No CDS features found in record 'NODE_7_length_203193_cov_15.855122', running gene finding.
+DEBUG    08/11 17:20:08   Running prodigal based genefinding
+DEBUG    08/11 17:20:08   prodigal found 130 CDS features
+INFO     08/11 17:20:08   No CDS features found in record 'NODE_18_length_127195_cov_16.321025', running gene finding.
+DEBUG    08/11 17:20:08   Running prodigal based genefinding
+DEBUG    08/11 17:20:09   prodigal found 167 CDS features
+INFO     08/11 17:20:09   No CDS features found in record 'NODE_13_length_165086_cov_15.928919', running gene finding.
+DEBUG    08/11 17:20:09   Running prodigal based genefinding
+DEBUG    08/11 17:20:09   prodigal found 200 CDS features
+INFO     08/11 17:20:09   No CDS features found in record 'NODE_8_length_181652_cov_16.887347', running gene finding.
+DEBUG    08/11 17:20:09   Running prodigal based genefinding
+DEBUG    08/11 17:20:09   prodigal found 89 CDS features
+INFO     08/11 17:20:09   No CDS features found in record 'NODE_19_length_120742_cov_15.801981', running gene finding.
+DEBUG    08/11 17:20:09   Running prodigal based genefinding
+DEBUG    08/11 17:20:10   prodigal found 158 CDS features
+INFO     08/11 17:20:10   No CDS features found in record 'NODE_14_length_152846_cov_16.360283', running gene finding.
+DEBUG    08/11 17:20:10   Running prodigal based genefinding
+DEBUG    08/11 17:20:10   prodigal found 111 CDS features
+INFO     08/11 17:20:10   No CDS features found in record 'NODE_20_length_116855_cov_15.947379', running gene finding.
+DEBUG    08/11 17:20:10   Running prodigal based genefinding
+DEBUG    08/11 17:20:10   prodigal found 528 CDS features
+INFO     08/11 17:20:10   No CDS features found in record 'NODE_2_length_544347_cov_16.593417', running gene finding.
+DEBUG    08/11 17:20:10   Running prodigal based genefinding
+DEBUG    08/11 17:20:10   prodigal found 146 CDS features
+INFO     08/11 17:20:10   No CDS features found in record 'NODE_9_length_176584_cov_16.744667', running gene finding.
+DEBUG    08/11 17:20:10   Running prodigal based genefinding
+DEBUG    08/11 17:20:10   prodigal found 129 CDS features
+INFO     08/11 17:20:10   No CDS features found in record 'NODE_15_length_152452_cov_16.393962', running gene finding.
+DEBUG    08/11 17:20:10   Running prodigal based genefinding
+DEBUG    08/11 17:20:10   prodigal found 113 CDS features
+INFO     08/11 17:20:10   No CDS features found in record 'NODE_21_length_98204_cov_16.278191', running gene finding.
+DEBUG    08/11 17:20:10   Running prodigal based genefinding
+DEBUG    08/11 17:20:11   prodigal found 139 CDS features
+INFO     08/11 17:20:11   No CDS features found in record 'NODE_10_length_174116_cov_16.063296', running gene finding.
+DEBUG    08/11 17:20:11   Running prodigal based genefinding
+DEBUG    08/11 17:20:11   prodigal found 94 CDS features
+INFO     08/11 17:20:11   No CDS features found in record 'NODE_22_length_94856_cov_16.493917', running gene finding.
+DEBUG    08/11 17:20:11   Running prodigal based genefinding
+DEBUG    08/11 17:20:11   prodigal found 148 CDS features
+INFO     08/11 17:20:11   No CDS features found in record 'NODE_26_length_86667_cov_16.664857', running gene finding.
+DEBUG    08/11 17:20:11   Running prodigal based genefinding
+DEBUG    08/11 17:20:11   prodigal found 98 CDS features
+INFO     08/11 17:20:11   No CDS features found in record 'NODE_23_length_94671_cov_16.403852', running gene finding.
+DEBUG    08/11 17:20:11   Running prodigal based genefinding
+DEBUG    08/11 17:20:11   prodigal found 76 CDS features
+INFO     08/11 17:20:11   No CDS features found in record 'NODE_27_length_85968_cov_17.305829', running gene finding.
+DEBUG    08/11 17:20:11   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 157 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_31_length_76092_cov_17.396527', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 85 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_24_length_91144_cov_17.128817', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 48 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_28_length_85394_cov_15.868408', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 83 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_32_length_74852_cov_16.033086', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 95 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_25_length_89731_cov_16.221842', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 79 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_29_length_85377_cov_16.556096', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 65 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_33_length_74167_cov_16.505223', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:12   prodigal found 483 CDS features
+INFO     08/11 17:20:12   No CDS features found in record 'NODE_3_length_428420_cov_16.431348', running gene finding.
+DEBUG    08/11 17:20:12   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 91 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_36_length_62456_cov_17.305215', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 46 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_34_length_71091_cov_17.688484', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 88 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_30_length_82815_cov_16.201117', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 63 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_37_length_61070_cov_16.627597', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 94 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_35_length_68714_cov_15.419293', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 78 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_41_length_46665_cov_16.059157', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 53 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_38_length_59616_cov_16.640101', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 45 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_42_length_43334_cov_15.972929', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:13   prodigal found 60 CDS features
+INFO     08/11 17:20:13   No CDS features found in record 'NODE_46_length_32526_cov_16.653549', running gene finding.
+DEBUG    08/11 17:20:13   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 53 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_39_length_51766_cov_16.545551', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 35 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_47_length_32407_cov_16.512001', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 39 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_43_length_43242_cov_16.145419', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 27 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_48_length_30915_cov_15.818017', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 48 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_40_length_48741_cov_14.230910', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 44 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_44_length_33645_cov_16.615259', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 48 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_49_length_29569_cov_15.366371', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 38 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_45_length_33627_cov_15.684918', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 50 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_51_length_26747_cov_15.745444', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 30 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_50_length_28167_cov_16.472695', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 28 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_56_length_19464_cov_15.687419', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 26 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_52_length_23283_cov_16.126605', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 44 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_61_length_8282_cov_14.669470', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 23 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_53_length_22560_cov_14.651870', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 10 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_62_length_7662_cov_13.762426', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 6 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_63_length_7111_cov_17.232300', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:14   prodigal found 371 CDS features
+INFO     08/11 17:20:14   No CDS features found in record 'NODE_4_length_232437_cov_16.418665', running gene finding.
+DEBUG    08/11 17:20:14   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 18 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_57_length_17380_cov_18.983471', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 17 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_54_length_21212_cov_15.226591', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 4 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_64_length_4990_cov_118.718298', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 1 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_65_length_3769_cov_16.846154', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 17 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_55_length_20102_cov_15.119051', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 4 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_66_length_2579_cov_28.892886', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 10 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_58_length_12297_cov_16.341817', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 1 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_67_length_2238_cov_15.341509', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 17 CDS features
+DEBUG    08/11 17:20:15   prodigal found 2 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_68_length_1871_cov_33.463211', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 3 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_69_length_1286_cov_18.321754', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 7 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_59_length_10400_cov_16.970842', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 1 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_70_length_1204_cov_32.156167', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 2 CDS features
+DEBUG    08/11 17:20:15   prodigal found 8 CDS features
+INFO     08/11 17:20:15   No CDS features found in record 'NODE_60_length_9942_cov_15.968779', running gene finding.
+DEBUG    08/11 17:20:15   Running prodigal based genefinding
+DEBUG    08/11 17:20:15   prodigal found 10 CDS features
+DEBUG    08/11 17:20:16   prodigal found 218 CDS features
+INFO     08/11 17:20:16   No CDS features found in record 'NODE_5_length_227148_cov_16.635422', running gene finding.
+DEBUG    08/11 17:20:16   Running prodigal based genefinding
+DEBUG    08/11 17:20:17   prodigal found 194 CDS features
+INFO     08/11 17:20:17   Analysing record: NODE_1_length_569647_cov_16.587361
+INFO     08/11 17:20:17   Detecting secondary metabolite clusters
+DEBUG    08/11 17:20:17   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:20:17   Running antismash.detection.hmm_detection
+INFO     08/11 17:20:17   HMM detection using strictness: relaxed
+DEBUG    08/11 17:20:19   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:20:19   1 protoclusters found
+DEBUG    08/11 17:20:19   0 subregions found
+INFO     08/11 17:20:19   1 region(s) detected in record
+DEBUG    08/11 17:20:19   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:20:19   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:20:19   Running cluster PFAM search
+DEBUG    08/11 17:20:22   Building name mapping for HMMer database Pfam-A.hmm
+DEBUG    08/11 17:20:25   Building cutoff mapping for HMMer database /databases/pfam/34.0/Pfam-A.hmm
+DEBUG    08/11 17:20:27   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:20:27   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:20:27   Running antismash.detection.genefunctions
+DEBUG    08/11 17:20:28   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:20:28   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:20:28   annotating CDS features with smcogs info: 2 CDSes
+DEBUG    08/11 17:20:28   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:20:28   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:20:28   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:20:28   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:20:28   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:20:28   Running antismash.detection.tigrfam
+INFO     08/11 17:20:28   Running TIGRFam search
+DEBUG    08/11 17:20:29   Building name mapping for HMMer database TIGRFam.hmm
+DEBUG    08/11 17:20:30   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:20:30   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:20:30   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:20:30   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:20:30   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:20:30   Loading comparison database: MIBiG
+DEBUG    08/11 17:20:31   Comparison database loaded
+INFO     08/11 17:20:31   Comparing regions to reference database
+DEBUG    08/11 17:20:32   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:20:32   Running antismash.modules.clusterblast
+INFO     08/11 17:20:32   Finding internal homologs in each gene cluster...
+INFO     08/11 17:20:33   Running ClusterBlast
+INFO     08/11 17:20:33   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:20:35   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:20:46   Comparing regions to reference database
+INFO     08/11 17:21:38   Running subcluster search
+INFO     08/11 17:21:38   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:21:38   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:21:39   Running known cluster search
+INFO     08/11 17:21:39   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:21:39   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:21:40   Running DIAMOND knowncluster searches..
+INFO     08/11 17:21:40   Comparing regions to reference database
+DEBUG    08/11 17:21:42   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:21:42   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:21:42   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:21:43   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:21:43   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:21:44   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:21:44   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:21:44   Running antismash.modules.nrps_pks
+DEBUG    08/11 17:21:44   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:21:44   Running antismash.modules.pfam2go
+DEBUG    08/11 17:21:44   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:21:44   Running antismash.modules.rrefinder
+DEBUG    08/11 17:21:44   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:21:44   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:21:44   Found no sactipeptide motifs
+DEBUG    08/11 17:21:45   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:21:45   Running antismash.modules.t2pks
+DEBUG    08/11 17:21:45   No type II PKS clusters to analyze
+DEBUG    08/11 17:21:45   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:21:45   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:21:45   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:21:45   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:21:45   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:21:46   Checking if antismash.modules.tta should be run
+INFO     08/11 17:21:46   Running antismash.modules.tta
+INFO     08/11 17:21:47   Skipping TTA codon detection, GC content too low: 60%
+INFO     08/11 17:21:47   Analysing record: NODE_2_length_544347_cov_16.593417
+INFO     08/11 17:21:47   Detecting secondary metabolite clusters
+DEBUG    08/11 17:21:47   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:21:47   Running antismash.detection.hmm_detection
+INFO     08/11 17:21:47   HMM detection using strictness: relaxed
+DEBUG    08/11 17:21:49   3 rule-based cluster(s) found in record
+DEBUG    08/11 17:21:49   3 protoclusters found
+DEBUG    08/11 17:21:49   0 subregions found
+INFO     08/11 17:21:49   3 region(s) detected in record
+DEBUG    08/11 17:21:49   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:21:49   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:21:49   Running cluster PFAM search
+DEBUG    08/11 17:22:10   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:22:10   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:22:10   Running antismash.detection.genefunctions
+DEBUG    08/11 17:22:12   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:22:12   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:22:12   annotating CDS features with smcogs info: 27 CDSes
+DEBUG    08/11 17:22:12   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:22:12   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:22:12   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:22:12   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:22:12   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:22:12   Running antismash.detection.tigrfam
+INFO     08/11 17:22:12   Running TIGRFam search
+DEBUG    08/11 17:22:19   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:22:19   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:22:19   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:22:19   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:22:19   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:22:19   Loading comparison database: MIBiG
+DEBUG    08/11 17:22:19   Comparison database loaded
+INFO     08/11 17:22:19   Comparing regions to reference database
+DEBUG    08/11 17:22:22   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:22:22   Running antismash.modules.clusterblast
+INFO     08/11 17:22:22   Finding internal homologs in each gene cluster...
+INFO     08/11 17:22:25   Running ClusterBlast
+INFO     08/11 17:22:25   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:22:26   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:22:38   Comparing regions to reference database
+INFO     08/11 17:23:47   Running subcluster search
+INFO     08/11 17:23:47   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:23:47   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:23:51   Running known cluster search
+INFO     08/11 17:23:51   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:23:51   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:23:51   Running DIAMOND knowncluster searches..
+INFO     08/11 17:23:51   Comparing regions to reference database
+DEBUG    08/11 17:23:55   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:23:55   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:23:55   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:23:56   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:23:56   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:23:58   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:23:58   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:23:58   Running antismash.modules.nrps_pks
+INFO     08/11 17:23:58   Predicting A domain substrate specificities with nrpys
+INFO     08/11 17:23:58   Predicting CAL domain substrate specificities by Minowa et al. method
+INFO     08/11 17:23:59   Predicting PKS KR activity and stereochemistry using KR fingerprints from Starcevic et al.
+DEBUG    08/11 17:23:59   missing NH2 from SMILES parts for domain nrpspksdomains_ctg2_91_CAL_domain.1
+DEBUG    08/11 17:23:59   CandidateCluster 2 monomer ordering method: colinear
+DEBUG    08/11 17:23:59   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:23:59   Running antismash.modules.pfam2go
+DEBUG    08/11 17:23:59   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:23:59   Running antismash.modules.rrefinder
+DEBUG    08/11 17:23:59   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:23:59   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:23:59   Found no sactipeptide motifs
+DEBUG    08/11 17:24:01   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:24:01   Running antismash.modules.t2pks
+DEBUG    08/11 17:24:01   No type II PKS clusters to analyze
+DEBUG    08/11 17:24:01   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:24:01   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:24:01   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:24:01   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:24:01   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:24:02   Checking if antismash.modules.tta should be run
+INFO     08/11 17:24:02   Running antismash.modules.tta
+INFO     08/11 17:24:02   Skipping TTA codon detection, GC content too low: 59%
+INFO     08/11 17:24:02   Analysing record: NODE_3_length_428420_cov_16.431348
+INFO     08/11 17:24:02   Detecting secondary metabolite clusters
+DEBUG    08/11 17:24:02   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:24:02   Running antismash.detection.hmm_detection
+INFO     08/11 17:24:02   HMM detection using strictness: relaxed
+DEBUG    08/11 17:24:04   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:24:04   0 protoclusters found
+DEBUG    08/11 17:24:04   0 subregions found
+INFO     08/11 17:24:04   No regions detected, skipping record
+INFO     08/11 17:24:04   Analysing record: NODE_4_length_232437_cov_16.418665
+INFO     08/11 17:24:04   Detecting secondary metabolite clusters
+DEBUG    08/11 17:24:04   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:24:04   Running antismash.detection.hmm_detection
+INFO     08/11 17:24:04   HMM detection using strictness: relaxed
+DEBUG    08/11 17:24:05   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:24:05   0 protoclusters found
+DEBUG    08/11 17:24:05   0 subregions found
+INFO     08/11 17:24:05   No regions detected, skipping record
+INFO     08/11 17:24:05   Analysing record: NODE_5_length_227148_cov_16.635422
+INFO     08/11 17:24:05   Detecting secondary metabolite clusters
+DEBUG    08/11 17:24:05   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:24:05   Running antismash.detection.hmm_detection
+INFO     08/11 17:24:05   HMM detection using strictness: relaxed
+DEBUG    08/11 17:24:06   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:24:06   0 protoclusters found
+DEBUG    08/11 17:24:06   0 subregions found
+INFO     08/11 17:24:06   No regions detected, skipping record
+INFO     08/11 17:24:06   Analysing record: NODE_6_length_205188_cov_16.353711
+INFO     08/11 17:24:06   Detecting secondary metabolite clusters
+DEBUG    08/11 17:24:06   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:24:06   Running antismash.detection.hmm_detection
+INFO     08/11 17:24:06   HMM detection using strictness: relaxed
+DEBUG    08/11 17:24:07   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:24:07   0 protoclusters found
+DEBUG    08/11 17:24:07   0 subregions found
+INFO     08/11 17:24:07   No regions detected, skipping record
+INFO     08/11 17:24:07   Analysing record: NODE_7_length_203193_cov_15.855122
+INFO     08/11 17:24:07   Detecting secondary metabolite clusters
+DEBUG    08/11 17:24:07   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:24:07   Running antismash.detection.hmm_detection
+INFO     08/11 17:24:07   HMM detection using strictness: relaxed
+DEBUG    08/11 17:24:08   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:24:08   0 protoclusters found
+DEBUG    08/11 17:24:08   0 subregions found
+INFO     08/11 17:24:08   No regions detected, skipping record
+INFO     08/11 17:24:08   Analysing record: NODE_8_length_181652_cov_16.887347
+INFO     08/11 17:24:08   Detecting secondary metabolite clusters
+DEBUG    08/11 17:24:08   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:24:08   Running antismash.detection.hmm_detection
+INFO     08/11 17:24:08   HMM detection using strictness: relaxed
+DEBUG    08/11 17:24:09   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:24:09   0 protoclusters found
+DEBUG    08/11 17:24:09   0 subregions found
+INFO     08/11 17:24:09   No regions detected, skipping record
+INFO     08/11 17:24:09   Analysing record: NODE_9_length_176584_cov_16.744667
+INFO     08/11 17:24:09   Detecting secondary metabolite clusters
+DEBUG    08/11 17:24:09   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:24:09   Running antismash.detection.hmm_detection
+INFO     08/11 17:24:09   HMM detection using strictness: relaxed
+DEBUG    08/11 17:24:11   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:24:11   1 protoclusters found
+DEBUG    08/11 17:24:11   0 subregions found
+INFO     08/11 17:24:11   1 region(s) detected in record
+DEBUG    08/11 17:24:11   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:24:11   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:24:11   Running cluster PFAM search
+DEBUG    08/11 17:24:24   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:24:24   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:24:24   Running antismash.detection.genefunctions
+DEBUG    08/11 17:24:25   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:24:25   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:24:25   annotating CDS features with smcogs info: 13 CDSes
+DEBUG    08/11 17:24:25   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:24:25   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:24:25   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:24:26   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:24:26   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:24:26   Running antismash.detection.tigrfam
+INFO     08/11 17:24:26   Running TIGRFam search
+DEBUG    08/11 17:24:29   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:24:29   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:24:29   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:24:30   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:24:30   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:24:30   Loading comparison database: MIBiG
+DEBUG    08/11 17:24:30   Comparison database loaded
+INFO     08/11 17:24:30   Comparing regions to reference database
+DEBUG    08/11 17:24:31   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:24:31   Running antismash.modules.clusterblast
+INFO     08/11 17:24:31   Finding internal homologs in each gene cluster...
+INFO     08/11 17:24:32   Running ClusterBlast
+INFO     08/11 17:24:32   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:24:33   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:24:45   Comparing regions to reference database
+INFO     08/11 17:25:38   Running subcluster search
+INFO     08/11 17:25:38   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:25:38   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:25:39   Running known cluster search
+INFO     08/11 17:25:39   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:25:39   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:25:40   Running DIAMOND knowncluster searches..
+INFO     08/11 17:25:40   Comparing regions to reference database
+DEBUG    08/11 17:25:42   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:25:42   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:25:42   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:25:43   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:25:43   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:25:44   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:25:44   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:25:44   Running antismash.modules.nrps_pks
+INFO     08/11 17:25:44   Predicting A domain substrate specificities with nrpys
+INFO     08/11 17:25:44   Predicting CAL domain substrate specificities by Minowa et al. method
+INFO     08/11 17:25:44   Predicting PKS KR activity and stereochemistry using KR fingerprints from Starcevic et al.
+DEBUG    08/11 17:25:44   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:25:44   Running antismash.modules.pfam2go
+DEBUG    08/11 17:25:44   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:25:44   Running antismash.modules.rrefinder
+DEBUG    08/11 17:25:44   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:25:44   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:25:44   Found no sactipeptide motifs
+DEBUG    08/11 17:25:46   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:25:46   Running antismash.modules.t2pks
+DEBUG    08/11 17:25:46   No type II PKS clusters to analyze
+DEBUG    08/11 17:25:46   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:25:46   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:25:46   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:25:46   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:25:46   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:25:47   Checking if antismash.modules.tta should be run
+INFO     08/11 17:25:47   Running antismash.modules.tta
+INFO     08/11 17:25:47   Skipping TTA codon detection, GC content too low: 61%
+INFO     08/11 17:25:47   Analysing record: NODE_10_length_174116_cov_16.063296
+INFO     08/11 17:25:47   Detecting secondary metabolite clusters
+DEBUG    08/11 17:25:47   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:25:47   Running antismash.detection.hmm_detection
+INFO     08/11 17:25:47   HMM detection using strictness: relaxed
+DEBUG    08/11 17:25:48   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:25:48   0 protoclusters found
+DEBUG    08/11 17:25:48   0 subregions found
+INFO     08/11 17:25:48   No regions detected, skipping record
+INFO     08/11 17:25:48   Analysing record: NODE_11_length_171011_cov_16.504856
+INFO     08/11 17:25:48   Detecting secondary metabolite clusters
+DEBUG    08/11 17:25:48   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:25:48   Running antismash.detection.hmm_detection
+INFO     08/11 17:25:48   HMM detection using strictness: relaxed
+DEBUG    08/11 17:25:49   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:25:49   0 protoclusters found
+DEBUG    08/11 17:25:49   0 subregions found
+INFO     08/11 17:25:49   No regions detected, skipping record
+INFO     08/11 17:25:49   Analysing record: NODE_12_length_166829_cov_16.162697
+INFO     08/11 17:25:49   Detecting secondary metabolite clusters
+DEBUG    08/11 17:25:49   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:25:49   Running antismash.detection.hmm_detection
+INFO     08/11 17:25:49   HMM detection using strictness: relaxed
+DEBUG    08/11 17:25:50   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:25:50   0 protoclusters found
+DEBUG    08/11 17:25:50   0 subregions found
+INFO     08/11 17:25:50   No regions detected, skipping record
+INFO     08/11 17:25:50   Analysing record: NODE_13_length_165086_cov_15.928919
+INFO     08/11 17:25:50   Detecting secondary metabolite clusters
+DEBUG    08/11 17:25:50   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:25:50   Running antismash.detection.hmm_detection
+INFO     08/11 17:25:50   HMM detection using strictness: relaxed
+DEBUG    08/11 17:25:51   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:25:51   0 protoclusters found
+DEBUG    08/11 17:25:51   0 subregions found
+INFO     08/11 17:25:51   No regions detected, skipping record
+INFO     08/11 17:25:51   Analysing record: NODE_14_length_152846_cov_16.360283
+INFO     08/11 17:25:51   Detecting secondary metabolite clusters
+DEBUG    08/11 17:25:51   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:25:51   Running antismash.detection.hmm_detection
+INFO     08/11 17:25:51   HMM detection using strictness: relaxed
+DEBUG    08/11 17:25:52   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:25:52   0 protoclusters found
+DEBUG    08/11 17:25:52   0 subregions found
+INFO     08/11 17:25:52   No regions detected, skipping record
+INFO     08/11 17:25:52   Analysing record: NODE_15_length_152452_cov_16.393962
+INFO     08/11 17:25:52   Detecting secondary metabolite clusters
+DEBUG    08/11 17:25:52   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:25:52   Running antismash.detection.hmm_detection
+INFO     08/11 17:25:52   HMM detection using strictness: relaxed
+DEBUG    08/11 17:25:53   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:25:53   0 protoclusters found
+DEBUG    08/11 17:25:53   0 subregions found
+INFO     08/11 17:25:53   No regions detected, skipping record
+INFO     08/11 17:25:53   Analysing record: NODE_16_length_145452_cov_15.889651
+INFO     08/11 17:25:53   Detecting secondary metabolite clusters
+DEBUG    08/11 17:25:53   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:25:53   Running antismash.detection.hmm_detection
+INFO     08/11 17:25:53   HMM detection using strictness: relaxed
+DEBUG    08/11 17:25:54   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:25:54   1 protoclusters found
+DEBUG    08/11 17:25:54   0 subregions found
+INFO     08/11 17:25:54   1 region(s) detected in record
+DEBUG    08/11 17:25:54   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:25:54   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:25:54   Running cluster PFAM search
+DEBUG    08/11 17:26:00   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:26:00   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:26:00   Running antismash.detection.genefunctions
+DEBUG    08/11 17:26:01   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:26:01   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:26:01   annotating CDS features with smcogs info: 9 CDSes
+DEBUG    08/11 17:26:01   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:26:01   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:26:01   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:26:01   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:26:01   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:26:01   Running antismash.detection.tigrfam
+INFO     08/11 17:26:01   Running TIGRFam search
+DEBUG    08/11 17:26:03   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:26:03   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:26:03   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:26:03   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:26:03   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:26:03   Loading comparison database: MIBiG
+DEBUG    08/11 17:26:03   Comparison database loaded
+INFO     08/11 17:26:03   Comparing regions to reference database
+DEBUG    08/11 17:26:04   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:26:04   Running antismash.modules.clusterblast
+INFO     08/11 17:26:04   Finding internal homologs in each gene cluster...
+INFO     08/11 17:26:05   Running ClusterBlast
+INFO     08/11 17:26:05   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:26:07   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:26:18   Comparing regions to reference database
+INFO     08/11 17:27:12   Running subcluster search
+INFO     08/11 17:27:12   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:27:12   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:27:14   Running known cluster search
+INFO     08/11 17:27:14   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:27:14   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:27:14   Running DIAMOND knowncluster searches..
+INFO     08/11 17:27:14   Comparing regions to reference database
+DEBUG    08/11 17:27:16   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:27:16   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:27:16   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:27:17   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:27:17   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:27:18   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:27:18   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:27:18   Running antismash.modules.nrps_pks
+INFO     08/11 17:27:18   Predicting A domain substrate specificities with nrpys
+DEBUG    08/11 17:27:18   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:27:18   Running antismash.modules.pfam2go
+DEBUG    08/11 17:27:18   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:27:18   Running antismash.modules.rrefinder
+DEBUG    08/11 17:27:18   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:27:18   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:27:18   Found no sactipeptide motifs
+DEBUG    08/11 17:27:20   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:27:20   Running antismash.modules.t2pks
+DEBUG    08/11 17:27:20   No type II PKS clusters to analyze
+DEBUG    08/11 17:27:20   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:27:20   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:27:20   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:27:20   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:27:20   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:27:21   Checking if antismash.modules.tta should be run
+INFO     08/11 17:27:21   Running antismash.modules.tta
+INFO     08/11 17:27:21   Skipping TTA codon detection, GC content too low: 60%
+INFO     08/11 17:27:21   Analysing record: NODE_17_length_143685_cov_16.294329
+INFO     08/11 17:27:21   Detecting secondary metabolite clusters
+DEBUG    08/11 17:27:21   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:27:21   Running antismash.detection.hmm_detection
+INFO     08/11 17:27:21   HMM detection using strictness: relaxed
+DEBUG    08/11 17:27:22   2 rule-based cluster(s) found in record
+DEBUG    08/11 17:27:22   2 protoclusters found
+DEBUG    08/11 17:27:22   0 subregions found
+INFO     08/11 17:27:22   1 region(s) detected in record
+DEBUG    08/11 17:27:22   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:27:22   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:27:22   Running cluster PFAM search
+DEBUG    08/11 17:27:36   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:27:36   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:27:36   Running antismash.detection.genefunctions
+DEBUG    08/11 17:27:38   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:27:38   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:27:38   annotating CDS features with smcogs info: 13 CDSes
+DEBUG    08/11 17:27:38   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:27:38   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:27:38   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:27:38   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:27:38   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:27:38   Running antismash.detection.tigrfam
+INFO     08/11 17:27:38   Running TIGRFam search
+DEBUG    08/11 17:27:42   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:27:42   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:27:42   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:27:42   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:27:42   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:27:42   Loading comparison database: MIBiG
+DEBUG    08/11 17:27:42   Comparison database loaded
+INFO     08/11 17:27:42   Comparing regions to reference database
+DEBUG    08/11 17:27:45   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:27:45   Running antismash.modules.clusterblast
+INFO     08/11 17:27:45   Finding internal homologs in each gene cluster...
+INFO     08/11 17:27:46   Running ClusterBlast
+INFO     08/11 17:27:46   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:27:47   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:27:57   Comparing regions to reference database
+INFO     08/11 17:28:56   Running subcluster search
+INFO     08/11 17:28:56   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:28:56   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:28:57   Running known cluster search
+INFO     08/11 17:28:57   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:28:57   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:28:57   Running DIAMOND knowncluster searches..
+INFO     08/11 17:28:57   Comparing regions to reference database
+DEBUG    08/11 17:29:01   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:29:01   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:29:01   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:29:02   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:29:02   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:29:03   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:29:03   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:29:03   Running antismash.modules.nrps_pks
+INFO     08/11 17:29:03   Predicting A domain substrate specificities with nrpys
+INFO     08/11 17:29:03   Predicting CAL domain substrate specificities by Minowa et al. method
+INFO     08/11 17:29:03   Predicting PKS KR activity and stereochemistry using KR fingerprints from Starcevic et al.
+DEBUG    08/11 17:29:04   CandidateCluster 1 monomer ordering method: colinear
+DEBUG    08/11 17:29:04   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:29:04   Running antismash.modules.pfam2go
+DEBUG    08/11 17:29:04   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:29:04   Running antismash.modules.rrefinder
+DEBUG    08/11 17:29:04   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:29:04   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:29:04   Found no sactipeptide motifs
+DEBUG    08/11 17:29:08   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:29:08   Running antismash.modules.t2pks
+DEBUG    08/11 17:29:08   No type II PKS clusters to analyze
+DEBUG    08/11 17:29:08   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:29:08   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:29:08   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:29:08   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:29:08   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:29:09   Checking if antismash.modules.tta should be run
+INFO     08/11 17:29:09   Running antismash.modules.tta
+INFO     08/11 17:29:09   Skipping TTA codon detection, GC content too low: 61%
+INFO     08/11 17:29:09   Analysing record: NODE_18_length_127195_cov_16.321025
+INFO     08/11 17:29:09   Detecting secondary metabolite clusters
+DEBUG    08/11 17:29:09   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:29:09   Running antismash.detection.hmm_detection
+INFO     08/11 17:29:09   HMM detection using strictness: relaxed
+DEBUG    08/11 17:29:10   2 rule-based cluster(s) found in record
+DEBUG    08/11 17:29:10   2 protoclusters found
+DEBUG    08/11 17:29:10   0 subregions found
+INFO     08/11 17:29:10   1 region(s) detected in record
+DEBUG    08/11 17:29:10   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:29:10   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:29:10   Running cluster PFAM search
+DEBUG    08/11 17:29:27   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:29:27   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:29:27   Running antismash.detection.genefunctions
+DEBUG    08/11 17:29:28   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:29:28   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:29:28   annotating CDS features with smcogs info: 20 CDSes
+DEBUG    08/11 17:29:28   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:29:28   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:29:28   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:29:29   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:29:29   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:29:29   Running antismash.detection.tigrfam
+INFO     08/11 17:29:29   Running TIGRFam search
+DEBUG    08/11 17:29:34   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:29:34   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:29:34   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:29:34   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:29:34   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:29:34   Loading comparison database: MIBiG
+DEBUG    08/11 17:29:34   Comparison database loaded
+INFO     08/11 17:29:34   Comparing regions to reference database
+DEBUG    08/11 17:29:39   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:29:39   Running antismash.modules.clusterblast
+INFO     08/11 17:29:39   Finding internal homologs in each gene cluster...
+INFO     08/11 17:29:40   Running ClusterBlast
+INFO     08/11 17:29:40   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:29:41   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:29:53   Comparing regions to reference database
+INFO     08/11 17:31:14   Running subcluster search
+INFO     08/11 17:31:14   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:31:14   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:31:16   Running known cluster search
+INFO     08/11 17:31:16   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:31:16   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:31:16   Running DIAMOND knowncluster searches..
+INFO     08/11 17:31:16   Comparing regions to reference database
+DEBUG    08/11 17:31:21   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:31:21   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:31:21   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:31:22   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:31:22   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:31:23   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:31:23   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:31:23   Running antismash.modules.nrps_pks
+INFO     08/11 17:31:23   Predicting A domain substrate specificities with nrpys
+DEBUG    08/11 17:31:24   CandidateCluster 1 monomer ordering method: colinear
+DEBUG    08/11 17:31:24   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:31:24   Running antismash.modules.pfam2go
+DEBUG    08/11 17:31:24   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:31:24   Running antismash.modules.rrefinder
+DEBUG    08/11 17:31:24   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:31:24   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:31:24   Found no sactipeptide motifs
+DEBUG    08/11 17:31:26   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:31:26   Running antismash.modules.t2pks
+DEBUG    08/11 17:31:26   No type II PKS clusters to analyze
+DEBUG    08/11 17:31:26   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:31:26   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:31:26   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:31:26   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:31:26   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:31:28   Checking if antismash.modules.tta should be run
+INFO     08/11 17:31:28   Running antismash.modules.tta
+INFO     08/11 17:31:28   Skipping TTA codon detection, GC content too low: 61%
+INFO     08/11 17:31:28   Analysing record: NODE_19_length_120742_cov_15.801981
+INFO     08/11 17:31:28   Detecting secondary metabolite clusters
+DEBUG    08/11 17:31:28   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:31:28   Running antismash.detection.hmm_detection
+INFO     08/11 17:31:28   HMM detection using strictness: relaxed
+DEBUG    08/11 17:31:29   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:31:29   1 protoclusters found
+DEBUG    08/11 17:31:29   0 subregions found
+INFO     08/11 17:31:29   1 region(s) detected in record
+DEBUG    08/11 17:31:29   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:31:29   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:31:29   Running cluster PFAM search
+DEBUG    08/11 17:31:33   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:31:33   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:31:33   Running antismash.detection.genefunctions
+DEBUG    08/11 17:31:33   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:31:33   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:31:33   annotating CDS features with smcogs info: 4 CDSes
+DEBUG    08/11 17:31:33   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:31:33   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:31:33   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:31:34   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:31:34   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:31:34   Running antismash.detection.tigrfam
+INFO     08/11 17:31:34   Running TIGRFam search
+DEBUG    08/11 17:31:35   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:31:35   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:31:35   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:31:35   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:31:35   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:31:35   Loading comparison database: MIBiG
+DEBUG    08/11 17:31:35   Comparison database loaded
+INFO     08/11 17:31:35   Comparing regions to reference database
+DEBUG    08/11 17:31:36   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:31:36   Running antismash.modules.clusterblast
+INFO     08/11 17:31:36   Finding internal homologs in each gene cluster...
+INFO     08/11 17:31:44   Running ClusterBlast
+INFO     08/11 17:31:44   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:31:45   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:31:56   Comparing regions to reference database
+INFO     08/11 17:32:50   Running subcluster search
+INFO     08/11 17:32:50   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:32:50   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:32:51   Running known cluster search
+INFO     08/11 17:32:51   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:32:52   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:32:52   Running DIAMOND knowncluster searches..
+INFO     08/11 17:32:52   Comparing regions to reference database
+DEBUG    08/11 17:32:54   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:32:54   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:32:54   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:32:55   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:32:55   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:32:56   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:32:56   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:32:56   Running antismash.modules.nrps_pks
+DEBUG    08/11 17:32:56   No NRPS or PKS genes found, skipping analysis
+DEBUG    08/11 17:32:56   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:32:56   Running antismash.modules.pfam2go
+DEBUG    08/11 17:32:56   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:32:56   Running antismash.modules.rrefinder
+DEBUG    08/11 17:32:57   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:32:57   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:32:57   Found no sactipeptide motifs
+DEBUG    08/11 17:32:58   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:32:58   Running antismash.modules.t2pks
+DEBUG    08/11 17:32:58   No type II PKS clusters to analyze
+DEBUG    08/11 17:32:58   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:32:58   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:32:58   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:32:58   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:32:58   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:32:59   Checking if antismash.modules.tta should be run
+INFO     08/11 17:32:59   Running antismash.modules.tta
+INFO     08/11 17:32:59   Skipping TTA codon detection, GC content too low: 60%
+INFO     08/11 17:32:59   Analysing record: NODE_20_length_116855_cov_15.947379
+INFO     08/11 17:32:59   Detecting secondary metabolite clusters
+DEBUG    08/11 17:32:59   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:32:59   Running antismash.detection.hmm_detection
+INFO     08/11 17:32:59   HMM detection using strictness: relaxed
+DEBUG    08/11 17:33:00   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:33:00   0 protoclusters found
+DEBUG    08/11 17:33:00   0 subregions found
+INFO     08/11 17:33:00   No regions detected, skipping record
+INFO     08/11 17:33:00   Analysing record: NODE_21_length_98204_cov_16.278191
+INFO     08/11 17:33:00   Detecting secondary metabolite clusters
+DEBUG    08/11 17:33:00   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:33:00   Running antismash.detection.hmm_detection
+INFO     08/11 17:33:00   HMM detection using strictness: relaxed
+DEBUG    08/11 17:33:01   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:33:01   0 protoclusters found
+DEBUG    08/11 17:33:01   0 subregions found
+INFO     08/11 17:33:01   No regions detected, skipping record
+INFO     08/11 17:33:01   Analysing record: NODE_22_length_94856_cov_16.493917
+INFO     08/11 17:33:01   Detecting secondary metabolite clusters
+DEBUG    08/11 17:33:01   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:33:01   Running antismash.detection.hmm_detection
+INFO     08/11 17:33:01   HMM detection using strictness: relaxed
+DEBUG    08/11 17:33:01   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:33:01   0 protoclusters found
+DEBUG    08/11 17:33:01   0 subregions found
+INFO     08/11 17:33:01   No regions detected, skipping record
+INFO     08/11 17:33:01   Analysing record: NODE_23_length_94671_cov_16.403852
+INFO     08/11 17:33:01   Detecting secondary metabolite clusters
+DEBUG    08/11 17:33:01   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:33:01   Running antismash.detection.hmm_detection
+INFO     08/11 17:33:01   HMM detection using strictness: relaxed
+DEBUG    08/11 17:33:02   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:33:02   0 protoclusters found
+DEBUG    08/11 17:33:02   0 subregions found
+INFO     08/11 17:33:02   No regions detected, skipping record
+INFO     08/11 17:33:02   Analysing record: NODE_24_length_91144_cov_17.128817
+INFO     08/11 17:33:02   Detecting secondary metabolite clusters
+DEBUG    08/11 17:33:02   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:33:02   Running antismash.detection.hmm_detection
+INFO     08/11 17:33:02   HMM detection using strictness: relaxed
+DEBUG    08/11 17:33:03   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:33:03   0 protoclusters found
+DEBUG    08/11 17:33:03   0 subregions found
+INFO     08/11 17:33:03   No regions detected, skipping record
+INFO     08/11 17:33:03   Analysing record: NODE_25_length_89731_cov_16.221842
+INFO     08/11 17:33:03   Detecting secondary metabolite clusters
+DEBUG    08/11 17:33:03   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:33:03   Running antismash.detection.hmm_detection
+INFO     08/11 17:33:03   HMM detection using strictness: relaxed
+DEBUG    08/11 17:33:03   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:33:04   0 protoclusters found
+DEBUG    08/11 17:33:04   0 subregions found
+INFO     08/11 17:33:04   No regions detected, skipping record
+INFO     08/11 17:33:04   Analysing record: NODE_26_length_86667_cov_16.664857
+INFO     08/11 17:33:04   Detecting secondary metabolite clusters
+DEBUG    08/11 17:33:04   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:33:04   Running antismash.detection.hmm_detection
+INFO     08/11 17:33:04   HMM detection using strictness: relaxed
+DEBUG    08/11 17:33:04   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:33:04   1 protoclusters found
+DEBUG    08/11 17:33:04   0 subregions found
+INFO     08/11 17:33:04   1 region(s) detected in record
+DEBUG    08/11 17:33:04   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:33:04   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:33:04   Running cluster PFAM search
+DEBUG    08/11 17:33:10   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:33:10   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:33:10   Running antismash.detection.genefunctions
+DEBUG    08/11 17:33:10   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:33:10   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:33:10   annotating CDS features with smcogs info: 7 CDSes
+DEBUG    08/11 17:33:10   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:33:10   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:33:10   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:33:11   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:33:11   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:33:11   Running antismash.detection.tigrfam
+INFO     08/11 17:33:11   Running TIGRFam search
+DEBUG    08/11 17:33:12   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:33:12   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:33:12   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:33:12   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:33:12   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:33:12   Loading comparison database: MIBiG
+DEBUG    08/11 17:33:12   Comparison database loaded
+INFO     08/11 17:33:12   Comparing regions to reference database
+DEBUG    08/11 17:33:14   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:33:14   Running antismash.modules.clusterblast
+INFO     08/11 17:33:14   Finding internal homologs in each gene cluster...
+INFO     08/11 17:33:15   Running ClusterBlast
+INFO     08/11 17:33:15   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:33:16   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:33:27   Comparing regions to reference database
+INFO     08/11 17:34:19   Running subcluster search
+INFO     08/11 17:34:19   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:34:19   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:34:21   Running known cluster search
+INFO     08/11 17:34:21   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:34:21   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:34:21   Running DIAMOND knowncluster searches..
+INFO     08/11 17:34:21   Comparing regions to reference database
+DEBUG    08/11 17:34:23   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:34:23   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:34:23   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:34:24   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:34:24   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:34:25   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:34:25   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:34:25   Running antismash.modules.nrps_pks
+DEBUG    08/11 17:34:25   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:34:25   Running antismash.modules.pfam2go
+DEBUG    08/11 17:34:25   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:34:25   Running antismash.modules.rrefinder
+DEBUG    08/11 17:34:25   Building name mapping for HMMer database RREFam.hmm
+DEBUG    08/11 17:34:25   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:34:25   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:34:25   Found no sactipeptide motifs
+DEBUG    08/11 17:34:27   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:34:27   Running antismash.modules.t2pks
+DEBUG    08/11 17:34:27   No type II PKS clusters to analyze
+DEBUG    08/11 17:34:27   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:34:27   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:34:27   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:34:27   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:34:27   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:34:28   Checking if antismash.modules.tta should be run
+INFO     08/11 17:34:28   Running antismash.modules.tta
+INFO     08/11 17:34:28   Skipping TTA codon detection, GC content too low: 60%
+INFO     08/11 17:34:28   Analysing record: NODE_27_length_85968_cov_17.305829
+INFO     08/11 17:34:28   Detecting secondary metabolite clusters
+DEBUG    08/11 17:34:28   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:34:28   Running antismash.detection.hmm_detection
+INFO     08/11 17:34:28   HMM detection using strictness: relaxed
+DEBUG    08/11 17:34:29   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:34:29   1 protoclusters found
+DEBUG    08/11 17:34:29   0 subregions found
+INFO     08/11 17:34:29   1 region(s) detected in record
+DEBUG    08/11 17:34:29   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:34:29   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:34:29   Running cluster PFAM search
+DEBUG    08/11 17:34:40   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:34:40   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:34:40   Running antismash.detection.genefunctions
+DEBUG    08/11 17:34:41   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:34:41   annotating CDS features with resist info: 1 CDSes
+DEBUG    08/11 17:34:41   annotating CDS features with smcogs info: 16 CDSes
+DEBUG    08/11 17:34:41   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:34:41   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:34:41   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:34:42   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:34:42   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:34:42   Running antismash.detection.tigrfam
+INFO     08/11 17:34:42   Running TIGRFam search
+DEBUG    08/11 17:34:46   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:34:46   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:34:46   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:34:46   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:34:46   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:34:46   Loading comparison database: MIBiG
+DEBUG    08/11 17:34:46   Comparison database loaded
+INFO     08/11 17:34:46   Comparing regions to reference database
+DEBUG    08/11 17:34:51   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:34:51   Running antismash.modules.clusterblast
+INFO     08/11 17:34:51   Finding internal homologs in each gene cluster...
+INFO     08/11 17:34:51   Running ClusterBlast
+INFO     08/11 17:34:51   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:34:53   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:35:03   Comparing regions to reference database
+INFO     08/11 17:36:37   Running subcluster search
+INFO     08/11 17:36:37   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:36:37   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:36:38   Running known cluster search
+INFO     08/11 17:36:38   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:36:38   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:36:38   Running DIAMOND knowncluster searches..
+INFO     08/11 17:36:38   Comparing regions to reference database
+DEBUG    08/11 17:36:44   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:36:44   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:36:44   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:36:45   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:36:45   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:36:47   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:36:47   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:36:47   Running antismash.modules.nrps_pks
+INFO     08/11 17:36:47   Predicting A domain substrate specificities with nrpys
+DEBUG    08/11 17:36:48   CandidateCluster 1 monomer ordering method: colinear
+DEBUG    08/11 17:36:48   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:36:48   Running antismash.modules.pfam2go
+DEBUG    08/11 17:36:48   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:36:48   Running antismash.modules.rrefinder
+DEBUG    08/11 17:36:48   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:36:48   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:36:48   Found no sactipeptide motifs
+DEBUG    08/11 17:36:49   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:36:49   Running antismash.modules.t2pks
+DEBUG    08/11 17:36:49   No type II PKS clusters to analyze
+DEBUG    08/11 17:36:49   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:36:49   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:36:49   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:36:49   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:36:49   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:36:50   Checking if antismash.modules.tta should be run
+INFO     08/11 17:36:50   Running antismash.modules.tta
+INFO     08/11 17:36:50   Skipping TTA codon detection, GC content too low: 62%
+INFO     08/11 17:36:50   Analysing record: NODE_28_length_85394_cov_15.868408
+INFO     08/11 17:36:50   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:50   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:50   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:50   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:51   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:51   0 protoclusters found
+DEBUG    08/11 17:36:51   0 subregions found
+INFO     08/11 17:36:51   No regions detected, skipping record
+INFO     08/11 17:36:51   Analysing record: NODE_29_length_85377_cov_16.556096
+INFO     08/11 17:36:51   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:51   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:51   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:51   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:52   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:52   0 protoclusters found
+DEBUG    08/11 17:36:52   0 subregions found
+INFO     08/11 17:36:52   No regions detected, skipping record
+INFO     08/11 17:36:52   Analysing record: NODE_30_length_82815_cov_16.201117
+INFO     08/11 17:36:52   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:52   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:52   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:52   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:53   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:53   0 protoclusters found
+DEBUG    08/11 17:36:53   0 subregions found
+INFO     08/11 17:36:53   No regions detected, skipping record
+INFO     08/11 17:36:53   Analysing record: NODE_31_length_76092_cov_17.396527
+INFO     08/11 17:36:53   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:53   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:53   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:53   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:53   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:53   0 protoclusters found
+DEBUG    08/11 17:36:53   0 subregions found
+INFO     08/11 17:36:53   No regions detected, skipping record
+INFO     08/11 17:36:53   Analysing record: NODE_32_length_74852_cov_16.033086
+INFO     08/11 17:36:53   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:53   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:53   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:53   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:54   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:54   0 protoclusters found
+DEBUG    08/11 17:36:54   0 subregions found
+INFO     08/11 17:36:54   No regions detected, skipping record
+INFO     08/11 17:36:54   Analysing record: NODE_33_length_74167_cov_16.505223
+INFO     08/11 17:36:54   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:54   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:54   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:54   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:55   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:55   0 protoclusters found
+DEBUG    08/11 17:36:55   0 subregions found
+INFO     08/11 17:36:55   No regions detected, skipping record
+INFO     08/11 17:36:55   Analysing record: NODE_34_length_71091_cov_17.688484
+INFO     08/11 17:36:55   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:55   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:55   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:55   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:55   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:55   0 protoclusters found
+DEBUG    08/11 17:36:55   0 subregions found
+INFO     08/11 17:36:55   No regions detected, skipping record
+INFO     08/11 17:36:55   Analysing record: NODE_35_length_68714_cov_15.419293
+INFO     08/11 17:36:55   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:55   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:55   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:55   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:56   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:56   0 protoclusters found
+DEBUG    08/11 17:36:56   0 subregions found
+INFO     08/11 17:36:56   No regions detected, skipping record
+INFO     08/11 17:36:56   Analysing record: NODE_36_length_62456_cov_17.305215
+INFO     08/11 17:36:56   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:56   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:56   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:56   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:56   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:56   0 protoclusters found
+DEBUG    08/11 17:36:56   0 subregions found
+INFO     08/11 17:36:56   No regions detected, skipping record
+INFO     08/11 17:36:56   Analysing record: NODE_37_length_61070_cov_16.627597
+INFO     08/11 17:36:56   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:56   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:56   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:56   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:57   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:57   0 protoclusters found
+DEBUG    08/11 17:36:57   0 subregions found
+INFO     08/11 17:36:57   No regions detected, skipping record
+INFO     08/11 17:36:57   Analysing record: NODE_38_length_59616_cov_16.640101
+INFO     08/11 17:36:57   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:57   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:57   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:57   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:58   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:58   0 protoclusters found
+DEBUG    08/11 17:36:58   0 subregions found
+INFO     08/11 17:36:58   No regions detected, skipping record
+INFO     08/11 17:36:58   Analysing record: NODE_39_length_51766_cov_16.545551
+INFO     08/11 17:36:58   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:58   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:58   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:58   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:59   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:59   0 protoclusters found
+DEBUG    08/11 17:36:59   0 subregions found
+INFO     08/11 17:36:59   No regions detected, skipping record
+INFO     08/11 17:36:59   Analysing record: NODE_40_length_48741_cov_14.230910
+INFO     08/11 17:36:59   Detecting secondary metabolite clusters
+DEBUG    08/11 17:36:59   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:36:59   Running antismash.detection.hmm_detection
+INFO     08/11 17:36:59   HMM detection using strictness: relaxed
+DEBUG    08/11 17:36:59   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:36:59   1 protoclusters found
+DEBUG    08/11 17:36:59   0 subregions found
+INFO     08/11 17:36:59   1 region(s) detected in record
+DEBUG    08/11 17:36:59   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:36:59   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:36:59   Running cluster PFAM search
+DEBUG    08/11 17:37:03   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:37:03   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:37:03   Running antismash.detection.genefunctions
+DEBUG    08/11 17:37:03   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:37:03   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:37:03   annotating CDS features with smcogs info: 4 CDSes
+DEBUG    08/11 17:37:03   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:37:03   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:37:03   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:37:04   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:37:04   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:37:04   Running antismash.detection.tigrfam
+INFO     08/11 17:37:04   Running TIGRFam search
+DEBUG    08/11 17:37:05   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:37:05   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:37:05   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:37:05   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:37:05   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:37:05   Loading comparison database: MIBiG
+DEBUG    08/11 17:37:05   Comparison database loaded
+INFO     08/11 17:37:05   Comparing regions to reference database
+DEBUG    08/11 17:37:06   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:37:06   Running antismash.modules.clusterblast
+INFO     08/11 17:37:06   Finding internal homologs in each gene cluster...
+INFO     08/11 17:37:07   Running ClusterBlast
+INFO     08/11 17:37:07   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:37:08   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:37:19   Comparing regions to reference database
+INFO     08/11 17:38:11   Running subcluster search
+INFO     08/11 17:38:11   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:38:11   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:38:13   Running known cluster search
+INFO     08/11 17:38:13   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:38:13   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:38:13   Running DIAMOND knowncluster searches..
+INFO     08/11 17:38:13   Comparing regions to reference database
+DEBUG    08/11 17:38:15   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:38:15   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:38:15   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:38:16   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:38:16   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:38:17   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:38:17   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:38:17   Running antismash.modules.nrps_pks
+DEBUG    08/11 17:38:17   No NRPS or PKS genes found, skipping analysis
+DEBUG    08/11 17:38:17   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:38:17   Running antismash.modules.pfam2go
+DEBUG    08/11 17:38:17   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:38:17   Running antismash.modules.rrefinder
+DEBUG    08/11 17:38:17   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:38:17   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:38:17   Found no sactipeptide motifs
+DEBUG    08/11 17:38:19   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:38:19   Running antismash.modules.t2pks
+DEBUG    08/11 17:38:19   No type II PKS clusters to analyze
+DEBUG    08/11 17:38:19   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:38:19   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:38:19   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:38:19   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:38:19   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:38:20   Checking if antismash.modules.tta should be run
+INFO     08/11 17:38:20   Running antismash.modules.tta
+INFO     08/11 17:38:20   Skipping TTA codon detection, GC content too low: 58%
+INFO     08/11 17:38:20   Analysing record: NODE_41_length_46665_cov_16.059157
+INFO     08/11 17:38:20   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:20   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:20   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:20   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:21   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:21   0 protoclusters found
+DEBUG    08/11 17:38:21   0 subregions found
+INFO     08/11 17:38:21   No regions detected, skipping record
+INFO     08/11 17:38:21   Analysing record: NODE_42_length_43334_cov_15.972929
+INFO     08/11 17:38:21   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:21   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:21   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:21   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:21   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:21   0 protoclusters found
+DEBUG    08/11 17:38:21   0 subregions found
+INFO     08/11 17:38:21   No regions detected, skipping record
+INFO     08/11 17:38:21   Analysing record: NODE_43_length_43242_cov_16.145419
+INFO     08/11 17:38:21   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:21   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:21   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:21   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:22   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:22   0 protoclusters found
+DEBUG    08/11 17:38:22   0 subregions found
+INFO     08/11 17:38:22   No regions detected, skipping record
+INFO     08/11 17:38:22   Analysing record: NODE_44_length_33645_cov_16.615259
+INFO     08/11 17:38:22   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:22   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:22   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:22   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:23   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:23   0 protoclusters found
+DEBUG    08/11 17:38:23   0 subregions found
+INFO     08/11 17:38:23   No regions detected, skipping record
+INFO     08/11 17:38:23   Analysing record: NODE_45_length_33627_cov_15.684918
+INFO     08/11 17:38:23   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:23   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:23   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:23   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:23   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:23   0 protoclusters found
+DEBUG    08/11 17:38:23   0 subregions found
+INFO     08/11 17:38:23   No regions detected, skipping record
+INFO     08/11 17:38:23   Analysing record: NODE_46_length_32526_cov_16.653549
+INFO     08/11 17:38:23   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:23   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:23   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:23   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:24   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:24   0 protoclusters found
+DEBUG    08/11 17:38:24   0 subregions found
+INFO     08/11 17:38:24   No regions detected, skipping record
+INFO     08/11 17:38:24   Analysing record: NODE_47_length_32407_cov_16.512001
+INFO     08/11 17:38:24   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:24   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:24   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:24   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:24   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:24   0 protoclusters found
+DEBUG    08/11 17:38:24   0 subregions found
+INFO     08/11 17:38:24   No regions detected, skipping record
+INFO     08/11 17:38:24   Analysing record: NODE_48_length_30915_cov_15.818017
+INFO     08/11 17:38:24   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:24   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:24   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:24   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:25   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:25   0 protoclusters found
+DEBUG    08/11 17:38:25   0 subregions found
+INFO     08/11 17:38:25   No regions detected, skipping record
+INFO     08/11 17:38:25   Analysing record: NODE_49_length_29569_cov_15.366371
+INFO     08/11 17:38:25   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:25   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:25   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:25   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:25   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:25   0 protoclusters found
+DEBUG    08/11 17:38:25   0 subregions found
+INFO     08/11 17:38:25   No regions detected, skipping record
+INFO     08/11 17:38:25   Analysing record: NODE_50_length_28167_cov_16.472695
+INFO     08/11 17:38:25   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:25   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:25   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:25   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:26   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:26   0 protoclusters found
+DEBUG    08/11 17:38:26   0 subregions found
+INFO     08/11 17:38:26   No regions detected, skipping record
+INFO     08/11 17:38:26   Analysing record: NODE_51_length_26747_cov_15.745444
+INFO     08/11 17:38:26   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:26   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:26   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:26   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:26   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:27   0 protoclusters found
+DEBUG    08/11 17:38:27   0 subregions found
+INFO     08/11 17:38:27   No regions detected, skipping record
+INFO     08/11 17:38:27   Analysing record: NODE_52_length_23283_cov_16.126605
+INFO     08/11 17:38:27   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:27   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:27   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:27   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:27   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:27   0 protoclusters found
+DEBUG    08/11 17:38:27   0 subregions found
+INFO     08/11 17:38:27   No regions detected, skipping record
+INFO     08/11 17:38:27   Analysing record: NODE_53_length_22560_cov_14.651870
+INFO     08/11 17:38:27   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:27   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:27   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:27   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:28   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:28   0 protoclusters found
+DEBUG    08/11 17:38:28   0 subregions found
+INFO     08/11 17:38:28   No regions detected, skipping record
+INFO     08/11 17:38:28   Analysing record: NODE_54_length_21212_cov_15.226591
+INFO     08/11 17:38:28   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:28   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:28   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:28   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:28   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:28   0 protoclusters found
+DEBUG    08/11 17:38:28   0 subregions found
+INFO     08/11 17:38:28   No regions detected, skipping record
+INFO     08/11 17:38:28   Analysing record: NODE_55_length_20102_cov_15.119051
+INFO     08/11 17:38:28   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:28   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:28   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:28   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:29   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:29   0 protoclusters found
+DEBUG    08/11 17:38:29   0 subregions found
+INFO     08/11 17:38:29   No regions detected, skipping record
+INFO     08/11 17:38:29   Analysing record: NODE_56_length_19464_cov_15.687419
+INFO     08/11 17:38:29   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:29   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:29   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:29   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:29   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:29   0 protoclusters found
+DEBUG    08/11 17:38:29   0 subregions found
+INFO     08/11 17:38:29   No regions detected, skipping record
+INFO     08/11 17:38:29   Analysing record: NODE_57_length_17380_cov_18.983471
+INFO     08/11 17:38:29   Detecting secondary metabolite clusters
+DEBUG    08/11 17:38:29   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:38:29   Running antismash.detection.hmm_detection
+INFO     08/11 17:38:29   HMM detection using strictness: relaxed
+DEBUG    08/11 17:38:30   1 rule-based cluster(s) found in record
+DEBUG    08/11 17:38:30   1 protoclusters found
+DEBUG    08/11 17:38:30   0 subregions found
+INFO     08/11 17:38:30   1 region(s) detected in record
+DEBUG    08/11 17:38:30   Checking if antismash.detection.cluster_hmmer should be run
+INFO     08/11 17:38:30   Running antismash.detection.cluster_hmmer
+INFO     08/11 17:38:30   Running cluster PFAM search
+DEBUG    08/11 17:38:33   Adding detection results from antismash.detection.cluster_hmmer to record
+DEBUG    08/11 17:38:33   Checking if antismash.detection.genefunctions should be run
+INFO     08/11 17:38:33   Running antismash.detection.genefunctions
+DEBUG    08/11 17:38:34   Adding detection results from antismash.detection.genefunctions to record
+DEBUG    08/11 17:38:34   annotating CDS features with resist info: 0 CDSes
+DEBUG    08/11 17:38:34   annotating CDS features with smcogs info: 4 CDSes
+DEBUG    08/11 17:38:34   Checking if antismash.detection.nrps_pks_domains should be run
+INFO     08/11 17:38:34   Running antismash.detection.nrps_pks_domains
+DEBUG    08/11 17:38:34   Marking NRPS/PKS CDS features and domains in clusters
+DEBUG    08/11 17:38:35   Adding detection results from antismash.detection.nrps_pks_domains to record
+DEBUG    08/11 17:38:35   Checking if antismash.detection.tigrfam should be run
+INFO     08/11 17:38:35   Running antismash.detection.tigrfam
+INFO     08/11 17:38:35   Running TIGRFam search
+DEBUG    08/11 17:38:36   Adding detection results from antismash.detection.tigrfam to record
+DEBUG    08/11 17:38:36   Checking if antismash.modules.active_site_finder should be run
+INFO     08/11 17:38:36   Running antismash.modules.active_site_finder
+DEBUG    08/11 17:38:36   Checking if antismash.modules.cluster_compare should be run
+INFO     08/11 17:38:36   Running antismash.modules.cluster_compare
+DEBUG    08/11 17:38:36   Loading comparison database: MIBiG
+DEBUG    08/11 17:38:36   Comparison database loaded
+INFO     08/11 17:38:36   Comparing regions to reference database
+DEBUG    08/11 17:38:37   Checking if antismash.modules.clusterblast should be run
+INFO     08/11 17:38:37   Running antismash.modules.clusterblast
+INFO     08/11 17:38:37   Finding internal homologs in each gene cluster...
+INFO     08/11 17:38:38   Running ClusterBlast
+INFO     08/11 17:38:38   ClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:38:39   ClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:38:50   Comparing regions to reference database
+INFO     08/11 17:39:45   Running subcluster search
+INFO     08/11 17:39:45   SubClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:39:45   SubClusterBlast: Loading gene cluster database proteins into memory...
+INFO     08/11 17:39:46   Running known cluster search
+INFO     08/11 17:39:46   KnownClusterBlast: Loading gene cluster database into memory...
+INFO     08/11 17:39:46   KnownClusterBlast: Loading gene cluster database proteins into memory...
+DEBUG    08/11 17:39:47   Running DIAMOND knowncluster searches..
+INFO     08/11 17:39:47   Comparing regions to reference database
+DEBUG    08/11 17:39:49   Checking if antismash.modules.lanthipeptides should be run
+INFO     08/11 17:39:49   Running antismash.modules.lanthipeptides
+DEBUG    08/11 17:39:49   Lanthipeptide module marked 0 motifs
+DEBUG    08/11 17:39:50   Checking if antismash.modules.lassopeptides should be run
+INFO     08/11 17:39:50   Running antismash.modules.lassopeptides
+DEBUG    08/11 17:39:51   Lassopeptide module marked 0 motifs
+DEBUG    08/11 17:39:51   Checking if antismash.modules.nrps_pks should be run
+INFO     08/11 17:39:51   Running antismash.modules.nrps_pks
+INFO     08/11 17:39:51   Predicting A domain substrate specificities with nrpys
+DEBUG    08/11 17:39:51   CandidateCluster 1 monomer ordering method: colinear
+DEBUG    08/11 17:39:51   Checking if antismash.modules.pfam2go should be run
+INFO     08/11 17:39:51   Running antismash.modules.pfam2go
+DEBUG    08/11 17:39:52   Checking if antismash.modules.rrefinder should be run
+INFO     08/11 17:39:52   Running antismash.modules.rrefinder
+DEBUG    08/11 17:39:52   Checking if antismash.modules.sactipeptides should be run
+INFO     08/11 17:39:52   Running antismash.modules.sactipeptides
+DEBUG    08/11 17:39:52   Found no sactipeptide motifs
+DEBUG    08/11 17:39:53   Checking if antismash.modules.t2pks should be run
+INFO     08/11 17:39:53   Running antismash.modules.t2pks
+DEBUG    08/11 17:39:53   No type II PKS clusters to analyze
+DEBUG    08/11 17:39:53   Checking if antismash.modules.tfbs_finder should be run
+INFO     08/11 17:39:53   Running antismash.modules.tfbs_finder
+DEBUG    08/11 17:39:53   Checking if antismash.modules.thiopeptides should be run
+INFO     08/11 17:39:53   Running antismash.modules.thiopeptides
+DEBUG    08/11 17:39:53   Thiopeptides marked 0 motifs
+DEBUG    08/11 17:39:55   Checking if antismash.modules.tta should be run
+INFO     08/11 17:39:55   Running antismash.modules.tta
+INFO     08/11 17:39:55   Skipping TTA codon detection, GC content too low: 59%
+INFO     08/11 17:39:55   Analysing record: NODE_58_length_12297_cov_16.341817
+INFO     08/11 17:39:55   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:55   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:55   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:55   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:55   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:55   0 protoclusters found
+DEBUG    08/11 17:39:55   0 subregions found
+INFO     08/11 17:39:55   No regions detected, skipping record
+INFO     08/11 17:39:55   Analysing record: NODE_59_length_10400_cov_16.970842
+INFO     08/11 17:39:55   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:55   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:55   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:55   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:56   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:56   0 protoclusters found
+DEBUG    08/11 17:39:56   0 subregions found
+INFO     08/11 17:39:56   No regions detected, skipping record
+INFO     08/11 17:39:56   Analysing record: NODE_60_length_9942_cov_15.968779
+INFO     08/11 17:39:56   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:56   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:56   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:56   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:56   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:56   0 protoclusters found
+DEBUG    08/11 17:39:56   0 subregions found
+INFO     08/11 17:39:56   No regions detected, skipping record
+INFO     08/11 17:39:56   Analysing record: NODE_61_length_8282_cov_14.669470
+INFO     08/11 17:39:56   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:56   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:56   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:56   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:57   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:57   0 protoclusters found
+DEBUG    08/11 17:39:57   0 subregions found
+INFO     08/11 17:39:57   No regions detected, skipping record
+INFO     08/11 17:39:57   Analysing record: NODE_62_length_7662_cov_13.762426
+INFO     08/11 17:39:57   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:57   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:57   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:57   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:57   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:57   0 protoclusters found
+DEBUG    08/11 17:39:57   0 subregions found
+INFO     08/11 17:39:57   No regions detected, skipping record
+INFO     08/11 17:39:57   Analysing record: NODE_63_length_7111_cov_17.232300
+INFO     08/11 17:39:57   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:57   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:57   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:57   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:58   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:58   0 protoclusters found
+DEBUG    08/11 17:39:58   0 subregions found
+INFO     08/11 17:39:58   No regions detected, skipping record
+INFO     08/11 17:39:58   Analysing record: NODE_64_length_4990_cov_118.718298
+INFO     08/11 17:39:58   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:58   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:58   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:58   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:58   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:58   0 protoclusters found
+DEBUG    08/11 17:39:58   0 subregions found
+INFO     08/11 17:39:58   No regions detected, skipping record
+INFO     08/11 17:39:58   Analysing record: NODE_65_length_3769_cov_16.846154
+INFO     08/11 17:39:58   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:58   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:58   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:58   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:59   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:59   0 protoclusters found
+DEBUG    08/11 17:39:59   0 subregions found
+INFO     08/11 17:39:59   No regions detected, skipping record
+INFO     08/11 17:39:59   Analysing record: NODE_66_length_2579_cov_28.892886
+INFO     08/11 17:39:59   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:59   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:59   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:59   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:59   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:59   0 protoclusters found
+DEBUG    08/11 17:39:59   0 subregions found
+INFO     08/11 17:39:59   No regions detected, skipping record
+INFO     08/11 17:39:59   Analysing record: NODE_67_length_2238_cov_15.341509
+INFO     08/11 17:39:59   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:59   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:59   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:59   HMM detection using strictness: relaxed
+DEBUG    08/11 17:39:59   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:39:59   0 protoclusters found
+DEBUG    08/11 17:39:59   0 subregions found
+INFO     08/11 17:39:59   No regions detected, skipping record
+INFO     08/11 17:39:59   Analysing record: NODE_68_length_1871_cov_33.463211
+INFO     08/11 17:39:59   Detecting secondary metabolite clusters
+DEBUG    08/11 17:39:59   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:39:59   Running antismash.detection.hmm_detection
+INFO     08/11 17:39:59   HMM detection using strictness: relaxed
+DEBUG    08/11 17:40:00   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:40:00   0 protoclusters found
+DEBUG    08/11 17:40:00   0 subregions found
+INFO     08/11 17:40:00   No regions detected, skipping record
+INFO     08/11 17:40:00   Analysing record: NODE_69_length_1286_cov_18.321754
+INFO     08/11 17:40:00   Detecting secondary metabolite clusters
+DEBUG    08/11 17:40:00   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:40:00   Running antismash.detection.hmm_detection
+INFO     08/11 17:40:00   HMM detection using strictness: relaxed
+DEBUG    08/11 17:40:00   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:40:00   0 protoclusters found
+DEBUG    08/11 17:40:00   0 subregions found
+INFO     08/11 17:40:00   No regions detected, skipping record
+INFO     08/11 17:40:00   Analysing record: NODE_70_length_1204_cov_32.156167
+INFO     08/11 17:40:00   Detecting secondary metabolite clusters
+DEBUG    08/11 17:40:00   Checking if antismash.detection.hmm_detection should be run
+INFO     08/11 17:40:00   Running antismash.detection.hmm_detection
+INFO     08/11 17:40:00   HMM detection using strictness: relaxed
+DEBUG    08/11 17:40:01   0 rule-based cluster(s) found in record
+DEBUG    08/11 17:40:01   0 protoclusters found
+DEBUG    08/11 17:40:01   0 subregions found
+INFO     08/11 17:40:01   No regions detected, skipping record
+INFO     08/11 17:40:01   Writing results
+DEBUG    08/11 17:40:01   Writing json results to '/data/antismash/upload/bacteria-f774fa8d-ea17-46ef-b5fc-e9a3e94af9a5/CP20G1_scaffolds.json'
+DEBUG    08/11 17:40:01   Record NODE_1_length_569647_cov_16.587361 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:01   Record NODE_2_length_544347_cov_16.593417 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:01   Record NODE_3_length_428420_cov_16.431348 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_4_length_232437_cov_16.418665 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_5_length_227148_cov_16.635422 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_6_length_205188_cov_16.353711 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_7_length_203193_cov_15.855122 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_8_length_181652_cov_16.887347 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_9_length_176584_cov_16.744667 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:01   Record NODE_10_length_174116_cov_16.063296 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_11_length_171011_cov_16.504856 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_12_length_166829_cov_16.162697 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_13_length_165086_cov_15.928919 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_14_length_152846_cov_16.360283 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_15_length_152452_cov_16.393962 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_16_length_145452_cov_15.889651 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:01   Record NODE_17_length_143685_cov_16.294329 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:01   Record NODE_18_length_127195_cov_16.321025 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:01   Record NODE_19_length_120742_cov_15.801981 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:01   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:01   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:01   Record NODE_20_length_116855_cov_15.947379 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_21_length_98204_cov_16.278191 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_22_length_94856_cov_16.493917 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:01   Record NODE_23_length_94671_cov_16.403852 has results for modules: hmm_detection
+DEBUG    08/11 17:40:01   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_24_length_91144_cov_17.128817 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_25_length_89731_cov_16.221842 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_26_length_86667_cov_16.664857 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:02   Record NODE_27_length_85968_cov_17.305829 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:02   Record NODE_28_length_85394_cov_15.868408 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_29_length_85377_cov_16.556096 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_30_length_82815_cov_16.201117 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_31_length_76092_cov_17.396527 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_32_length_74852_cov_16.033086 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_33_length_74167_cov_16.505223 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_34_length_71091_cov_17.688484 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_35_length_68714_cov_15.419293 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_36_length_62456_cov_17.305215 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_37_length_61070_cov_16.627597 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_38_length_59616_cov_16.640101 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_39_length_51766_cov_16.545551 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_40_length_48741_cov_14.230910 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:02   Record NODE_41_length_46665_cov_16.059157 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_42_length_43334_cov_15.972929 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_43_length_43242_cov_16.145419 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_44_length_33645_cov_16.615259 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_45_length_33627_cov_15.684918 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_46_length_32526_cov_16.653549 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_47_length_32407_cov_16.512001 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_48_length_30915_cov_15.818017 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_49_length_29569_cov_15.366371 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_50_length_28167_cov_16.472695 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_51_length_26747_cov_15.745444 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_52_length_23283_cov_16.126605 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_53_length_22560_cov_14.651870 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_54_length_21212_cov_15.226591 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_55_length_20102_cov_15.119051 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_56_length_19464_cov_15.687419 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_57_length_17380_cov_18.983471 has results for modules: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.cluster_hmmer results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.genefunctions results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.nrps_pks_domains results to json
+DEBUG    08/11 17:40:02   Converting antismash.detection.tigrfam results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.active_site_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.cluster_compare results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.clusterblast results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lanthipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.lassopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.nrps_pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.pfam2go results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.rrefinder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.sactipeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.t2pks results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tfbs_finder results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.thiopeptides results to json
+DEBUG    08/11 17:40:02   Converting antismash.modules.tta results to json
+DEBUG    08/11 17:40:02   Record NODE_58_length_12297_cov_16.341817 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_59_length_10400_cov_16.970842 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_60_length_9942_cov_15.968779 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_61_length_8282_cov_14.669470 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_62_length_7662_cov_13.762426 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_63_length_7111_cov_17.232300 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_64_length_4990_cov_118.718298 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_65_length_3769_cov_16.846154 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_66_length_2579_cov_28.892886 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_67_length_2238_cov_15.341509 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_68_length_1871_cov_33.463211 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_69_length_1286_cov_18.321754 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Record NODE_70_length_1204_cov_32.156167 has results for modules: hmm_detection
+DEBUG    08/11 17:40:02   Converting antismash.detection.hmm_detection results to json
+DEBUG    08/11 17:40:02   Annotating record NODE_1_length_569647_cov_16.587361 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Annotating record NODE_2_length_544347_cov_16.593417 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_3_length_428420_cov_16.431348: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_4_length_232437_cov_16.418665: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_5_length_227148_cov_16.635422: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_6_length_205188_cov_16.353711: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_7_length_203193_cov_15.855122: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_8_length_181652_cov_16.887347: No regions detected
+DEBUG    08/11 17:40:02   Annotating record NODE_9_length_176584_cov_16.744667 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_10_length_174116_cov_16.063296: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_11_length_171011_cov_16.504856: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_12_length_166829_cov_16.162697: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_13_length_165086_cov_15.928919: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_14_length_152846_cov_16.360283: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_15_length_152452_cov_16.393962: No regions detected
+DEBUG    08/11 17:40:02   Annotating record NODE_16_length_145452_cov_15.889651 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Annotating record NODE_17_length_143685_cov_16.294329 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Annotating record NODE_18_length_127195_cov_16.321025 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Annotating record NODE_19_length_120742_cov_15.801981 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_20_length_116855_cov_15.947379: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_21_length_98204_cov_16.278191: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_22_length_94856_cov_16.493917: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_23_length_94671_cov_16.403852: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_24_length_91144_cov_17.128817: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_25_length_89731_cov_16.221842: No regions detected
+DEBUG    08/11 17:40:02   Annotating record NODE_26_length_86667_cov_16.664857 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Annotating record NODE_27_length_85968_cov_17.305829 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_28_length_85394_cov_15.868408: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_29_length_85377_cov_16.556096: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_30_length_82815_cov_16.201117: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_31_length_76092_cov_17.396527: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_32_length_74852_cov_16.033086: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_33_length_74167_cov_16.505223: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_34_length_71091_cov_17.688484: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_35_length_68714_cov_15.419293: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_36_length_62456_cov_17.305215: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_37_length_61070_cov_16.627597: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_38_length_59616_cov_16.640101: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_39_length_51766_cov_16.545551: No regions detected
+DEBUG    08/11 17:40:02   Annotating record NODE_40_length_48741_cov_14.230910 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_41_length_46665_cov_16.059157: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_42_length_43334_cov_15.972929: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_43_length_43242_cov_16.145419: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_44_length_33645_cov_16.615259: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_45_length_33627_cov_15.684918: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_46_length_32526_cov_16.653549: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_47_length_32407_cov_16.512001: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_48_length_30915_cov_15.818017: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_49_length_29569_cov_15.366371: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_50_length_28167_cov_16.472695: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_51_length_26747_cov_15.745444: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_52_length_23283_cov_16.126605: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_53_length_22560_cov_14.651870: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_54_length_21212_cov_15.226591: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_55_length_20102_cov_15.119051: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_56_length_19464_cov_15.687419: No regions detected
+DEBUG    08/11 17:40:02   Annotating record NODE_57_length_17380_cov_18.983471 with results from: hmm_detection, cluster_hmmer, genefunctions, nrps_pks_domains, tigrfam, active_site_finder, cluster_compare, clusterblast, lanthipeptides, lassopeptides, nrps_pks, pfam2go, rrefinder, sactipeptides, t2pks, tfbs_finder, thiopeptides, tta
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.active_site_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.cluster_compare
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.clusterblast
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lanthipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.lassopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.nrps_pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.pfam2go
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.rrefinder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.sactipeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.t2pks
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tfbs_finder
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.thiopeptides
+DEBUG    08/11 17:40:02    Adding results from antismash.modules.tta
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_58_length_12297_cov_16.341817: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_59_length_10400_cov_16.970842: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_60_length_9942_cov_15.968779: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_61_length_8282_cov_14.669470: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_62_length_7662_cov_13.762426: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_63_length_7111_cov_17.232300: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_64_length_4990_cov_118.718298: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_65_length_3769_cov_16.846154: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_66_length_2579_cov_28.892886: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_67_length_2238_cov_15.341509: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_68_length_1871_cov_33.463211: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_69_length_1286_cov_18.321754: No regions detected
+DEBUG    08/11 17:40:02   Not annotating skipped record NODE_70_length_1204_cov_32.156167: No regions detected
+DEBUG    08/11 17:40:02   Creating results page
+DEBUG    08/11 17:40:02   Results page using antismash.js from local copy: /databases/as-js/0.13/antismash.js
+DEBUG    08/11 17:40:08   Creating results SVGs
+DEBUG    08/11 17:40:08   Writing seq_records SVGs to '/data/antismash/upload/bacteria-f774fa8d-ea17-46ef-b5fc-e9a3e94af9a5/svg'
+DEBUG    08/11 17:40:10   Writing cluster-specific genbank files
+DEBUG    08/11 17:40:10   Writing final genbank file to '/data/antismash/upload/bacteria-f774fa8d-ea17-46ef-b5fc-e9a3e94af9a5/CP20G1_scaffolds.gbk'
+DEBUG    08/11 17:40:10   Zipping output to '/data/antismash/upload/bacteria-f774fa8d-ea17-46ef-b5fc-e9a3e94af9a5/CP20G1_scaffolds.zip'

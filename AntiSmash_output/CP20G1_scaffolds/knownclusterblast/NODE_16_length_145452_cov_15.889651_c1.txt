@@ -1,0 +1,113 @@
+ClusterBlast scores for NODE_16_length_145452_cov_15.889651
+
+Table of genes, locations, strands and annotations of query cluster:
+ctg16_68	76363	76903	+		
+ctg16_69	76920	78072	-		
+ctg16_70	78537	78888	-		
+ctg16_71	79018	79654	+		
+ctg16_72	79650	81576	-		
+ctg16_73	81572	82379	-		
+ctg16_74	82393	84001	-		
+ctg16_75	84013	85177	-		
+ctg16_76	85342	86971	+		
+ctg16_77	87038	92375	+		
+ctg16_78	92923	93823	-		
+ctg16_79	93840	94233	-		
+ctg16_80	94332	95268	-		
+ctg16_81	95434	96664	+		
+ctg16_82	96793	98122	-		
+ctg16_83	98249	99062	-		
+ctg16_84	99230	99881	+		
+ctg16_85	99945	101673	+		
+
+
+Significant hits: 
+1. BGC0001095	fengycin
+2. BGC0001103	mycosubtilin
+3. BGC0000407	plipastatin
+4. BGC0002284	corynecin III/corynecin I/corynecin II
+
+
+Details:
+
+>>
+1. BGC0001095
+Source: fengycin
+Type: NRP
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 913.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg16_72	RBAM_018370	48	410	68.33073322932918	7.51e-138
+ctg16_76	RBAM_018380	46	503	99.81549815498155	4.53e-174
+
+
+
+>>
+2. BGC0001103
+Source: mycosubtilin
+Type: NRP+Polyketide
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 899.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+AAF08794.1	AAF08794.1	1938	3140	+	FenF
+AAF08795.1	AAF08795.1	3161	15076	+	MycA
+AAF08796.1	AAF08796.1	15133	31242	+	MycB
+AAF08797.1	AAF08797.1	31340	39169	+	MycC
+AAF08798.1	AAF08798.1	39339	39731	+	YngL
+AAF08799.1	AAF08799.1	39886	41418	+	YngK
+AAF08800.1	AAF08800.1	41925	43067	+	YngJ
+AAF08801.1	AAF08801.1	43110	44759	+	YngI
+AAF08802.1	AAF08802.1	44769	46103	+	YngH
+AAF08803.1	AAF08803.1	46118	46339	+	YngXX
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg16_72	AAF08802.1	47	393	69.26677067082684	5.15e-131
+ctg16_76	AAF08801.1	47	506	99.44649446494465	3.09e-175
+
+
+
+>>
+3. BGC0000407
+Source: plipastatin
+Type: NRP
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 898.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+AEW31016.1	AEW31016.1	1	1392	+	putative_efflux_transporter
+AEW31017.1	AEW31017.1	1526	2503	+	putative_epimerase
+AEW31018.1	AEW31018.1	2537	4012	+	penicillin-binding_protein
+AEW31019.1	AEW31019.1	4394	12079	+	plipastatin_synthetase
+AEW31020.1	AEW31020.1	12104	19786	+	plipastatin_synthetase
+AEW31021.1	AEW31021.1	19804	27471	+	plipastatin_synthetase
+AEW31022.1	AEW31022.1	27497	38347	+	plipastatin_synthetase
+AEW31015.1	AEW31015.1	38355	42194	+	plipastatin_synthetase
+AEW31023.1	AEW31023.1	42302	42694	+	integral_inner_membrane_protein
+AEW31024.1	AEW31024.1	42830	44362	+	hypothetical_protein
+AEW31025.1	AEW31025.1	44943	46085	+	acyl-CoA_dehydrogenase
+AEW31026.1	AEW31026.1	46130	47779	+	short-chain_acyl-CoA_synthetase
+AEW31027.1	AEW31027.1	47789	49123	+	acetyl-CoA_carboxylase_biotin_carboxylase_subunit
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg16_72	AEW31027.1	47	397	69.26677067082684	8.14e-133
+ctg16_76	AEW31026.1	47	501	99.44649446494465	2.85e-173
+
+
+
+>>
+4. BGC0002284
+Source: corynecin III/corynecin I/corynecin II
+Type: Other
+Number of proteins with BLAST hits to this cluster: 2
+Cumulative BLAST score: 1213.0
+
+Table of genes, locations, strands and annotations of subject cluster:
+
+Table of Blast hits (query gene, subject gene, %identity, blast score, %coverage, e-value):
+ctg16_72	CPI83_20020	47	500	98.28393135725429	1.16e-169
+ctg16_74	CPI83_20025	68	713	95.32710280373831	2.98e-257
+

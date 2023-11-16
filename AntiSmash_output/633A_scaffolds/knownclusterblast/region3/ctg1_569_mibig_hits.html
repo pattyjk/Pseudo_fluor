@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>CAY48786.1</td>
+              <td>putative_dipeptidase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001312/1">BGC0001312</a></td>
+              <td>NRP</td>
+              <td>91.0</td>
+              <td>100.0</td>
+              <td>843.0</td>
+              <td>2e-311</td>
+          </tr>
+    
+          <tr>
+              <td>QBQ12457.1</td>
+              <td>membrane_dipeptidase</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002693/1">BGC0002693</a></td>
+              <td>NRP</td>
+              <td>91.0</td>
+              <td>100.0</td>
+              <td>842.0</td>
+              <td>5.72e-311</td>
+          </tr>
+    
+          <tr>
+              <td>AAY93348.2</td>
+              <td>putative_dipeptidase_precursor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000413/1">BGC0000413</a></td>
+              <td>NRP</td>
+              <td>69.0</td>
+              <td>99.1</td>
+              <td>647.0</td>
+              <td>1.22e-233</td>
+          </tr>
+    
+          <tr>
+              <td>CCE28982.1</td>
+              <td>related_to_microsomal_dipeptidase_precursor</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001365/1">BGC0001365</a></td>
+              <td>NRP</td>
+              <td>24.0</td>
+              <td>82.0</td>
+              <td>107.0</td>
+              <td>3.44e-25</td>
+          </tr>
+    
+          <tr>
+              <td>BAE56605.1</td>
+              <td></td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001123/1">BGC0001123</a></td>
+              <td>NRP</td>
+              <td>26.0</td>
+              <td>82.5</td>
+              <td>106.0</td>
+              <td>8.35e-25</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>

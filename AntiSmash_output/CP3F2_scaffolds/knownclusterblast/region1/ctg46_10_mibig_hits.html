@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" >
+var counter = 1;
+function addInput(divName){
+     var newdiv = document.createElement('div');
+     newdiv.innerHTML = "<b>Locus " + (counter + 1) + "</b><br> GenBank accession: <input type='text' required name='myInputs[]'> Start nt: <input type='number' name='myStartCoords[]' placeholder='N/A'> End nt: <input type='number' name='myEndCoords[]' placeholder='N/A'> <br><br>";
+     document.getElementById(divName).appendChild(newdiv);
+     counter++;
+}
+</script>
+
+<script>
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+
+</script>
+<style>
+table {
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+</style>
+</head>
+<body>
+    <table id="myTable" class="tablesorter" border=1>
+    <thead>
+    <tr>
+        <th>MIBiG Protein</th>
+        <th>Description</th>
+        <th>MIBiG Cluster</th>
+        <th>MiBiG Product</th>
+        <th>% ID</th>
+        <th>% Coverage</th>
+        <th>BLAST Score</th>
+        <th>E-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+          <tr>
+              <td>WP_052830521.1</td>
+              <td>methyl-accepting_chemotaxis_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0001791/1">BGC0001791</a></td>
+              <td>NRP</td>
+              <td>36.0</td>
+              <td>100.8</td>
+              <td>256.0</td>
+              <td>2.16e-76</td>
+          </tr>
+    
+          <tr>
+              <td>WP_011104615.1</td>
+              <td>methyl-accepting_chemotaxis_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002571/1">BGC0002571</a></td>
+              <td>NRP</td>
+              <td>44.0</td>
+              <td>32.9</td>
+              <td>155.0</td>
+              <td>3.5e-40</td>
+          </tr>
+    
+          <tr>
+              <td>WP_011104616.1</td>
+              <td>methyl-accepting_chemotaxis_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002571/1">BGC0002571</a></td>
+              <td>NRP</td>
+              <td>34.0</td>
+              <td>52.2</td>
+              <td>145.0</td>
+              <td>1.08e-36</td>
+          </tr>
+    
+          <tr>
+              <td>AJQ95670.1</td>
+              <td>methyl-accepting_chemotaxis_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002046/1">BGC0002046</a></td>
+              <td>NRP+Polyketide:Trans-AT type I polyketide</td>
+              <td>41.0</td>
+              <td>25.2</td>
+              <td>87.0</td>
+              <td>1.4e-19</td>
+          </tr>
+    
+          <tr>
+              <td>AEK64501.1</td>
+              <td>YvaQ</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000506/1">BGC0000506</a></td>
+              <td>RiPP:Lanthipeptide</td>
+              <td>34.0</td>
+              <td>43.6</td>
+              <td>91.0</td>
+              <td>6.9e-19</td>
+          </tr>
+    
+          <tr>
+              <td>AXG46991.1</td>
+              <td>methyl-accepting_chemotaxis_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0000383/1">BGC0000383</a></td>
+              <td>NRP+Polyketide:Modular type I polyketide</td>
+              <td>46.0</td>
+              <td>35.3</td>
+              <td>85.0</td>
+              <td>5.87e-17</td>
+          </tr>
+    
+          <tr>
+              <td>WP_135851041.1</td>
+              <td>methyl-accepting_chemotaxis_protein</td>
+              <td><a href="https://mibig.secondarymetabolites.org/go/BGC0002703/1">BGC0002703</a></td>
+              <td>RiPP</td>
+              <td>33.0</td>
+              <td>20.3</td>
+              <td>69.0</td>
+              <td>1.32e-11</td>
+          </tr>
+    
+    </tbody>
+  </table>
+</body>
