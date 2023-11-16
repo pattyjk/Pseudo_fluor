@@ -427,6 +427,7 @@ library(plyr)
 metabolic_sum<-ddply(metabolic_data, c("genome", "module_name"), summarize, presence=length(module_name))
 
 library(ggplot2)
-ggplot(metabolic_sum, aes(genome, presence, fill=module_name))+
-  geom_bar(stat='identity')
+ggplot(metabolic_sum, aes(genome,module_name, fill=presence))+
+  geom_tile()
+
 
