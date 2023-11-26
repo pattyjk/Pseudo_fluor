@@ -351,7 +351,7 @@ ggplot(sixty_sum_stats[-5,], aes(x="", y=V3, fill=V2))+
   coord_polar("y", start=0)+
   ggtitle("Sixty Lake Isolates")
 
-#read in shell break down of Coness Pond gene shells
+#read in shell break down of Conness Pond gene shells
 coness_sum_stats<-read.delim("~/GitHub/Pseudo_fluor/PFC_panaroo_results_coness/summary_statistics.txt", header=F)
 ggplot(coness_sum_stats[-5,], aes(x="", y=V3, fill=V2))+
   geom_bar(stat="identity", width=1) +
@@ -394,6 +394,20 @@ ggplot(bd_data, aes(Group, Prop_Inhibition))+
 
 ##Metabolic modeling data based on KGGG annotation in ANVIO (v7.1)
 
+##ANVIO 7.1 analysis
+#annotate with KEGG/diamond
+for i in *.db
+do
+anvi-run-kegg-kofams -c $i -T 4
+done
+
+#estimate metabolism for each genome
+for i in *.db
+do
+anvi-estimate-metabolism -c $i -O $i_metabolism --kegg-output-modes kofam_hits
+done
+
+#change to R analysis
 # Set the directory path
 directory_path <- "~/Github/Pseudo_fluor/metabolic_reconstruction/"
 
