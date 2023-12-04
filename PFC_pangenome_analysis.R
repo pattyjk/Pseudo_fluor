@@ -141,6 +141,7 @@ hist(weighty)
 ##########################
 ###Read in panaroo pan matrix
 library(readr)
+library(ggplot2)
 gene_presence_absence <- read_delim("Pseudo_fluor/PFC_panaroo_results/gene_presence_absence.Rtab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
 dim(gene_presence_absence)
 #[1] 7779   21
