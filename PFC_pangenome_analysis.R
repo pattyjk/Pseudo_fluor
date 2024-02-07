@@ -139,12 +139,13 @@ weighty<-geneWeights(panmat.blast)
 hist(weighty)
 
 ##########################
+################Fisher exact test to determine genes that vary between core/shell/cloud
 ###Read in panaroo pan matrix
 library(readr)
 library(ggplot2)
 gene_presence_absence <- read_delim("Pseudo_fluor/PFC_panaroo_results/gene_presence_absence.Rtab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
 dim(gene_presence_absence)
-#[1] 7779   21
+#[1] 7779   20
 
 #calculate genes for shells
 .15*20
@@ -335,6 +336,122 @@ ggplot(l3_counts, aes(Level3, lor_shell_unique, color=p_value_shell_unique))+
   theme_bw()+
   coord_flip()
 
+####################################################
+########Fisher exact test to determine differences between sites
+####################################################
+##########################
+################Fisher exact test to determine genes that vary between core/shell/cloud
+###Read in panaroo pan matrix
+library(readr)
+library(ggplot2)
+library(plyr)
+library(dplyr)
+gene_presence_absence <- read_delim("Pseudo_fluor/PFC_panaroo_results/gene_presence_absence.Rtab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
+dim(gene_presence_absence)
+#[1] 7779   20
+
+#read in KEGG annotations of genes
+kegg_annotations <- read.delim("~/GitHub/Pseudo_fluor/kegg_annotations.txt")
+kegg_annotations$KO<-trimws(kegg_annotations$KO)
+
+#read in KEGG DB
+ko_db<-read.delim("Pseudo_fluor/full_kegg.txt", header=T)
+ko_db$KO<-trimws(ko_db$KO)
+
+#create table of Sixty and Conness genes
+gene_presence_absence$sum<-rowSums(gene_presence_absence[,-1])
+conness_genes<-select(gene_presence_absence, contains(c("CP", "Gene")))
+sixty_genes<-select(gene_presence_absence, -contains("CP"))
+sixty_genes$Type<-"Sixty Lake"
+conness_genes$Type<-'Conness Pond'
+
+#see how many genes each has
+dim(sixty_genes)
+#[1] 7779   12
+
+dim(conness_genes)
+#[1] 7779   12
+
+#remove genes that are not annotated in KEGG
+sixty_genes<-sixty_genes[-grep("group_", sixty_genes$Gene),]
+conness_genes<-conness_genes[-grep("group_", conness_genes$Gene),]
+
+#see how many genes each has after removing non annotated genes
+dim(sixty_genes)
+#[1] 3427   12
+
+dim(conness_genes)
+#[1] 3427   12
+
+#reshape data
+library(reshape2)
+conness_m<-melt(conness_genes[,-12])
+sixty_m<-melt(sixty_genes[,-12])
+
+#append KO information
+conness_m<-merge(conness_m, kegg_annotations, by='Gene', all.y=F)
+sixty_m<-merge(sixty_m, kegg_annotations, by='Gene', all.y=F)
+
+#append KO DB annotations
+conness_m<-merge(conness_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
+sixty_m<-merge(sixty_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
+
+#calculate L3 number of genes for each
+conness_m_count_l3<-ddply(conness_m, c("Level3"), summarize, no_conness=length(unique(Gene.x)))
+sixty_m_count_l3<-ddply(sixty_m, c("Level3"), summarize, no_sixty=length(unique(Gene.x)))
+
+#merge datasets
+l3_counts<-merge(sixty_m_count_l3, conness_m_count_l3, by='Level3')
+
+#reshape data to plot
+l3_m<-melt(l3_counts)
+ggplot(l3_m, aes(Level3, value, fill=variable))+
+  geom_bar(stat='identity')+
+  theme_bw()+
+  ylab("Number of Genes")+
+  coord_flip()+
+  xlab("")
+
+#calculate total genes 
+l3_counts$total<-l3_counts$no_conness+l3_counts$no_sixty
+
+#calculate the number of genes not found in each
+l3_counts$not_sixty<-sum(l3_counts$no_sixty)-l3_counts$no_sixty
+l3_counts$not_conness<-sum(l3_counts$no_conness)-l3_counts$no_conness
+
+#for each L3 KEGG category, calculate Fisher Exact Test for comparisons between shell, core, and unique categories
+# Create an empty vector to store the p-values and LOR
+p_values_ponds <- numeric(nrow(l3_counts))
+lor_ponds <- numeric(nrow(l3_counts))
+
+# Loop through each row and apply Fisher exact test to compare ponds
+set.seed(505)
+for (i in 1:nrow(l3_counts)) {
+  contingency_table <- matrix(c(l3_counts[i, "no_sixty" ], l3_counts[i, "no_conness" ],
+                                l3_counts[i, "not_sixty"], l3_counts[i, "not_conness"]),
+                              nrow = 2)
+  
+  
+  # Apply Fisher exact test
+  fisher_result <- fisher.test(contingency_table)
+  
+  # Store the p-value in the vector
+  p_values_ponds[i] <- fisher_result$p.value
+  lor_ponds[i] <- fisher_result$estimate
+}
+
+# Add the p-values/lor as a new column the original L3 data frame
+l3_counts$p_value <- p_values_ponds
+l3_counts$lor <- lor_ponds
+
+
+#correct p-values with Benjamini-Hochberg correction
+l3_counts$p_value_corrected <- p.adjust(l3_counts$p_value, method = "BH")
+
+#see what's different
+which(l3_counts$p_value_corrected<0.05)
+which(l3_counts$p_value<0.05)
+#none significant at any KEGG level :(
 
 ##########################################
 #read in break down of gene shells for all genomes
@@ -376,11 +493,27 @@ ggplot(anti_sum, aes(Genome, no_genes, fill=Type))+
   scale_fill_manual(values = c('#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'))+
   facet_wrap(~Pond, scales='free_x')
 
+##################analayze Bd inhibition data
 #load in Bd-inhibition data
 bd_data<-read.delim("~/Github/Pseudo_fluor/bd_inhibition_data.txt")
 
-#remove controls from data
-bd_data<-bd_data[-which(bd_data$Group =='Tryptone' | bd_data$Group =='Heat killed' | bd_data$Group =='Bd_Tryptone' | bd_data$Group =='Bd_Prova'),]
+#remove controls from data (blanks have been subtracted out already)
+bd_data<-bd_data[-which(bd_data$Group =='Heat killed' | bd_data$Group =='Tryptone' | bd_data$Group =='Bd_Prova'),]
+
+#subset data based on Bd strain
+bd_197<-bd_data[which(bd_data$Bd_strain == 'Jel197'),]
+bd_423<-bd_data[which(bd_data$Bd_strain == 'JEL423'),]
+
+#move the control to new frames and remove control from 
+ctrl_197<-bd_data[which(bd_197$Group == 'Bd_Tryptone'),]
+ctrl_423<-bd_data[which(bd_423$Group == 'Bd_Tryptone'),]
+
+bd_197<-bd_197[-which(bd_197$Group== 'Bd_Tryptone'),]
+bd_423<-bd_423[-which(bd_423$Group== 'Bd_Tryptone'),]
+
+#run t-test to determine slope significance
+t.test(bd_197
+
 
 #plot data
 library(ggplot2)
