@@ -1,7 +1,6 @@
 ##Look at ANI
 #read in dataframe from fastANI
-setwd("Pseudo_fluor/")
-PF_cali_ani_output <- read.delim("PFC_ANI.txt")
+PF_cali_ani_output <- read.delim("Pseudo_fluor/PFC_ANI.txt")
 PF_cali_ani_output <- PF_cali_ani_output[-which(PF_cali_ani_output$Sp1 == '630A' | PF_cali_ani_output$Sp1 == '629A2A' | PF_cali_ani_output$Sp2 == '630A' | PF_cali_ani_output$Sp2 == '629A2A'),]
 #load ggplot2
 library(ggplot2)
@@ -312,6 +311,7 @@ l3_counts$p_value_shell_unique <- p.adjust(l3_counts$p_value_shell_unique, metho
 
 #write data to a file
 write.table(l3_counts, 'Pseudo_fluor/fisher_test_results.txt', sep='\t', quote=F, row.names=F)
+l3_counts<-read.delim('Pseudo_fluor/fisher_test_results.txt')
 
 #plot log odds ratio
 library(ggplot2)
@@ -324,7 +324,7 @@ ggplot(l3_counts, aes(Level3, lor_core_unique, color=p_value_core_unique))+
 
 ggplot(l3_counts, aes(Level3, lor_core_shell, color=p_value_core_shell))+
   geom_point()+
-  ylab("Log Odds Ratio")+
+  ylab("P value")+
   xlab("")+
   theme_bw()+
   coord_flip()
@@ -336,11 +336,30 @@ ggplot(l3_counts, aes(Level3, lor_shell_unique, color=p_value_shell_unique))+
   theme_bw()+
   coord_flip()
 
+#reshape data to plot
+library(reshape2)
+l3_melt<-melt(l3_counts[,c(1,3,8)])
+
+
+ggplot(l3_melt, aes(Level3, value, fill=variable))+
+  geom_bar(stat='identity')+
+  theme_light()+
+  ylab("Number of genes (Log10)")+
+  xlab("KEGG Orthology- Level 3")+
+  coord_flip()+
+  scale_y_log10()
+
+#remove pathways not significantly different
+l3_sig<-l3_counts[which(l3_counts$p_value_core_shell<0.05),]
+
+#get percentage of genes in these categories
+l3_sig$per_cor<-100*(l3_sig$no_genes_core/sum(l3_counts$total))
+l3_sig$per_shell<-100*(l3_sig$no_genes_core/sum(l3_counts$shellunique))
+
 ####################################################
 ########Fisher exact test to determine differences between sites
 ####################################################
 ##########################
-################Fisher exact test to determine genes that vary between core/shell/cloud
 ###Read in panaroo pan matrix
 library(readr)
 library(ggplot2)
@@ -493,37 +512,58 @@ ggplot(anti_sum, aes(Genome, no_genes, fill=Type))+
   scale_fill_manual(values = c('#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'))+
   facet_wrap(~Pond, scales='free_x')
 
+
+#append Bd inhibition data to antismash data
+bd_data<-read.delim("~/Github/Pseudo_fluor/bd_inhibition_data.txt")
+
+#remove controls from data (blanks have been subtracted out already)
+bd_data<-bd_data[-which(bd_data$Group =='Heat killed' | bd_data$Group =='Tryptone' | bd_data$Group =='Bd_Prova' | bd_data$Group =='Bd_Tryptone'),]
+
+#calculate total number of BCG per genome
+anti_sum2<-ddply(anti_sum, c("Genome"), summarize, n_clust=length(no_genes))
+
+#calculate summary stats for BD inhibition data
+bd_sum<-ddply(bd_data, c("Bd_strain", "Group"), summarize, mean=mean(Percent_inhibition), sd=sd(Percent_inhibition), n=length(Percent_inhibition), se=sd/n)
+anti_sum_bd<-merge(anti_sum2, bd_sum, by.x='Genome', by.y='Group')
+
+#plot clusters and Bd data
+library(ggpubr)
+ggplot(anti_sum_bd, aes(n_clust, mean, color=Bd_strain))+
+  geom_point()+
+  ylab("Percent Bd inhibition")+
+  xlab("Number of BGC")+
+  geom_smooth(method='lm')+
+  stat_cor(method='spearman')
+
 ##################analayze Bd inhibition data
 #load in Bd-inhibition data
 bd_data<-read.delim("~/Github/Pseudo_fluor/bd_inhibition_data.txt")
 
 #remove controls from data (blanks have been subtracted out already)
-bd_data<-bd_data[-which(bd_data$Group =='Heat killed' | bd_data$Group =='Tryptone' | bd_data$Group =='Bd_Prova'),]
+bd_data<-bd_data[-which(bd_data$Group =='Heat killed' | bd_data$Group =='Tryptone' | bd_data$Group =='Bd_Prova' | bd_data$Group =='Bd_Tryptone'),]
 
-#subset data based on Bd strain
-bd_197<-bd_data[which(bd_data$Bd_strain == 'Jel197'),]
-bd_423<-bd_data[which(bd_data$Bd_strain == 'JEL423'),]
+#correct p-values
+bd_data$p.adj<-p.adjust(bd_data$P_value, method = 'hochberg')
 
-#move the control to new frames and remove control from 
-ctrl_197<-bd_data[which(bd_197$Group == 'Bd_Tryptone'),]
-ctrl_423<-bd_data[which(bd_423$Group == 'Bd_Tryptone'),]
-
-bd_197<-bd_197[-which(bd_197$Group== 'Bd_Tryptone'),]
-bd_423<-bd_423[-which(bd_423$Group== 'Bd_Tryptone'),]
-
-#run t-test to determine slope significance
-t.test(bd_197
+#write table with corrected p-values
+write.table(bd_data, 'Pseudo_fluor/bd_inhib_data_corrcted_p.txt', quote=F, row.names = F, sep='\t')
+bd_data<-read.delim('Pseudo_fluor/bd_inhib_data_corrcted_p.txt', header=T)
 
 
 #plot data
 library(ggplot2)
-ggplot(bd_data, aes(Group, Prop_Inhibition))+
+ggplot(bd_data, aes(Group, Percent_inhibition, fill=Bd_strain))+
   geom_boxplot()+
-  theme_bw()+
-  facet_wrap(~Bd_strain)+
-  ylab("Percent Bd Inhibition")+
-  xlab("")+
-  coord_flip()
+  coord_flip()+
+  xlab("PF strain")+
+  ylab("Percent inhibition of Bd")
+
+ggplot(bd_data, aes(Percent_inhibition, fill=Bd_strain))+
+  geom_histogram(bins=50)+
+  scale_fill_manual(values=c('grey', 'red'))+
+  #facet_wrap(~Bd_strain)+
+  ylab("Frequency")+
+  xlab("Percent Bd inhibition")
 
 
 ##Metabolic modeling data based on KGGG annotation in ANVIO (v7.1)
@@ -578,4 +618,59 @@ library(ggplot2)
 ggplot(metabolic_sum, aes(genome,module_name, fill=presence))+
   geom_tile()
 
+#####Virus
+#read in viral elements blast results
+# Set the directory path
+directory_path <- "~/Github/Pseudo_fluor/viral_genomes/blast_out/"
 
+# Get a list of files in the directory
+files <- list.files(directory_path, full.names = TRUE)
+
+# Initialize an empty data frame to store the combined data
+viral_data <- data.frame()
+
+# Loop through each file and add it to a data frame, creating a column with the file name
+for (file in files) {
+  # Read the data from the file
+  current_data <- read.table(file, header = F, sep = "\t")  # Adjust parameters based on your file format
+  
+  # Add a new column with the file name
+  current_data$genome <- basename(file)
+  
+  # Combine the current data with the existing data
+  viral_data <- rbind(viral_data, current_data)
+}
+
+#remove stuff that's not of interest and add relavant column names
+viral_data<-viral_data[,c(2:5, 12)]
+
+#how many viral hits?
+dim(viral_data)
+#[1] 387   5
+
+#write to file
+write.table(viral_data, 'Pseudo_fluor/viral_data.txt', sep='\t', quote=F, row.names=F)
+
+#reread in data
+viral_data<-read.delim("Pseudo_fluor/viral_data.txt", header=T)
+
+#summarize data
+library(plyr)
+library(ggplot2)
+viral_sum<-ddply(viral_data, c('Genome', 'Pond', 'Hit'), summarize, abun=length(Hit))
+
+#plot histogram of blast percent identity hits
+ggplot(viral_data, aes(Per_ident, fill=Pond))+
+  geom_histogram()+
+  facet_wrap(~Hit)+
+  ylab("Number of BLASTn hits")+
+  xlab("Percent Identity")+
+  theme_bw()
+
+#plot data
+ggplot(viral_sum, aes(Genome, abun, fill=Hit))+
+  facet_wrap(~Pond, scales='free_y')+
+  theme_bw()+
+  scale_fill_manual(values = c('#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'))+
+  geom_bar(stat='identity')+
+  coord_flip()
