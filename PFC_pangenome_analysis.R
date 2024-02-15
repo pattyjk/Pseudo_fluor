@@ -549,7 +549,6 @@ bd_data$p.adj<-p.adjust(bd_data$P_value, method = 'hochberg')
 write.table(bd_data, 'Pseudo_fluor/bd_inhib_data_corrcted_p.txt', quote=F, row.names = F, sep='\t')
 bd_data<-read.delim('Pseudo_fluor/bd_inhib_data_corrcted_p.txt', header=T)
 
-
 #plot data
 library(ggplot2)
 ggplot(bd_data, aes(Group, Percent_inhibition, fill=Bd_strain))+
@@ -558,10 +557,10 @@ ggplot(bd_data, aes(Group, Percent_inhibition, fill=Bd_strain))+
   xlab("PF strain")+
   ylab("Percent inhibition of Bd")
 
-ggplot(bd_data, aes(Percent_inhibition, fill=Bd_strain))+
-  geom_histogram(bins=50)+
+ggplot(bd_data, aes(Percent_inhibition, fill=Pond))+
+  geom_histogram()+
   scale_fill_manual(values=c('grey', 'red'))+
-  #facet_wrap(~Bd_strain)+
+  facet_wrap(~Bd_strain)+
   ylab("Frequency")+
   xlab("Percent Bd inhibition")
 
@@ -674,3 +673,215 @@ ggplot(viral_sum, aes(Genome, abun, fill=Hit))+
   scale_fill_manual(values = c('#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff', '#000000'))+
   geom_bar(stat='identity')+
   coord_flip()
+
+###############Look at AmphiBac database
+#read in data & library
+amphibac<-read.delim("Pseudo_fluor/amphibac_database.txt", header=T)
+library(ggplot2)
+library(tidyverse)
+
+#remove NAs
+amphibac2<-amphibac %>% drop_na(Proportional.Growth.Bd)
+
+#plot all
+ggplot(amphibac2, aes(as.numeric(Proportional.Growth.Bd)))+
+  geom_histogram(bins = 50)+
+  #coord_cartesian(xlim=c(0,2))+
+  facet_wrap(~O, scales = 'free')
+
+#subset to only taxa with high number of isolates (>50)
+amphibac_subset<-amphibac2[which(amphibac2$O == 'o__Pseudomonadales'| amphibac2$O =='o__Enterobacteriales' |
+                                   amphibac2$O =='o__Aeromonadales' |
+                                   amphibac2$O =="o__Sphingobacteriales"  |
+                                   amphibac2$O =="o__Sphingomonadales" |
+                                   amphibac2$O =="o__Burkholderiales"  |
+                                   amphibac2$O =="o__Flavobacteriales" |
+                                   amphibac2$O =="o__Caulobacterales" |
+                                   amphibac2$O =="o__Actinomycetales"| amphibac2$O =="o__Bacillales"),]
+
+amphibac_subset$Proportional.Growth.Bd<-as.numeric(amphibac_subset$Proportional.Growth.Bd)                                
+amphibac_subset<- amphibac_subset %>% drop_na(Proportional.Growth.Bd)
+amphibac_subset<- amphibac_subset[-which(amphibac_subset$Proportional.Growth.Bd >2),]
+
+#plot those of interest
+ggplot(amphibac_subset, aes(as.numeric(Proportional.Growth.Bd), fill=O))+
+  geom_histogram(bins = 50)+
+  facet_wrap(~O, scales = 'free_y')+
+  xlab("Proportional Bd Growth")+
+  ylab("Count")
+
+#boxplot to see range
+ggplot(amphibac_subset, aes(O, as.numeric(Proportional.Growth.Bd), fill=O))+
+  geom_boxplot()+
+  facet_wrap(~O, scales = 'free')
+
+#fit distribution
+library(fitdistrplus)
+library(stats4)
+library(MASS)
+
+pseudo<-amphibac_subset[which(amphibac_subset$O == 'o__Pseudomonadales'),]
+
+x11()
+plotdist(pseudo$Proportional.Growth.Bd, histo=T, demp=T)
+descdist(pseudo$Proportional.Growth.Bd, boot = 1000)
+
+#calculate diptest for biomodality
+library(diptest)
+#https://cran.r-project.org/web/packages/diptest/diptest.pdf
+set.seed(515)
+dip.test(pseudo$Proportional.Growth.Bd, simulate.p.value = T, B=10000)
+#D = 0.021419, p-value = 0.0309
+
+#look at own data
+bd_data<-read.delim('Pseudo_fluor/bd_inhib_data_corrcted_p.txt', header=T)
+
+#separate to 197/423
+bd_197<-bd_data[which(bd_data$Bd_strain=='Jel197'),]
+bd_423<-bd_data[which(bd_data$Bd_strain=='JEL423'),]
+
+dip.test(bd_197$Percent_inhibition, simulate.p.value = T, B=10000)
+#D = 0.094202, p-value = 1e-04
+
+dip.test(bd_423$Percent_inhibition, simulate.p.value = T, B=10000)
+#D = 0.044946, p-value = 0.4206
+
+dip.test(bd_data$Percent_inhibition, simulate.p.value = T, B=10000)
+#D = 0.065823, p-value = 1e-04
+
+#globally there is biomodality, but not for 423
+
+##calculate dip to get quantiles, use the full dataset
+dip(bd_data$Percent_inhibition, full.result = T)
+#n = 132.  Dip statistic, D_n = 0.0658227 = 17.37719/(2n)
+#Modal interval [xL, xU] = [x[21], x[68]] = [36.88545, 52.19846]
+
+dip(bd_197$Percent_inhibition, full.result = T)
+#n = 66.  Dip statistic, D_n = 0.09420202 = 12.43467/(2n)
+#Modal interval [xL, xU] = [x[1], x[23]] = [41.82438, 50.92756]
+
+#not much difference between estimates for 197/whole dataset
+
+#calculate means for Bd inhibition data for 197 to bin into new groups
+library(plyr)
+bd_summary<-ddply(bd_197, c('Group', 'Pond'), summarize, mean=mean(Percent_inhibition), sd=sd(Percent_inhibition), n=length(Percent_inhibition), se=sd/n)
+
+#lower group (mildly inhibitory) < 41%
+#upper group (inhibitory) >50%
+
+length(which(bd_summary$mean <50))
+#6
+length(which(bd_summary$mean >50))
+#16
+
+#use Fisher exact test to determine categories of interest for testing
+###Read in panaroo pan matrix
+library(readr)
+library(ggplot2)
+library(plyr)
+library(dplyr)
+gene_presence_absence <- read_delim("Pseudo_fluor/Pangenome_results/PFC_panaroo_results/gene_presence_absence.Rtab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
+dim(gene_presence_absence)
+#[1] 7779   20
+
+#read in KEGG annotations of genes
+kegg_annotations <- read.delim("~/GitHub/Pseudo_fluor/kegg_annotations.txt")
+kegg_annotations$KO<-trimws(kegg_annotations$KO)
+
+#read in KEGG DB
+ko_db<-read.delim("Pseudo_fluor/full_kegg.txt", header=T)
+ko_db$KO<-trimws(ko_db$KO)
+
+#create table of Sixty and Conness genes
+gene_presence_absence$sum<-rowSums(gene_presence_absence[,-1])
+conness_genes<-select(gene_presence_absence, contains(c("CP", "Gene")))
+sixty_genes<-select(gene_presence_absence, -contains("CP"))
+sixty_genes$Type<-"Sixty Lake"
+conness_genes$Type<-'Conness Pond'
+
+#see how many genes each has
+dim(sixty_genes)
+#[1] 7779   12
+
+dim(conness_genes)
+#[1] 7779   12
+
+#remove genes that are not annotated in KEGG
+sixty_genes<-sixty_genes[-grep("group_", sixty_genes$Gene),]
+conness_genes<-conness_genes[-grep("group_", conness_genes$Gene),]
+
+#see how many genes each has after removing non annotated genes
+dim(sixty_genes)
+#[1] 3427   12
+
+dim(conness_genes)
+#[1] 3427   12
+
+#reshape data
+library(reshape2)
+conness_m<-melt(conness_genes[,-12])
+sixty_m<-melt(sixty_genes[,-12])
+
+#append KO information
+conness_m<-merge(conness_m, kegg_annotations, by='Gene', all.y=F)
+sixty_m<-merge(sixty_m, kegg_annotations, by='Gene', all.y=F)
+
+#append KO DB annotations
+conness_m<-merge(conness_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
+sixty_m<-merge(sixty_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
+
+#calculate L3 number of genes for each
+conness_m_count_l3<-ddply(conness_m, c("Level3"), summarize, no_conness=length(unique(Gene.x)))
+sixty_m_count_l3<-ddply(sixty_m, c("Level3"), summarize, no_sixty=length(unique(Gene.x)))
+
+#merge datasets
+l3_counts<-merge(sixty_m_count_l3, conness_m_count_l3, by='Level3')
+
+#reshape data to plot
+l3_m<-melt(l3_counts)
+ggplot(l3_m, aes(Level3, value, fill=variable))+
+  geom_bar(stat='identity')+
+  theme_bw()+
+  ylab("Number of Genes")+
+  coord_flip()+
+  xlab("")
+
+#calculate total genes 
+l3_counts$total<-l3_counts$no_conness+l3_counts$no_sixty
+
+#calculate the number of genes not found in each
+l3_counts$not_sixty<-sum(l3_counts$no_sixty)-l3_counts$no_sixty
+l3_counts$not_conness<-sum(l3_counts$no_conness)-l3_counts$no_conness
+
+#for each L3 KEGG category, calculate Fisher Exact Test for comparisons between shell, core, and unique categories
+# Create an empty vector to store the p-values and LOR
+p_values_ponds <- numeric(nrow(l3_counts))
+lor_ponds <- numeric(nrow(l3_counts))
+
+# Loop through each row and apply Fisher exact test to compare ponds
+set.seed(505)
+for (i in 1:nrow(l3_counts)) {
+  contingency_table <- matrix(c(l3_counts[i, "no_sixty" ], l3_counts[i, "no_conness" ],
+                                l3_counts[i, "not_sixty"], l3_counts[i, "not_conness"]),
+                              nrow = 2)
+  
+  
+  # Apply Fisher exact test
+  fisher_result <- fisher.test(contingency_table)
+  
+  # Store the p-value in the vector
+  p_values_ponds[i] <- fisher_result$p.value
+  lor_ponds[i] <- fisher_result$estimate
+}
+
+# Add the p-values/lor as a new column the original L3 data frame
+l3_counts$p_value <- p_values_ponds
+l3_counts$lor <- lor_ponds
+
+
+#correct p-values with Benjamini-Hochberg correction
+l3_counts$p_value_corrected <- p.adjust(l3_counts$p_value, method = "BH")
+
+#see what's different
+which(l3_counts$p_value_corrected<0.05)
+which(l3_counts$p_value<0.05)
