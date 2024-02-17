@@ -792,66 +792,42 @@ kegg_annotations$KO<-trimws(kegg_annotations$KO)
 ko_db<-read.delim("Pseudo_fluor/full_kegg.txt", header=T)
 ko_db$KO<-trimws(ko_db$KO)
 
-#create table of Sixty and Conness genes
-gene_presence_absence$sum<-rowSums(gene_presence_absence[,-1])
-conness_genes<-select(gene_presence_absence, contains(c("CP", "Gene")))
-sixty_genes<-select(gene_presence_absence, -contains("CP"))
-sixty_genes$Type<-"Sixty Lake"
-conness_genes$Type<-'Conness Pond'
-
-#see how many genes each has
-dim(sixty_genes)
-#[1] 7779   12
-
-dim(conness_genes)
-#[1] 7779   12
+#create table of weakly and strongly inhibitory
+weak_genes<-gene_presence_absence[,c(1,4,5,8,10,12,15,17,18)]
+strong_genes<-gene_presence_absence[,c(1,2,3,6,7,9,11,13,14,16,19,20)]
+weak_genes$Type<-'Weakly inhibitory'
+strong_genes$Type<-'Inhibitory'
 
 #remove genes that are not annotated in KEGG
-sixty_genes<-sixty_genes[-grep("group_", sixty_genes$Gene),]
-conness_genes<-conness_genes[-grep("group_", conness_genes$Gene),]
-
-#see how many genes each has after removing non annotated genes
-dim(sixty_genes)
-#[1] 3427   12
-
-dim(conness_genes)
-#[1] 3427   12
+#weak_genes<-weak_genes[-grep("group_", weak_genes$Gene),]
+#strong_genes<-strong_genes[-grep("group_", strong_genes$Gene),]
 
 #reshape data
 library(reshape2)
-conness_m<-melt(conness_genes[,-12])
-sixty_m<-melt(sixty_genes[,-12])
+weak_m<-melt(weak_genes)
+strong_m<-melt(strong_genes)
 
 #append KO information
-conness_m<-merge(conness_m, kegg_annotations, by='Gene', all.y=F)
-sixty_m<-merge(sixty_m, kegg_annotations, by='Gene', all.y=F)
+weak_m<-merge(weak_m, kegg_annotations, by='Gene', all.y=F)
+strong_m<-merge(strong_m, kegg_annotations, by='Gene', all.y=F)
 
 #append KO DB annotations
-conness_m<-merge(conness_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
-sixty_m<-merge(sixty_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
+weak_m<-merge(weak_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
+strong_m<-merge(strong_m, unique(ko_db), by.x='KO', by.y='KO', all.y=F, all.x=T)
 
 #calculate L3 number of genes for each
-conness_m_count_l3<-ddply(conness_m, c("Level3"), summarize, no_conness=length(unique(Gene.x)))
-sixty_m_count_l3<-ddply(sixty_m, c("Level3"), summarize, no_sixty=length(unique(Gene.x)))
+weak_m_count_l3<-ddply(weak_m, c("Level3"), summarize, no_weak=length(Gene.x))
+strong_m_count_l3<-ddply(strong_m, c("Level3"), summarize, no_strong=length(Gene.x))
 
 #merge datasets
-l3_counts<-merge(sixty_m_count_l3, conness_m_count_l3, by='Level3')
-
-#reshape data to plot
-l3_m<-melt(l3_counts)
-ggplot(l3_m, aes(Level3, value, fill=variable))+
-  geom_bar(stat='identity')+
-  theme_bw()+
-  ylab("Number of Genes")+
-  coord_flip()+
-  xlab("")
+l3_counts<-merge(strong_m_count_l3, weak_m_count_l3, by='Level3')
 
 #calculate total genes 
-l3_counts$total<-l3_counts$no_conness+l3_counts$no_sixty
+l3_counts$total<-l3_counts$no_strong+l3_counts$no_weak
 
 #calculate the number of genes not found in each
-l3_counts$not_sixty<-sum(l3_counts$no_sixty)-l3_counts$no_sixty
-l3_counts$not_conness<-sum(l3_counts$no_conness)-l3_counts$no_conness
+l3_counts$not_strong<-abs(l3_counts$no_weak-l3_counts$no_strong)
+l3_counts$not_weak<-abs(l3_counts$no_strong-l3_counts$no_weak)
 
 #for each L3 KEGG category, calculate Fisher Exact Test for comparisons between shell, core, and unique categories
 # Create an empty vector to store the p-values and LOR
@@ -861,10 +837,10 @@ lor_ponds <- numeric(nrow(l3_counts))
 # Loop through each row and apply Fisher exact test to compare ponds
 set.seed(505)
 for (i in 1:nrow(l3_counts)) {
-  contingency_table <- matrix(c(l3_counts[i, "no_sixty" ], l3_counts[i, "no_conness" ],
-                                l3_counts[i, "not_sixty"], l3_counts[i, "not_conness"]),
+  contingency_table <- matrix(c(l3_counts[i, "no_weak" ], l3_counts[i, "no_strong" ],
+                                l3_counts[i, "not_weak"], l3_counts[i, "not_strong"]),
                               nrow = 2)
-  
+
   
   # Apply Fisher exact test
   fisher_result <- fisher.test(contingency_table)
@@ -878,10 +854,14 @@ for (i in 1:nrow(l3_counts)) {
 l3_counts$p_value <- p_values_ponds
 l3_counts$lor <- lor_ponds
 
-
 #correct p-values with Benjamini-Hochberg correction
 l3_counts$p_value_corrected <- p.adjust(l3_counts$p_value, method = "BH")
 
 #see what's different
-which(l3_counts$p_value_corrected<0.05)
-which(l3_counts$p_value<0.05)
+length(which(l3_counts$p_value_corrected<0.05))
+#17
+
+#create significant table
+l3_sig<-l3_counts[which(l3_counts$p_value_corrected<0.05),]
+
+ggplot(l3_sig, aes(Level3, ))
