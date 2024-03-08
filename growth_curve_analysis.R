@@ -1,6 +1,6 @@
 ###growth curve analysis
 #load in data
-gcr<-read.delim("/Users/patty/OneDrive/Desktop/cali_pf_growth_data.txt", header=T)
+gcr<-read.delim("Pseudo_fluor/cali_pf_growth_data.txt", header=T)
 
 #remove isolate column name
 gcr<-gcr[,-2]
@@ -54,3 +54,30 @@ cor.test(growth_curve$t_gen, growth_curve$Inhib_197, method = 'spearman')
 #t = 1.5268, df = 19, p-value = 0.1433, cor = -0.07795774
 cor.test(growth_curve$t_gen, growth_curve$Inhib_423, method = 'spearman')
 #t = 1.199, df = 19, p-value = 0.2453, cor = 0.330582
+
+#make plot for SI
+library(ggplot2)
+library(ggpubr)
+
+rate<-ggplot(growth_curve, aes(sample, r))+
+  ylab("Intrinsic growth rate")+
+  xlab("")+
+  geom_bar(stat='identity')+
+  theme_bw()+
+  coord_flip()
+
+gen_time<- ggplot(growth_curve, aes(sample, t_gen))+
+  ylab("Generation time")+
+  xlab("")+
+  geom_bar(stat='identity')+
+  theme_bw()+
+  coord_flip()
+
+OD<- ggplot(growth_curve, aes(sample, k))+
+  ylab("Carrying capacity")+
+  xlab("")+
+  geom_bar(stat='identity')+
+  theme_bw()+
+  coord_flip()
+
+ggarrange(rate, gen_time, OD, labels=c("A", "B", "C"))
