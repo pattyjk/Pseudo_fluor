@@ -12,7 +12,7 @@ gcr_cast<-dcast(gcr, time ~ Isolate2, value.var = 'OD', fun.aggregate = sum)
 #analyze growth curves
 library(growthcurver) 
 gc_out <- SummarizeGrowthByPlate(gcr_cast, plot_file = '~/Documents/GitHub/Pseudo_fluor/pf_curves.pdf', plot_fit = T)
-
+gc_out<-gc_out[-c(30,37),]
 #t_gen is the fastest possible generation time
 #the population size at the beginning of the growth curve is given by N 0. 
 #the carrying capacity, is given by K
@@ -32,7 +32,7 @@ gc_sum<-ddply(gc_out2, c('sample', 'variable'), mean=mean(value), value.var = 'v
 gc_sum2<-dcast(gc_sum, sample ~ variable, value.var = 'value', fun.aggregate = sum)
 
 #write to file
-write.table(gc_sum2, 'grow_curve_metrics.txt', sep='\t', quote=F, row.names = F)
+write.table(gc_sum2, '~/Documents/GitHub/Pseudo_fluor/grow_curve_metrics.txt', sep='\t', quote=F, row.names = F)
 
 #read in Bd inhibition data
 bd_data<-read.delim('~/Documents/GitHub/Pseudo_fluor/bd_inhibition_data.txt', header=T)
@@ -69,25 +69,28 @@ cor.test(gc_bd_split$JEL423$t_gen, gc_bd_split$JEL423$Percent_inhibition, method
 library(ggplot2)
 library(ggpubr)
 
-rate<-ggplot(gc_bd, aes(sample, r))+
-  ylab("Intrinsic growth rate")+
+rate<-ggplot(gc_bd, aes(sample, r, fill=Pond))+
+  ylab("Intrinsic growth rate (min-1)")+
   xlab("")+
+  scale_fill_manual(values=c("#4C72B0", "#55A868"))+
   geom_bar(stat='identity')+
   theme_bw()+
   coord_flip()
 
-gen_time<- ggplot(gc_bd, aes(sample, t_gen))+
-  ylab("Generation time")+
+gen_time<- ggplot(gc_bd, aes(sample, t_gen, fill=Pond))+
+  ylab("Generation time (min)")+
   xlab("")+
   geom_bar(stat='identity')+
+  scale_fill_manual(values=c("#4C72B0", "#55A868"))+
   theme_bw()+
   coord_flip()
 
-OD<- ggplot(gc_bd, aes(sample, k))+
-  ylab("Carrying capacity")+
+OD<- ggplot(gc_bd, aes(sample, k/100, fill=Pond))+
+  ylab("Maximum Optial Density")+
   xlab("")+
   geom_bar(stat='identity')+
+  scale_fill_manual(values=c("#4C72B0", "#55A868"))+
   theme_bw()+
   coord_flip()
 
-ggarrange(rate, gen_time, OD, labels=c("A", "B", "C"))
+ggarrange(rate, gen_time, OD, labels=c("A", "B", "C"), legend = 'top', common.legend = T)
