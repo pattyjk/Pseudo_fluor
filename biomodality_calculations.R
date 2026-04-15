@@ -4,7 +4,7 @@
 #read in data & library
 library(ggplot2)
 library(tidyverse)
-amphibac<-read.delim("Pseudo_fluor/amphibac_database.txt", header=T)
+amphibac<-read.delim("~/Documents/GitHub/Pseudo_fluor/amphibac_database.txt", header=T)
 
 #remove NAs
 amphibac2<-amphibac %>% drop_na(Proportional.Growth.Bd)
@@ -64,7 +64,7 @@ dip(pseudo$Proportional.Growth.Bd, full.result = T)
 #Modal interval [xL, xU] = [x[29], x[80]] = [0, 0]
 
 ######look at own data
-bd_data<-read.delim('Pseudo_fluor/bd_inhib_data_corrcted_p.txt', header=T)
+bd_data<-read.delim('~/Documents/GitHub/Pseudo_fluor/bd_inhib_data_corrcted_p.txt', header=T)
 
 #separate to 197/423
 bd_197<-bd_data[which(bd_data$Bd_strain=='Jel197'),]
@@ -84,7 +84,7 @@ dip.test(bd_423$Percent_inhibition, simulate.p.value = T, B=10000)
 #D = 0.044946, p-value = 0.4206
 
 dip.test(bd_data$Percent_inhibition, simulate.p.value = T, B=10000)
-#D = 0.065823, p-value = 1e-04
+#D = 0.080224, p-value < 2.2e-16
 
 #globally there is biomodality, but not for 423
 
@@ -101,7 +101,16 @@ dip(bd_197$Percent_inhibition, full.result = T)
 
 #calculate means for Bd inhibition data for 197 to bin into new groups
 library(plyr)
-bd_summary<-ddply(bd_197, c('Group', 'Pond'), summarize, mean=mean(Percent_inhibition), sd=sd(Percent_inhibition), n=length(Percent_inhibition), se=sd/n)
-
+bd_summary<-ddply(bd_197, c('Group', 'Pond'), summarize, mean=mean(Percent_inhibition), sd=sd(Percent_inhibition), se=sd/sqrt(length(Percent_inhibition)))
 #lower group (mildly inhibitory) < 41%
 #upper group (inhibitory) >50%
+
+#flag which isolates belowing to which group
+df <- bd_summary %>%
+  mutate(Inhibition_Flag = case_when(
+    mean < 50 ~ "Weakly Inhibitory",
+    mean > 50 ~ "Strongly Inhibitory"
+  ))
+
+#write to file
+write.table(df, '~/Documents/GitHub/Pseudo_fluor/isolate_inhibi_category.txt', quote=F, row.names = F, sep='\t')
