@@ -75,7 +75,7 @@ ggplot(bd_data, aes(Percent_inhibition, fill=Bd_strain))+
   geom_histogram()+
   ylab("Count")+
   xlab("Percent Bd inhibition")+
-  scale_fill_manual(values=c("grey", 'black'))
+  scale_fill_manual(values=c("#4C72B0", "#55A868"))
 
 dip.test(bd_197$Percent_inhibition, simulate.p.value = T, B=10000)
 #D = 0.094202, p-value = 1e-04
@@ -105,7 +105,7 @@ bd_summary<-ddply(bd_197, c('Group', 'Pond'), summarize, mean=mean(Percent_inhib
 #lower group (mildly inhibitory) < 41%
 #upper group (inhibitory) >50%
 
-#flag which isolates belowing to which group
+#flag which isolates belong to which group
 df <- bd_summary %>%
   mutate(Inhibition_Flag = case_when(
     mean < 50 ~ "Weakly Inhibitory",

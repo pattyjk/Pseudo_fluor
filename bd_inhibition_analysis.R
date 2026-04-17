@@ -1,16 +1,6 @@
 ##################analayze Bd inhibition data
 #load in Bd-inhibition data
-bd_data<-read.delim("~/Documents/Github/Pseudo_fluor/bd_inhibition_data.txt")
-
-#remove controls from data (blanks have been subtracted out already)
-bd_data<-bd_data[-which(bd_data$Group =='Heat killed' | bd_data$Group =='Tryptone' | bd_data$Group =='Bd_Prova' | bd_data$Group =='Bd_Tryptone'),]
-
-#correct p-values
-bd_data$p.adj<-p.adjust(bd_data$P_value, method = 'hochberg')
-
-#write table with corrected p-values
-write.table(bd_data, '~/Documents/Github/Pseudo_fluor/bd_inhib_data_corrcted_p.txt', quote=F, row.names = F, sep='\t')
-bd_data<-read.delim('~/Documents/Github/Pseudo_fluor/bd_inhib_data_corrcted_p.txt', header=T)
+bd_data<-read.delim("~/Documents/Github/Pseudo_fluor/bd_inhib_data_corrcted_p.txt")
 
 #plot data
 library(ggplot2)
