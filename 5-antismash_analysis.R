@@ -139,7 +139,7 @@ ggplot(isolate_data, aes(x = Inhibition_Flag, y = n_bgc_total,
 # ── 9. Plot 4: Scatter — BGC count vs. mean inhibition ───────────────────────
 ggplot(isolate_data, aes(x = mean, y = n_bgc_total,
                          color = Pond.x, shape = Inhibition_Flag)) +
-  geom_errorbarh(aes(xmin = mean - se, xmax = mean + se),
+  geom_errorbar(aes(xmin = mean - se, xmax = mean + se),
                  height = 0.2, alpha = 0.4) +
   geom_point(size = 3.5, alpha = 0.9) +
   geom_smooth(aes(group = Pond.x), method = "lm", se = TRUE,
