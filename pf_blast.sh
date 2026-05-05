@@ -65,3 +65,9 @@ cd /hpcstor6/scratch01/p/patrick.kearns/pseudomonas
 #blast it
 $HOME/ncbi-blast-2.14.1+/bin/blastn -query pan_genome_reference.fa -db ref_prok_rep_genomes -out blastn_results.tsv -outfmt "6 qseqid sseqid stitle pident length mismatch gapopen qstart qend sstart send evalue bitscore" -evalue 1e-5 -perc_identity 90 -max_target_seqs 10 -num_threads 24
 
+#get rnr database for commandline blast
+$HOME/ncbi-blast-2.14.1+/bin/update_blastdb.pl nr --decompress
+
+#blast it
+$HOME/ncbi-blast-2.14.1+/bin/blastn -query pan_genome_reference.fa -db nr -out blastn_results.tsv -outfmt "6 qseqid sseqid stitle pident length mismatch gapopen qstart qend sstart send evalue bitscore" -evalue 1e-5 -perc_identity 90 -max_target_seqs 10 -num_threads 24
+
