@@ -48,7 +48,7 @@ library(dunn.test)
 library(ggpubr)   
 library(ggrepel)  
 
-# ── 0. Colour palettes ────────────────────────────────────────────────────────
+#Colour palettes
 pond_colors   <- c("Sixty Lake" = "#0072B2", "Conness Pond" = "#E69F00")
 family_colors <- c(
   "#E69F00",  # orange
@@ -62,10 +62,10 @@ family_colors <- c(
 inhibition_colors <- c("Weakly Inhibitory"    = "#56B4E9",
                        "Strongly Inhibitory"  = "#E69F00")
 
-# ── 1. Load data ──────────────────────────────────────────────────────────────
+#load data
 blast <- read_tsv("~/Documents/GitHub/Pseudo_fluor/viral_blast_hits.txt")
 
-# ── 2. Parse taxonomy ranks from FullTaxonomy column ─────────────────────────
+#Parse taxonomy ranks from FullTaxonomy column
 # Format: "Viruses; Realm; Kingdom; Phylum; Class; Order; Family; Genus; Species"
 # Number of levels varies; safe_nth() handles missing levels gracefully.
 
@@ -92,7 +92,7 @@ blast_tax <- blast %>%
   ) %>%
   select(-tax_levels)
 
-# ── 3. Deduplicate: best BLAST hit per isolate × subject phage ────────────────
+#Deduplicate: best BLAST hit per isolate × subject phage
 # Multiple contigs/HSPs can hit the same reference phage — keep highest bit_score.
 
 blast_dedup <- blast_tax %>%
@@ -101,7 +101,7 @@ blast_dedup <- blast_tax %>%
   dplyr::slice_max(bit_score, n = 1, with_ties = FALSE) %>%
   ungroup()
 
-# ── 4. Summary tables ─────────────────────────────────────────────────────────
+#Summary tables
 
 # 4a. Unique phage hits per isolate × family/genus
 isolate_summary <- blast_dedup %>%

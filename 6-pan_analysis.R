@@ -1,7 +1,6 @@
 # =============================================================================
 # Pseudomonas Pangenome Analysis Pipeline
 # =============================================================================
-
 #load packages
 library(tidyverse)
 library(vegan)
@@ -13,8 +12,8 @@ library(RColorBrewer)
 library(patchwork)
 library(scales)
 
-rtab_file   <- "~/Documents/GitHub/Pseudo_fluor/panaroo_results/gene_presence_absence2.Rtab"   # adjust path if needed
-meta_file   <- "~/Documents/GitHub/Pseudo_fluor/pf_genome_table.txt"          # adjust path if needed
+rtab_file   <- "~/Documents/GitHub/Pseudo_fluor/panaroo_results/gene_presence_absence2.Rtab" 
+meta_file   <- "~/Documents/GitHub/Pseudo_fluor/pf_genome_table.txt"         
 output_dir  <- "~/Documents/GitHub/Pseudo_fluor/figures"
 
 # Colour palette used throughout
@@ -33,8 +32,7 @@ save_pdf <- function(plot_obj, filename, w = 8, h = 6) {
   message("Saved: ", file.path(output_dir, filename))
 }
 
-#load and cleanup data
-
+##load and cleanup data
 # Load presence/absence matrix (genes x isolates)
 pa_raw <- read.delim(rtab_file, header = TRUE, check.names = FALSE)
 
@@ -69,72 +67,196 @@ pa_iso <- t(pa_mat)
 # =============================================================================
 # Core / Accessory / Unique gene breakdown
 # =============================================================================
-#no isolates, freq of genes
-n_isolates <- ncol(pa_mat)
-gene_freq  <- rowSums(pa_mat)
+pan_breakdown <- function(mat) {
+  mat  <- mat[rowSums(mat) > 0, , drop = FALSE]
+  freq <- rowSums(mat); n <- ncol(mat)
+  tibble(
+    Category = factor(c("Core", "Accessory", "Unique/Singleton"),
+                      levels = c("Core", "Accessory", "Unique/Singleton")),
+    Count    = c(sum(freq == n), sum(freq > 1 & freq < n), sum(freq == 1))
+  ) %>%
+    mutate(Pct = Count / sum(Count),
+           Label = sprintf("%s\n%d (%.1f%%)", Category, Count, 100 * Pct)) %>%
+    structure(n_isolates = n, n_genes = nrow(mat))
+}
 
-core_genes   <- sum(gene_freq == n_isolates)
-unique_genes  <- sum(gene_freq == 1)
-accessory_genes <- sum(gene_freq > 1 & gene_freq < n_isolates)
-total_genes  <- nrow(pa_mat)
-
-cat(sprintf(
-  "Total pan-genome : %d genes\n  Core (100%%)    : %d (%.1f%%)\n  Accessory       : %d (%.1f%%)\n  Unique (singletons): %d (%.1f%%)\n",
-  total_genes,
-  core_genes,    100 * core_genes / total_genes,
-  accessory_genes, 100 * accessory_genes / total_genes,
-  unique_genes,  100 * unique_genes / total_genes
-))
-
-#Total pan-genome : 7778 genes
-#Core (100%)    : 0 (0.0%)
-#Accessory       : 6402 (82.3%)
-#Unique (singletons): 3386 (43.5%)
-
-# Pie chart
-breakdown_df <- tibble(
-  Category = factor(
-    c("Core", "Accessory", "Unique/Singleton"),
-    levels = c("Core", "Accessory", "Unique/Singleton")
-  ),
-  Count = c(core_genes, accessory_genes, unique_genes)
-) %>%
-  mutate(
-    Pct   = Count / sum(Count),
-    Label = sprintf("%s\n%d (%.1f%%)", Category, Count, 100 * Pct)
+pan_pie <- function(df, title) {
+  df <- df %>% mutate(
+    # small slices (<12%) get their label just outside the pie so they don't collide
+    label_x   = ifelse(Pct < 0.12, 1.62, 1),
+    label_col = ifelse(Category == "Core", "white", "black"),
+    # slice mid-points: geom_col stacks the last factor level at the bottom
+    label_y   = rev(cumsum(rev(Count)) - rev(Count) / 2)
   )
+  ggplot(df, aes(x = 1, y = Count, fill = Category)) +
+    geom_col(width = 1, colour = "white", linewidth = 0.5) +
+    geom_text(aes(x = label_x, y = label_y, label = Label, colour = label_col),
+              size = 3.2, fontface = "bold", lineheight = 0.9) +
+    scale_colour_identity() +
+    coord_polar(theta = "y", clip = "off") +
+    xlim(0.5, 1.62) +
+    scale_fill_manual(values = c("Core" = "#2166AC", "Accessory" = "#92C5DE",
+                                 "Unique/Singleton" = "#F4A582")) +
+    labs(title = title,
+         subtitle = sprintf("%d genes | %d isolates",
+                            attr(df, "n_genes"), attr(df, "n_isolates")),
+         fill = NULL) +
+    theme_void(base_size = 12) +
+    theme(plot.title = element_text(face = "bold", hjust = 0.5),
+          plot.subtitle = element_text(hjust = 0.5, colour = "grey40"),
+          legend.position = "none")
+}
 
-p1 <- ggplot(breakdown_df, aes(x = "", y = Count, fill = Category)) +
-  geom_col(width = 1, colour = "white", linewidth = 0.5) +
-  coord_polar(theta = "y") +
-  geom_text(aes(label = Label),
-            position = position_stack(vjust = 0.5),
-            size = 3.5, fontface = "bold") +
-  scale_fill_manual(values = c("Core" = "#2166AC", "Accessory" = "#92C5DE",
-                               "Unique/Singleton" = "#F4A582")) +
-  labs(title = "Pseudomonas Pangenome Composition",
-       subtitle = sprintf("Total pan-genome: %d genes | %d isolates", total_genes, n_isolates),
-       fill = NULL) +
-  theme_void(base_size = 13) +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5),
-        plot.subtitle = element_text(hjust = 0.5, colour = "grey40"),
-        legend.position = "none")
+pond_isolates <- split(meta$Isolate, meta$Pond)          # meta rows match pa_mat columns
 
-save_pdf(p1, "01_pangenome_breakdown_pie.pdf", w = 7, h = 7)
+breakdowns <- c(list("All isolates" = pan_breakdown(pa_mat)),
+                lapply(pond_isolates[c("Sixty Lake", "Conness Pond")],
+                       function(iso) pan_breakdown(pa_mat[, iso, drop = FALSE])))
 
-# Gene frequency histogram (how many genomes carry each gene)
-freq_df <- tibble(freq = gene_freq)
+for (nm in names(breakdowns)) {
+  b <- breakdowns[[nm]]
+  cat(sprintf("%-13s %4d genes | core %4d (%.1f%%) | accessory %4d (%.1f%%) | unique %4d (%.1f%%)\n",
+              nm, attr(b, "n_genes"), b$Count[1], 100*b$Pct[1],
+              b$Count[2], 100*b$Pct[2], b$Count[3], 100*b$Pct[3]))
+}
 
-p1b <- ggplot(freq_df, aes(x = freq)) +
-  geom_histogram(binwidth = 1, fill = "#4A90D9", colour = "white") +
-  scale_x_continuous(breaks = 1:n_isolates) +
-  labs(title = "Gene Frequency Distribution",
-       x = "Number of isolates gene is present in",
-       y = "Number of genes") +
-  theme_classic(base_size = 13) +
-  theme(plot.title = element_text(face = "bold"))
+#make figure and save
+p1 <- wrap_plots(Map(pan_pie, breakdowns, names(breakdowns)), nrow = 1) +
+  plot_annotation(tag_levels = "A",
+                  theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 14)))
 
-save_pdf(p1b, "01b_gene_frequency_histogram.pdf", w = 8, h = 5)
+save_pdf(p1, "01_pangenome_breakdown_pie.pdf", w = 15, h = 5.5)
+
+# ── Genes that change pangenome status between ponds (Fisher's exact test) ────
+# Builds on pan_breakdown(): each gene is classed within each pond as
+#   Core (all 9 isolates) | Accessory (2-8) | Unique (1) | Absent (0).
+# A gene "switches" if its class differs between ponds. Each gene's presence
+# (Sixty Lake vs Conness Pond) is tested with Fisher's exact test.
+# Genes with an identical 18-isolate presence pattern give identical tests, so
+# they are collapsed into blocks and BH is applied across blocks, not genes.
+# Requires: pa_mat, meta (from script 6), tidyverse, patchwork, save_pdf().
+
+# MASS (script 2) and plyr (scripts 2, 3, 7) mask dplyr verbs when the scripts
+# share one R session; use dplyr's versions explicitly inside this section.
+select    <- dplyr::select
+filter    <- dplyr::filter
+mutate    <- dplyr::mutate
+summarise <- dplyr::summarise
+count     <- dplyr::count
+rename    <- dplyr::rename
+arrange   <- dplyr::arrange
+n         <- dplyr::n
+
+pond_a <- "Sixty Lake"; pond_b <- "Conness Pond"
+iso_a  <- meta$Isolate[meta$Pond == pond_a]
+iso_b  <- meta$Isolate[meta$Pond == pond_b]
+
+classify <- function(n_present, n_iso) {
+  factor(case_when(n_present == n_iso ~ "Core",
+                   n_present >= 2     ~ "Accessory",
+                   n_present == 1     ~ "Unique",
+                   TRUE               ~ "Absent"),
+         levels = c("Core", "Accessory", "Unique", "Absent"))
+}
+
+status_df <- tibble(
+  Gene    = rownames(pa_mat),
+  pattern = apply(pa_mat, 1, paste, collapse = ""),
+  n_a     = rowSums(pa_mat[, iso_a, drop = FALSE]),
+  n_b     = rowSums(pa_mat[, iso_b, drop = FALSE])
+) %>%
+  mutate(status_a = classify(n_a, length(iso_a)),
+         status_b = classify(n_b, length(iso_b)),
+         switches = status_a != status_b)
+
+# Fisher's exact test once per presence-pattern block
+block_tests <- status_df %>%
+  filter(!(n_a == length(iso_a) & n_b == length(iso_b))) %>%   # core everywhere: nothing to test
+  group_by(pattern, n_a, n_b) %>%
+  summarise(n_genes = n(), genes = list(Gene), .groups = "drop") %>%
+  mutate(p_value = map2_dbl(n_a, n_b, ~ fisher.test(matrix(
+    c(.x, length(iso_a) - .x, .y, length(iso_b) - .y), 2))$p.value),
+    p_adj   = p.adjust(p_value, method = "BH"),
+    log2OR  = log2(((n_a + .5) * (length(iso_b) - n_b + .5)) /
+                     ((length(iso_a) - n_a + .5) * (n_b + .5))))   # Haldane +0.5
+
+gene_results <- status_df %>%
+  left_join(block_tests %>% select(pattern, block_n_genes = n_genes, p_value, p_adj, log2OR),
+            by = "pattern") %>%
+  mutate(Direction = case_when(is.na(p_value) ~ "Core in both",
+                               log2OR > 0 ~ paste("More common in", pond_a),
+                               log2OR < 0 ~ paste("More common in", pond_b),
+                               TRUE ~ "No difference"),
+         Transition = paste0(status_a, " (", pond_a, ") -> ", status_b, " (", pond_b, ")"),
+         Sig = !is.na(p_adj) & p_adj < 0.05) %>%
+  arrange(p_value, desc(block_n_genes))
+
+# ---- summaries ----
+transition_tab <- gene_results %>% count(status_a, status_b, name = "n_genes", .drop = FALSE) %>%
+  complete(status_a, status_b, fill = list(n_genes = 0L))   # show empty class combinations as 0
+cat("\nStatus cross-tab (rows =", pond_a, ", cols =", pond_b, "):\n")
+print(xtabs(n_genes ~ status_a + status_b, transition_tab))
+cat(sprintf("\nGenes switching status: %d of %d\n", sum(gene_results$switches), nrow(gene_results)))
+cat(sprintf("Blocks tested: %d | significant blocks (BH < 0.05): %d containing %d genes\n",
+            nrow(block_tests), sum(block_tests$p_adj < 0.05),
+            sum(block_tests$n_genes[block_tests$p_adj < 0.05])))
+sig_genes <- gene_results %>% filter(Sig)
+print(sig_genes %>% count(Transition, Direction, name = "n_genes") %>% arrange(desc(n_genes)))
+
+write_csv(gene_results %>% select(-pattern),
+          file.path(output_dir, "10_pond_status_fisher_all_genes.csv"))
+write_csv(sig_genes %>% select(-pattern),
+          file.path(output_dir, "10_pond_status_fisher_significant.csv"))
+
+# ---- figure ----
+# A: how genes move between pangenome classes across ponds
+pA <- ggplot(transition_tab, aes(status_b, fct_rev(status_a), fill = n_genes)) +
+  geom_tile(colour = "white", linewidth = 0.8) +
+  geom_text(aes(label = n_genes,
+                colour = case_when(n_genes > 1500 ~ "white", n_genes == 0 ~ "grey60", TRUE ~ "black")),
+            size = 3.6) +
+  scale_colour_identity() +
+  scale_fill_gradient(low = "#F0F4FA", high = "#2166AC", trans = "log10",
+                      na.value = "grey96", name = "Genes") +   # 0 -> NA on log scale -> grey
+  labs(title = "Pangenome class of each gene in the two ponds",
+       x = paste("Class in", pond_b), y = paste("Class in", pond_a)) +
+  coord_equal() +
+  theme_minimal(base_size = 11) +
+  theme(panel.grid = element_blank())
+
+# B: presence counts per pond, one point per block, significant blocks highlighted
+plot_blocks <- block_tests %>%
+  mutate(Sig = p_adj < 0.05,
+         ex  = map_chr(genes, ~ { nm <- .x[!grepl("^group_", .x)]
+         paste(head(if (length(nm)) nm else .x, 2), collapse = ", ") }))
+lab_blocks <- plot_blocks %>% filter(Sig) %>% arrange(p_value) %>% slice_head(n = 6) %>%
+  mutate(label = sprintf("%d gene%s (%s)", n_genes, ifelse(n_genes == 1, "", "s"), ex))
+
+pB <- ggplot(plot_blocks, aes(n_a, n_b)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted", colour = "grey60") +
+  geom_point(aes(size = n_genes, colour = Sig), alpha = 0.75,
+             position = position_jitter(width = 0.15, height = 0.15, seed = 1)) +
+  ggrepel::geom_text_repel(data = lab_blocks, aes(label = label), size = 2.7,
+                           min.segment.length = 0, box.padding = 0.5, seed = 1,
+                           max.overlaps = Inf) +
+  scale_colour_manual(values = c(`TRUE` = "#D55E00", `FALSE` = "grey65"),
+                      labels = c(`TRUE` = "BH < 0.05", `FALSE` = "n.s."), name = NULL) +
+  scale_size_area(max_size = 8, breaks = c(1, 10, 100, 500), name = "Genes in block") +
+  scale_x_continuous(breaks = 0:length(iso_a), limits = c(-0.5, length(iso_a) + 0.5)) +
+  scale_y_continuous(breaks = 0:length(iso_b), limits = c(-0.5, length(iso_b) + 0.5)) +
+  labs(title = "Gene presence per pond (Fisher's exact test per block)",
+       subtitle = sprintf("%d blocks tested; %d significant (%d genes); off-diagonal = differs between ponds",
+                          nrow(block_tests), sum(plot_blocks$Sig), sum(plot_blocks$n_genes[plot_blocks$Sig])),
+       x = paste("Isolates carrying gene,", pond_a, "(of", length(iso_a), ")"),
+       y = paste("Isolates carrying gene,", pond_b, "(of", length(iso_b), ")")) +
+  coord_equal() +
+  theme_classic(base_size = 11) +
+  theme(plot.subtitle = element_text(size = 8.5, colour = "grey30"))
+
+p10 <- (pA | pB) + plot_layout(widths = c(1, 1.25)) + plot_annotation(tag_levels = "A")
+save_pdf(p10, "10_pond_status_fisher.pdf", w = 14, h = 6.5)
+
+###this passes to the R script cog_enrichment_figure.R to make a more informative plot
 
 # =============================================================================
 #Gene count per isolate
@@ -153,8 +275,7 @@ p2 <- ggplot(gene_count_df,
   geom_text_repel(aes(label = Isolate), size = 2.8, max.overlaps = 20) +
   scale_fill_manual(values = pal_inhibitory)  +
   scale_colour_manual(values = pal_pond) +
-  labs(title = "Gene Content per Isolate by Inhibitory Type",
-       x = NULL, y = "Number of genes",
+  labs(x = NULL, y = "Number of genes",
        fill = "Inhibitory Type", colour = "Pond") +
   theme_classic(base_size = 13) +
   theme(plot.title = element_text(face = "bold"),
@@ -233,26 +354,6 @@ p3a <- ggplot(pcoa_df, aes(x = PC1, y = PC2,
 
 save_pdf(p3a, "03a_PCoA_inhibitory_type.pdf", w = 9, h = 7)
 
-# PCoA coloured by continuous MeanInhib
-p3b <- ggplot(pcoa_df, aes(x = PC1, y = PC2, colour = MeanInhib, shape = Pond)) +
-  geom_point(size = 4, stroke = 0.5) +
-  geom_text_repel(aes(label = Isolate), size = 3, max.overlaps = 20) +
-  scale_colour_gradientn(
-    colours = c("#4A90D9", "#FFFFBF", "#D7263D"),
-    name    = "Mean Inhibition (%)"
-  ) +
-  scale_shape_manual(values = c("Sixty Lake" = 16, "Conness Pond" = 17)) +
-  labs(
-    title = "PCoA Coloured by Continuous Inhibition (%)",
-    x     = sprintf("PC1 (%.1f%%)", var_exp[1]),
-    y     = sprintf("PC2 (%.1f%%)", var_exp[2]),
-    shape = "Pond"
-  ) +
-  theme_classic(base_size = 13) +
-  theme(plot.title = element_text(face = "bold"))
-
-save_pdf(p3b, "03b_PCoA_mean_inhibition.pdf", w = 9, h = 7)
-
 # PERMANOVA: does inhibitory type or pond explain variance?
 set.seed(42)
 perm_res <- adonis2(jac_dist ~ InhibitoryType + Pond,
@@ -262,6 +363,22 @@ print(perm_res)
 #Model     2 0.103481 0.52523 8.297  0.001 ***
 #Residual 15 0.093541 0.47477                 
 #Total    17 0.197021 1.00000 
+
+perm_res2 <- adonis2(jac_dist ~ InhibitoryType,
+                    data = meta, permutations = 999)
+print(perm_res2)
+#         Df SumOfSqs      R2     F Pr(>F)   
+#Model     1 0.061063 0.30993 7.186  0.008 **
+#Residual 16 0.135959 0.69007                
+#Total    17 0.197021 1.00000   
+
+perm_res3 <- adonis2(jac_dist ~ Pond,
+                     data = meta, permutations = 999)
+print(perm_res3)
+#Df SumOfSqs     R2      F Pr(>F)   
+#Model     1 0.044586 0.2263 4.6798  0.005 **
+#Residual 16 0.152435 0.7737                 
+#Total    17 0.197021 1.0000
 
 # =============================================================================
 #Accessory genome heatmap
@@ -301,7 +418,6 @@ pheatmap(
   width             = 12,
   height            = 14
 )
-message("Saved: ", file.path(output_dir, "04_accessory_heatmap.pdf"))
 
 # =============================================================================
 #Fisher's exact test — gene ~ InhibitoryType
@@ -337,6 +453,7 @@ fisher_results <- apply(pa_mat, 1, function(row) {
 sig_fisher <- fisher_results %>% filter(p_adj < 0.05)
 cat(sprintf("Significant genes (FDR < 0.05): %d\n", nrow(sig_fisher)))
 print(sig_fisher)
+#at the global level, no significant effects of inhibitory type on gene abundance
 
 write_csv(fisher_results, file.path(output_dir, "05_fisher_results_all_genes.csv"))
 write_csv(sig_fisher,     file.path(output_dir, "05_fisher_results_significant.csv"))
@@ -376,6 +493,7 @@ p5 <- ggplot(volcano_df, aes(x = log2OR, y = neglog10p,
   theme(plot.title = element_text(face = "bold"))
 
 save_pdf(p5, "05_fisher_volcano.pdf", w = 9, h = 7)
+#not necessary to include
 
 # =============================================================================
 #Linear regression — gene presence ~ MeanInhib
@@ -444,8 +562,7 @@ p6 <- ggplot(lm_plot_df, aes(x = estimate, y = neglog10p,
 
 save_pdf(p6, "06_regression_volcano.pdf", w = 9, h = 7)
 
-# If significant hits exist, plot inhibition values split by presence/absence
-# for the top hit
+#plot inhibition values split by presence/absence for the top hit
 if (nrow(sig_lm) > 0) {
   top_gene <- sig_lm$Gene[1]
   top_df   <- data.frame(
@@ -1005,3 +1122,130 @@ if (top_n > 0) {
   save_pdf(p9c, "09c_conness_top_genes_boxplots.pdf",
            w = min(3, top_n) * 4, h = ceiling(top_n / 3) * 4.5)
 }
+# =============================================================================
+# Conness Pond: genes separating strongly vs weakly inhibitory isolates
+# The ~1500 Fisher-significant genes fall into two presence/absence blocks, so
+# the figure shows (A) the blocks across isolates and (B) what the blocks
+# contain (COG categories) relative to the Conness core genome.
+# =============================================================================
+library(tidyverse)
+library(patchwork)
+select <- dplyr::select; filter <- dplyr::filter; summarise <- dplyr::summarise
+mutate <- dplyr::mutate; count <- dplyr::count; arrange <- dplyr::arrange
+
+base_dir <- "~/Documents/GitHub/Pseudo_fluor"
+sig  <- read_csv( "~/Documents/GitHub/Pseudo_fluor/figures/09_conness_fisher_significant.csv", show_col_types = FALSE)
+ann  <- read_tsv("~/Documents/GitHub/Pseudo_fluor/non_prokka_annotation/pangenome_annotation.tsv", show_col_types = FALSE, guess_max = 10000)
+pa   <- read.delim("~/Documents/GitHub/Pseudo_fluor/panaroo_results/gene_presence_absence2.Rtab", check.names = FALSE)
+meta <- read_tsv("~/Documents/GitHub/Pseudo_fluor/isolate_inhibi_category.txt", show_col_types = FALSE)
+
+col_strong <- "#D55E00"; col_weak <- "#0072B2"; col_core <- "grey55"
+
+cp <- meta %>% filter(Pond == "Conness Pond") %>%
+  mutate(Inhibition_Flag = factor(Inhibition_Flag, c("Strongly Inhibitory", "Weakly Inhibitory"))) %>%
+  arrange(Inhibition_Flag, desc(mean))
+
+#blocks: label each significant gene by its presence pattern ------------
+sig <- sig %>%
+  mutate(block = case_when(n_strong_present == 5 & n_weak_present == 0 ~ "Strong-only",
+                           n_strong_present == 0 & n_weak_present == 4 ~ "Weak-only",
+                           TRUE ~ "Near-complete split"),
+         block = factor(block, c("Strong-only", "Weak-only", "Near-complete split")))
+block_n <- count(sig, block)
+#  block                   n
+#<fct>               <int>
+#1 Strong-only           574
+#2 Weak-only             916
+#3 Near-complete split     5
+
+#A: presence/absence map (isolates x genes, genes ordered by block) ------
+gene_order <- sig %>% filter(block != "Near-complete split") %>% arrange(block, Gene) %>% pull(Gene)
+pa_long <- pa %>% filter(Gene %in% gene_order) %>%
+  select(Gene, all_of(cp$Group)) %>%
+  pivot_longer(-Gene, names_to = "Isolate", values_to = "present") %>%
+  left_join(sig %>% select(Gene, block), by = "Gene") %>%
+  left_join(cp %>% select(Isolate = Group, Inhibition_Flag, mean), by = "Isolate") %>%
+  mutate(Gene = factor(Gene, gene_order),
+         Isolate = factor(Isolate, rev(cp$Group)),
+         fill = ifelse(present == 1, as.character(Inhibition_Flag), "absent"))
+
+blk_lab <- sig %>% filter(Gene %in% gene_order) %>% mutate(x = match(Gene, gene_order)) %>% group_by(block) %>%
+  summarise(xmid = mean(range(x)), xmin = min(x), xmax = max(x), n = n(), .groups = "drop") %>%
+  mutate(label = sprintf("%s\n%d genes", block, n))
+
+pA <- ggplot(pa_long, aes(as.integer(Gene), Isolate, fill = fill)) +
+  geom_raster() +
+  geom_vline(xintercept = blk_lab$xmax[-nrow(blk_lab)] + 0.5, colour = "white", linewidth = 0.8) +
+  scale_fill_manual(values = c("Strongly Inhibitory" = col_strong, "Weakly Inhibitory" = col_weak,
+                               "absent" = "grey93"),
+                    labels = c("absent" = "Gene absent",
+                               "Strongly Inhibitory" = "Present (strongly inhibitory isolate)",
+                               "Weakly Inhibitory" = "Present (weakly inhibitory isolate)"),
+                    breaks = c("Strongly Inhibitory", "Weakly Inhibitory", "absent"), name = NULL) +
+  scale_x_continuous(breaks = blk_lab$xmid, labels = blk_lab$label, expand = c(0, 0),
+                     sec.axis = dup_axis(breaks = NULL)) +
+  scale_y_discrete(labels = function(i) {
+    m <- cp$mean[match(i, cp$Group)]; sprintf("%s (%.0f%%)", i, m) }) +
+  labs(title = "A  Gene presence across Conness Pond isolates",
+       subtitle = sprintf(paste0("%d of %d per-gene Fisher-significant genes form two complete blocks (shown); %d more follow\n",
+                                 "near-complete splits (one isolate off). Isolates labelled with mean %% Bd inhibition (Jel197)."),
+                          length(gene_order), nrow(sig), sum(sig$block == "Near-complete split")),
+       x = NULL, y = NULL) +
+  theme_minimal(base_size = 10) +
+  theme(panel.grid = element_blank(), legend.position = "bottom",
+        plot.title = element_text(face = "bold", size = 10.5),
+        plot.subtitle = element_text(size = 8.5, colour = "grey30"),
+        axis.text.x = element_text(size = 8.5, lineheight = 0.9))
+
+#COG composition of each block vs the Conness core genome -------------
+cog_long <- function(genes, group) {
+  ann %>% filter(Gene %in% genes) %>%
+    mutate(letters = map(COG_cat, ~ if (is.na(.x)) "No COG" else unique(strsplit(gsub(";", "", .x), "")[[1]]))) %>%
+    select(Gene, letters) %>% unnest(letters) %>%
+    count(letters, name = "n_genes") %>%
+    mutate(group = group, pct = 100 * n_genes / length(genes))
+}
+core_genes <- ann$Gene[ann$class_ConnessPond == "Core"]
+comp <- bind_rows(
+  cog_long(sig$Gene[sig$block == "Strong-only"], "Strong-only"),
+  cog_long(sig$Gene[sig$block == "Weak-only"],   "Weak-only"),
+  cog_long(core_genes, "Conness core genome")) %>%
+  mutate(group = factor(group, c("Strong-only", "Weak-only", "Conness core genome")))
+
+fun <- c(X = "Mobilome: prophages, transposons", L = "Replication, recombination, repair",
+         U = "Secretion, trafficking", V = "Defense mechanisms", K = "Transcription",
+         T = "Signal transduction", M = "Cell wall/membrane/envelope", E = "Amino acid metabolism",
+         P = "Inorganic ion transport", C = "Energy production", G = "Carbohydrate metabolism",
+         H = "Coenzyme metabolism", I = "Lipid metabolism", J = "Translation, ribosomes",
+         R = "General function prediction", S = "Function unknown")
+keep <- c("X", "L", "U", "V", "K", "T", "M", "E", "P", "C", "G", "H", "I", "J", "R", "S")
+comp_plot <- comp %>% filter(letters %in% keep) %>%
+  mutate(cat = factor(paste0(letters, "  ", fun[letters]), rev(paste0(keep, "  ", fun[keep]))))
+nocog <- comp %>% filter(letters == "No COG") %>% select(group, pct) %>% deframe()
+
+pB <- ggplot(comp_plot, aes(pct, cat, fill = group)) +
+  geom_col(position = position_dodge2(width = 0.8, reverse = TRUE, padding = 0.1), width = 0.75) +
+  scale_fill_manual(values = c("Strong-only" = col_strong, "Weak-only" = col_weak,
+                               "Conness core genome" = col_core),
+                    labels = c("Strong-only" = sprintf("Strong-only block (%d genes; %.0f%% have no COG)", sum(sig$block == "Strong-only"), nocog["Strong-only"]),
+                               "Weak-only"   = sprintf("Weak-only block (%d genes; %.0f%% have no COG)", sum(sig$block == "Weak-only"), nocog["Weak-only"]),
+                               "Conness core genome" = sprintf("Conness core genome (%s genes; %.0f%% have no COG)", format(length(core_genes), big.mark = ","), nocog["Conness core genome"])),
+                    name = NULL) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.05)), labels = function(x) paste0(x, "%")) +
+  labs(title = "B  What the blocks contain: COG functional categories",
+       subtitle = "Percent of all genes in each group assigned to each category (genes with several COG letters count in each)",
+       x = "Genes in group", y = NULL) +
+  theme_classic(base_size = 10) +
+  theme(legend.position = "bottom", legend.direction = "vertical",
+        plot.title = element_text(face = "bold", size = 10.5),
+        plot.subtitle = element_text(size = 8.5, colour = "grey30"))
+
+fig <- pA / pB + plot_layout(heights = c(0.9, 2)) +
+  plot_annotation(caption = paste(
+    "Per-gene Fisher tests are not independent here: genes sharing a presence pattern give identical results.",
+    "Treat the blocks as two lineage-level differences, not ~1,500 separate associations.", sep = "\n"),
+    theme = theme(plot.caption = element_text(size = 7.5, colour = "grey35", hjust = 0)))
+
+ggsave(file.path(base_dir, "figures/09d_conness_blocks_function.pdf"), fig, width = 10, height = 10, useDingbats = FALSE)
+ggsave(file.path(base_dir, "figures/09d_conness_blocks_function.png"), fig, width = 10, height = 10, dpi = 300)
+write_tsv(comp, file.path(base_dir, "figures/09d_conness_blocks_cog_composition.tsv"))
